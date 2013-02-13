@@ -1,0 +1,80 @@
+((("profile" .
+   [0 0 0 1 0 0 0])
+  ("for" .
+   [1 0 0])
+  ("30" .
+   [1 0])
+  ("models" .
+   [3 0 1 0 0 0])
+  ("SignupForm" .
+   [0 0 1 1 0 0 0 0 0 0])
+  ("def" .
+   [2 0 0])
+  ("signup" .
+   [2 0 0 0 1 0])
+  ("request" .
+   [3 0 0 1 1 1 0])
+  ("Context" .
+   [0 0 0 0 1 2 0])
+  ("context" .
+   [5 0 0 0 0 0 0])
+  ("WCMTNameCreationForm" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("WCMTProfileCreationForm" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("DjangoUserCreationForm" .
+   [0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("django" .
+   [2 0 0 0 0 0])
+  ("contrib" .
+   [0 0 0 0 0 1 0])
+  ("auth" .
+   [0 0 0 1])
+  ("import" .
+   [2 0 0 0 0 1])
+  ("User" .
+   [1 0 0 0])
+  ("views" .
+   [1 0 0 0 0])
+  ("apps" .
+   [1 0 0 0])
+  ("wcmt_profiles" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("from" .
+   [1 0 0 0])
+  ("forms" .
+   [5 0 0 0 0])
+  ("TextInput" .
+   [0 0 0 1 1 0 0 0 0])
+  ("form" .
+   [1 0 0 0])
+  ("form_name" .
+   [2 0 0 0 0 0 1 0 0])
+  ("form_profile" .
+   [1 0 0 0 0 0 0 0 1 1 0 0])
+  ("method" .
+   [0 0 0 0 0 1])
+  ("POST" .
+   [2 0 1 0])
+  ("template" .
+   [1 0 0 0 0 0 0 0])
+  ("form_user" .
+   [2 0 0 0 0 0 0 0 0])
+  ("IntegerField" .
+   [0 0 0 1 0 0 0 0 0 0 0 0])
+  ("exclude" .
+   [1 0 0 0 0 0 0])
+  ("Select" .
+   [0 0 1 0 0 1])
+  ("DateTimeInput" .
+   [0 0 0 0 0 1 0 0 0 0 0 0 0])
+  ("DateField" .
+   [1 0 0 0 0 0 0 0 0])
+  ("widgets" .
+   [1 0 0 0 0 0 0])
+  ("verbose_name" .
+   [1 0 0 0 0 1 0 1 0 0 0 0])
+  ("wcmt" .
+   [1 0 0 0])
+  ("color-theme-charcoal-black" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])))

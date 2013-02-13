@@ -1,0 +1,36 @@
+
+;; ----- smex-history -----
+(
+ delete-trailing-whitespace
+ describe-function
+ python-mode
+ calc
+ edit-tab-stops
+ shell
+ org-mode
+)
+
+;; ----- smex-data -----
+(
+ (html-mode . 2)
+ (org-mode . 4)
+ (org-export-htmlize-generate-css . 2)
+ (load-file . 4)
+ (bruce . 1)
+ (org-agenda . 2)
+ (slitex-mode . 1)
+ (org-iswitchb . 2)
+ (delete-trailing-whitespace . 13)
+ (comment-or-uncomment-region . 3)
+ (autopair-mode . 2)
+ (magit-status . 4)
+ (python-mode . 2)
+ (sort-lines . 4)
+ (shell . 2)
+ (auto-complete . 1)
+ (edit-tab-stops . 1)
+ (calc . 1)
+ (python-shell-completion-complete-or-indent . 1)
+ (inferior-python-mode . 1)
+ (describe-function . 1)
+)

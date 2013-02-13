@@ -1,0 +1,427 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/elena/site-packages/django/contrib/" . "admin/")
+ ("/Users/elena/site-packages/django/" . "forms/")
+ ("/Users/elena/site-packages/" . "Django-1.4.1-py2.7.egg-info/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/media/static/" . "css/")
+ ("/Users/elena/clem/roles/profiles/" . "templates/")
+ ("/Users/elena/clem/proformas/submissions/" . "templates/")
+ ("/Users/elena/clem/apps/" . "searches/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/fellows/" . "uploads/")
+ ("/Users/elena/project/LCA2013/zookeepr/zk/" . "controllers/")
+ ("/Users/elena/Dropbox/ele.wil/Oglaf/" . "invoices/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/includes/" . "box/")
+ ("/Users/elena/Dropbox/ele.wil/BMA/" . "invoices/")
+ ("/Users/elena/Dropbox/ele.wil/" . "BMA/")
+ ("/Users/elena/clem/roles/" . "profiles/")
+ ("/Users/elena/wcap/clem/templates/" . "admin/")
+ ("/Users/elena/wcap/clem/" . "templates/")
+ ("/Users/elena/wcap/wcap/templates/" . "admin/")
+ ("/Users/elena/wcap/wcap/" . "templates/")
+ ("/Users/elena/wcap/" . "clem/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/media/" . "static/")
+ ("/Users/elena/clem/proformas/" . "submissions/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/manages/" . "templates/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/wcap/wcmt/customs/" . "templatetags/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/customs/" . "templatetags/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/apps/" . "profiles/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/references/" . "templates/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/submissions/" . "templates/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/" . "references/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/wcap/wcmt/" . "manages/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/" . "media/")
+ ("/Users/elena/project/LCA2013/zookeepr/zkpylons/templates/" . "registration/")
+ ("/Users/elena/project/LCA2013/zookeepr/zkpylons/" . "controllers/")
+ ("/Users/elena/project/LCA2013/zookeepr/" . "zkpylons/")
+ ("/Users/elena/project/LCA2013/" . "zookeepr/")
+ ("/Users/elena/projects/Talks/" . "PyConAU talk/")
+ ("/Users/elena/wcmt/wcap/clem/roles/manages/" . "templates/")
+ ("/Users/elena/clem/templates/" . "password_reset/")
+ ("/Users/elena/wcmt/wcap/wcap/templates/" . "manage/")
+ ("/Users/elena/Downloads/bootstrap 2/" . "css/")
+ ("/Users/elena/Downloads/" . "bootstrap 2/")
+ ("/Users/elena/wcmt/media_wcmt/media/" . "css/")
+ ("/Users/elena/wcmt/media_wcmt/" . "media/")
+ ("/Users/elena/wcmt/wcap/clem/roles/profiles/" . "templates/")
+ ("/Users/elena/django/contrib/" . "sessions/")
+ ("/Users/elena/django/" . "contrib/")
+ ("/Users/elena/wcmt/wcap/clem/templates/" . "manages/")
+ ("/Users/elena/wcmt/wcmt/wcmt/templates/" . "includes/")
+ ("/Users/elena/wcmt/wcmt/wcmt/apps/" . "applications/")
+ ("/Users/elena/clem/" . "fixtures/")
+ ("/Users/elena/project/" . "LCA2013/")
+ ("/Users/elena/wcmt/wcap/clem/proformas/submissions/" . "templates/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/profiles/" . "templates/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/" . "manages/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/" . "password_reset/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/" . "roles/")
+ ("/Users/elena/wcmt/wcap/clem/roles/customs/" . "templatetags/")
+ ("/Users/elena/wcmt/wcap/clem/roles/" . "profiles/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/wcap/templates/" . "submission/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/wcap/" . "templates/")
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/" . "clem/")
+ ("/Users/elena/wcmt/wcmt/wcmt/fellows/" . "sponsors/")
+ ("/Users/elena/wcmt/wcmt/wcmt/" . "apps/")
+ ("/Users/elena/wcmt/wcmt/" . "wcmt/")
+ ("/Users/elena/wcmt/wcap/wcap/wcmt/" . "profiles/")
+ ("/Users/elena/wcmt/wcap/wcap/proformas/" . "submissions/")
+ ("/Users/elena/wcmt/wcap/wcap/" . "wcmt/")
+ ("/Users/elena/wcmt/wcap/clem/proformas/references/" . "templates/")
+ ("/Users/elena/wcmt/wcap/clem/proformas/" . "form_settings/")
+ ("/Users/elena/wcmt/wcap/clem/" . "proformas/")
+ ("/Users/elena/wcmt/wcap/" . "clem/")
+ ("/Users/elena/wcmt/" . "_meta/")
+ ("/Users/elena/projects/lca2013/zookeepr/zkpylons/themes/lca2013/" . "public/")
+ ("/Users/elena/projects/lca2013/zookeepr/zkpylons/themes/" . "lca2013/")
+ ("/Users/elena/projects/lca2013/zookeepr/zkpylons/public/" . "css/")
+ ("/Users/elena/projects/lca2013/zookeepr/zkpylons/templates/" . "registration/")
+ ("/Users/elena/projects/lca2013/zookeepr/.git/" . "info/")
+ ("/Users/elena/projects/lca2013/zookeepr/zkpylons/" . "controllers/")
+ ("/Users/elena/projects/_posts/" . "071215_stallman-crazy_files/")
+ ("/Users/elena/code/files/" . "files/")
+ ("/Library/Python/2.7/site-packages/django/contrib/admin/" . "views/")
+ ("/Library/Python/2.7/site-packages/django/contrib/" . "admin/")
+ ("/Users/elena/ele.wil/WCMT/wcap/clem/profiles/" . "templates/")
+ ("/Users/elena/ele.wil/WCMT/wcap/clem/templates/" . "references/")
+ ("/Users/elena/ele.wil/WCMT/wcap/clem/" . "references/")
+ ("/Library/Python/2.7/site-packages/django/" . "forms/")
+ ("/Library/Python/2.7/site-packages/" . "Django-1.4-py2.7.egg-info/")
+ ("/Library/Python/2.7/" . "site-packages/")
+ ("/Library/" . "Python/")
+ ("/Users/elena/code/reportlab/" . "platypus/")
+ ("/Users/elena/code/staticserv/" . "staticserv/")
+ ("/Users/elena/ele.wil/WCMT/_meta/" . "rs-nearest-datacentre/")
+ ("/" . "Library/")
+ ("/Users/" . "elena/")
+ ("/Users/elena/ele.wil/WCMT/wcmt/" . "wcmt/")
+ ("/Users/elena/ele.wil/WCMT/" . "_meta/")
+ ("/Users/elena/code/prf/profiles/" . "templates/")
+ ("/Users/elena/ele.wil/WCMT/wcap/wcap/proformas/" . "forms/")
+ ("/Users/elena/ele.wil/WCMT/wcap/wcap/" . "proformas/")
+ ("/Users/elena/ele.wil/WCMT/wcap/" . "clem/")
+ ("/Users/elena/code/prf/" . "references/")
+ ("/Users/elena/code/" . "files/")
+ ("/Users/elena/ele.wil/" . "Oglaf/")
+ ("/Users/elena/projects/lca2013/zkuat/zookeepr/themes/lca2013/templates/" . "registration/")
+ ("/Users/elena/projects/lca2013/zkuat/zookeepr/themes/lca2013/" . "templates/")
+ ("/Users/elena/projects/lca2013/zkuat/zookeepr/themes/" . "lca2013/")
+ ("/Users/elena/projects/lca2013/zkuat/zookeepr/" . "themes/")
+ ("/Users/elena/projects/lca2013/zookeepr/zookeepr/themes/lca2013/" . "templates/")
+ ("/Users/elena/projects/lca2013/zookeepr/zookeepr/themes/" . "lca2013/")
+ ("/Users/elena/projects/lca2013/zookeepr/" . "zkpylons/")
+ ("/Users/elena/projects/lca2013/html/mobile/" . "css/")
+ ("/Users/elena/projects/lca2013/html/" . "orig_files/")
+ ("/Users/elena/projects/lca2013/zkdev/zookeepr/themes/lca2013/" . "templates/")
+ ("/Users/elena/projects/lca2013/zkdev/zookeepr/themes/" . "lca2013/")
+ ("/Users/elena/projects/anki/ankiqt/" . "aqt/")
+ ("/Users/elena/projects/anki/" . "ankiqt/")
+ ("/Users/elena/projects/pylons/MyProject/myproject/" . "controllers/")
+ ("/Users/elena/projects/pylons/" . "MyProject/")
+ ("/Users/elena/projects/lca2013/zookeepr/zookeepr/templates/" . "db_content/")
+ ("/Users/elena/study/cs_COMP6300/" . "code/")
+ ("/Users/elena/projects/lca2013/zkdev/zookeepr/" . "templates/")
+ ("/Users/elena/projects/lca2013/zkdev/" . "zookeepr/")
+ ("/Users/elena/projects/lca2013/zktest/zookeepr/themes/lca2013/" . "templates/")
+ ("/Users/elena/projects/lca2013/zktest/zookeepr/themes/" . "lca2013/")
+ ("/Users/elena/projects/lca2013/zktest/" . "zookeepr/")
+ ("/Users/elena/projects/lca2013/zktest/zookeepr/" . "themes/")
+ ("/Users/elena/elewil/PyCharmers/wp/example/" . "example/")
+ ("/Users/elena/elewil/PyCharmers/code/example2/" . "example2/")
+ ("/Users/elena/elewil/PyCharmers/code/example0/" . "parks/")
+ ("/Users/elena/elewil/PyCharmers/code/example1/" . "example1/")
+ ("/Users/elena/projects/lca2013/zkelena/zookeepr/themes/lca2011/" . "public/")
+ ("/Users/elena/elewil/PyCharmers/code/site1/" . "site1/")
+ ("/Users/elena/elewil/PyCharmers/code/_example/" . "_example/")
+ ("/Users/elena/elewil/PyCharmers/code/example/" . "parks/")
+ ("/Users/elena/elewil/PyCharmers/code/mysite/" . "practice4/")
+ ("/Users/elena/elewil/PyCharmers/code/" . "example2/")
+ ("/Users/elena/elewil/PyCharmers/code/site3/" . "site3/")
+ ("/Users/elena/study/fossd_COMP8440/" . "COMP8440FOSSD--ProjectWork/")
+ ("/Users/elena/study/" . "cs_COMP6300/")
+ ("/Users/elena/projects/lca2013/zkelena/zookeepr/" . "themes/")
+ ("/Users/elena/projects/lca2013/zkelena/" . "zookeepr/")
+ ("/Users/elena/projects/lca2013/zookeepr/zookeepr/" . "themes/")
+ ("/Users/elena/projects/lca2013/" . "zookeepr/")
+ ("/Users/elena/elewil/PyCharmers/" . "code/")
+ ("/Users/elena/elewil/" . "PyCharmers/")
+ ("/Users/elena/projects/" . "Talks/")
+ ("/Users/elena/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/elena/.emacs.d/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/submissions/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/manages/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/"
+ "/Users/elena/clem/fixtures/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/_temp_data/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/clem/"
+ "/Users/elena/site-packages/django/forms/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/profiles/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/form_settings/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/references/"
+ "/Users/elena/site-packages/django/contrib/admin/"
+ "/Users/elena/clem/"
+ "/Users/elena/"
+ "/Users/elena/clem/proformas/submissions/"
+ "/Users/elena/clem/clem/"
+ "/Users/elena/wcmt/_meta/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/submissions/templates/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/fixtures/"
+ "/Users/elena/wcmt/"
+ "/Users/elena/clem/proformas/form_settings/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/customs/templatetags/"
+ "/Users/elena/clem/_temp_data/"
+ "/Users/elena/clem/proformas/submissions/templates/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/manages/templates/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/media/static/css/"
+ "/Users/elena/Google Drive/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/_meta/"
+ "/Users/elena/projects/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/profiles/templates/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/_temp-data/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/password_reset/"
+ "/Users/elena/clem/templates/password_reset/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/includes/"
+ "/Users/elena/clem/roles/profiles/templates/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/references/templates/"
+ "/Users/elena/Dropbox/ele.wil/BMA/invoices/"
+ "/Users/elena/Dropbox/ele.wil/Oglaf/invoices/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/searches/"
+ "/Users/elena/clem/templates/"
+ "/Users/elena/clem/roles/profiles/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/media/"
+ "/Users/elena/clem/apps/searches/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/fellows/uploads/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/customs/"
+ "/Users/elena/site-packages/django/contrib/auth/"
+ "/Users/elena/Dropbox/ele.wil/WCMT/media/css/"
+ "/Users/elena/clem/roles/manages/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+ "admin.py"
+ "views.py"
+ "models.py"
+ "generate_submissions_script.py"
+ "subm.json"
+ "local_settings.py"
+ "fields.py"
+ "settings.py"
+ "forms.py"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/elena/.emacs.d/" (20609 35585) "zoom-frm.el" "yasnippet/" "web-vcs.el" "vline.el" "url/" "two-mode-mode.el" "thingatpt+.el" "themes/" "theme-changer.el" "tempo.el" "synonyms.el" "snippets/" "site-lisp.zip" "rst.el" "ropemode/" "ropemacs/" "rope/" "ring+.el" "python-mode.el" "Pymacs_0.24-beta/" "Pymacs/" "pp+.el" "popup.elc" "popup.el" "pony-tpl.el" "pony-mode.el" "pony-mode-pkg.el" "places" "nxhtml/" "multi-mode.el" "mb-depth+.el" "lacarte.el" "js2.elc" "js2.el" "jdee/" "javascript.el" "javascript-mode.el" "ipython.el" "init_python.el" "init.el~" "init.el" "info+.el" "icomplete+.el" "icicles.el" "icicles-var.el" "icicles-opt.el" "icicles-mode.el" "icicles-mcmd.el" "icicles-mac.el" "icicles-fn.el" "icicles-face.el" "icicles-doc2.el" "icicles-doc1.el" "icicles-cmd2.el" "icicles-cmd1.el" "icicles-chg.el" "html-helper-mode.el" "hl-line+.el" "hexrgb.el" "fuzzy.elc" "fuzzy.el" "fuzzy-match.el" "framemove.el" "frame-fns.el" "frame-cmds.el" "fit-frame.el" "erc.customize.el" "erc/" "eproject.lst" "emacs-for-python/" "elpa/" "doremi.el" "doremi-frm.el" "doremi-cmd.el" "django-mode.el" "django-html-mode.el" "css.el" "css-mode.el" "css-complete.el~" "css-complete.el" "css-check.el~" "css-check.el" "crosshairs.el" "column-marker.el" "color-theme.el" "color-theme-autoloads.el" "col-highlight.el" "cedet/" "capitaomorte-yasnippet-b392dd3/" "bookmarks" "bookmark+.el" "bookmark+-mac.el" "bookmark+-lit.el" "bookmark+-key.el" "bookmark+-doc.el" "bookmark+-chg.el" "bookmark+-bmu.el" "bookmark+-1.el" "backups/" "autofit-frame.el" "auto-save-list/" "auto-complete.elc" "auto-complete.el" "auto-complete-config.elc" "auto-complete-config.el" "auto-complete-1.3.1/" "apropos-fn.el" "apropos-fn+var.el" "ac-dict/" "ac-comphist.dat" "_pony-mode/" "_pony/" "_nxhtml/" "_django-html-mode.el" "_css-mode.el" ".smex-items" "../" "./")
+
+ ("/Users/elena/" (20609 35585) "zk/" "wiki/" "wcmt_uptime.csv" "wcmt_clem.test.120817.sql" "wcmt/" "wcap/" "VirtualBox VMs/" "toggleHidden.sh" "todo.org" "td.org" "symbol.ttf" "study/" "site-packages/" "PyCharmers/" "Public/" "projects/" "project/" "posts/" "Pictures/" "pgadmin.log" "paster.cfg" "oglaf/" "notes.org" "new_httpd.conf.dev" "Music/" "Movies/" "macports/" "Library/" "Google Drive/" "ele.wil/" "Dropbox/" "Downloads/" "Documents/" "django/" "Desktop/" "cs_anu_edu_au_student_comp8440_lectures_php.pdf" "code/" "clem/" "build/" "Applications/" ".xmodmap" ".Xauthority" ".wireshark-etc/" ".wireshark/" ".virtualenvs/" ".viminfo" ".vagrant.d/" ".Trash/" ".subversion/" ".ssh/" ".sqlite_history" ".saves/" ".regetronhist" ".recentf~" ".recentf" ".python-eggs/" ".psql_history" ".profile~" ".profile" ".pip/" ".pgpass" ".mysql_history" ".matplotlib/" ".lesshst" ".ipython/" ".ido.last~" ".ido.last" ".hgignore_global" ".gitk" ".gitconfig" ".gem/" ".fontconfig/" ".emacs.d/" ".emacs-places" ".dvdcss/" ".DS_Store" ".dropbox/" ".dbus-keyrings/" ".cups/" ".config/" ".CFUserTextEncoding" ".bash_profile~" ".bash_profile.macports-saved_2012-06-01_at_16:42:24" ".bash_profile" ".bash_history" ".adobe/" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/submissions/" (20609 31207) "widgets.pyc" "widgets.py" "views.pyc" "views.py" "urls.pyc" "urls.py" "tests.py" "templates/" "pdfs.py" "models.pyc" "models.py" "forms.pyc" "forms.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/clem/" (20609 31225) "templates/" "roles/" "requirements.txt" "public/" "proformas/" "manage.py" "here.py" "generate_submissions_script.pyc" "generate_submissions_script.py" "fixtures/" "fellows/" "clem/" "apps/" "_temp_data/" "__init__.py" ".DS_Store" ".#here.py" "#here.py#" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/manages/" (20609 30004) "widgets.py" "views.pyc" "views.py" "utils.py" "urls.pyc" "urls.py" "tests.py" "templates/" "pdfs.py" "models.pyc" "models.py" "forms.pyc" "forms.py" "csvs.pyc" "csvs.py" "admin.pyc" "admin.py" "_views.py" "__init__.pyc" "__init__.py" ".DS_Store" ".#views.py" "#views.py#" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/" (20609 29461) "templates/" "roles/" "requirements.txt" "public/" "proformas/" "manage.py" "here.py" "generate_submissions_script.pyc" "generate_submissions_script.py" "fixtures/" "fellows/" "clem/" "apps/" "_temp_data/" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/fixtures/" (20609 18209) "WCMT_original_data.json" "wcmt_clem.121006.sql" "wcmt_clem.121006.json" "old_users" "old_titles" "old_first_names" "old_emails" "new_data" "generate_submissions_script.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/clem/fixtures/" (20607 24204) "WCMT_original_data.json" "wcmt_clem.121006.sql" "wcmt_clem.121006.json" "old_users" "old_titles" "old_first_names" "old_emails" "new_data" "generate_submissions_script.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/_temp_data/" (20609 17789) "wcmt_site_auth-ct.json" "wcmt_site.json" "wcmt_site-contrib.json" "wcmt_site-auth.json" "wcmt_prod_121018.sql" "wcmt_prod.121017.sql" "wcmt_fellows.json" "wcmt_default.json" "wcmt_contrib.json" "wcmt.json" "wcmt.dat" "users" "titles" "test_data_auth.json" "temp3.dat" "temp2.dat" "temp1.dat" "temp.dat-journal" "temp.dat" "subm.json" "reports.json" "profiles.json" "profiles-submissions.json" "pg_wcmt.121007.sql" "pg_wcmt.121007" "old_first_names" "new_data.pk" "new_data" "generate_submissions_script.pyc" "generate_submissions_script.py" "gen_subs.py" "fs.121017.json" "fs-customs.json" "fp.json" "fellows.json" "emails" "db.dat" "customs.sql" "customs.json" "clem_fs-customs.json" "clem.json" "cat.json" "c.json" "aw.json" "auth_original.json" "auth.json" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/clem/" (20609 17978) "wsgi.pyc" "wsgi.py" "urls.pyc" "urls.py" "settings.py~" "settings.pyc" "settings.py" "middleware.pyc" "middleware.py" "logs" "local_urls.pyc" "local_urls.py" "local_settings.pyc" "local_settings.py" "__init__.pyc" "__init__.py" ".settings.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/" (20608 44575) "todo.htm" "study/" "Shared with Elena/" "responsible/" "reading/" "Public/" "projects/" "Photos/" "My Settings.pmsettings" "Lucille/" "Icon
+" "greg/" "G+E/" "Fraser-Williams/" "elena/" "ele.wil/" "DSC06920.jpg" "DSC06918.jpg" "code/" "Camera Uploads/" "_pre-2012/" ".DS_Store" ".dropbox.cache/" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/references/" (20607 33571) "views.pyc" "views.py" "urls.pyc" "urls.py" "tests.py" "templates/" "pdfs.pyc" "pdfs.py" "models.pyc" "models.py" "forms.pyc" "forms.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" ".DS_Store" ".#README" "#README#" "../" "./")
+
+ ("/Users/elena/site-packages/django/contrib/" (20520 33713) "webdesign/" "syndication/" "staticfiles/" "sites/" "sitemaps/" "sessions/" "redirects/" "messages/" "markup/" "localflavor/" "humanize/" "gis/" "formtools/" "flatpages/" "databrowse/" "contenttypes/" "comments/" "auth/" "admindocs/" "admin/" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/site-packages/django/" (20520 33713) "views/" "utils/" "test/" "templatetags/" "template/" "shortcuts/" "middleware/" "http/" "forms/" "dispatch/" "db/" "core/" "contrib/" "conf/" "bin/" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/site-packages/django/forms/" (20520 33714) "widgets.pyc" "widgets.py" "util.pyc" "util.py" "models.pyc" "models.py" "formsets.pyc" "formsets.py" "forms.pyc" "forms.py" "fields.pyc" "fields.py" "extras/" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/site-packages/django/contrib/admin/" (20520 33715) "widgets.pyc" "widgets.py" "views/" "validation.pyc" "validation.py" "util.pyc" "util.py" "tests.pyc" "tests.py" "templatetags/" "templates/" "static/" "sites.pyc" "sites.py" "options.pyc" "options.py" "models.pyc" "models.py" "locale/" "helpers.pyc" "helpers.py" "forms.pyc" "forms.py" "filters.pyc" "filters.py" "actions.pyc" "actions.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/" (20420 3625) "Shared/" "elewil/" "elena/" ".localized" "../" "./")
+
+ ("/Users/elena/site-packages/Django-1.4.1-py2.7.egg-info/" (20520 33719) "top_level.txt" "SOURCES.txt" "PKG-INFO" "installed-files.txt" "dependency_links.txt" "../" "./")
+
+ ("/Users/elena/site-packages/" (20594 8090) "zinnia/" "WebOb-1.2-py2.7.egg-info/" "webob/" "WeasyPrint-0.14-py2.7.egg-info/" "weasyprint/" "virtualenvwrapper-3.3-py2.7.egg-info/" "virtualenvwrapper-3.3-py2.7-nspkg.pth" "virtualenvwrapper/" "virtualenv_support/" "virtualenv.pyc" "virtualenv.py" "virtualenv-1.7.1.2-py2.7.egg-info/" "vboxapi-1.0-py2.7.egg-info" "vboxapi/" "tornado-2.2.1-py2.7.egg/" "tinycss-0.3-py2.7.egg-info/" "tinycss/" "tests/" "tagging/" "sx/" "statsmodels-0.5.0-py2.7-macosx-10.8-intel.egg/" "SQLAlchemy-0.7.7-py2.7.egg-info/" "sqlalchemy/" "spyderplugins/" "spyderlib/" "spyder-2.1.10-py2.7.egg-info/" "Sphinx-1.1.3-py2.7.egg-info/" "sphinx/" "sorl_thumbnail-3.2.5-py2.7.egg-info/" "sorl/" "smileys/" "simplejson-2.5.2-py2.7.egg-info/" "simplejson/" "sgmlop.so" "scipy-0.12.0.dev_ddd617d_20120828-py2.7-macosx-10.8-x86_64.egg/" "scikit_learn-0.12_git-py2.7-macosx-10.8-intel.egg/" "sample_project/" "reportlab-2.5-py2.7.egg-info/" "reportlab/" "registration/" "regetron-1.4-py2.7.egg-info/" "regetron/" "README" "readline-6.2.2-py2.7-macosx-10.7-intel.egg/" "pyzmq-2.2.0-py2.7-macosx-10.7-intel.egg/" "pytz-2012c-py2.7.egg-info/" "pytz/" "python_openid-2.2.5-py2.7.egg-info/" "pyPdf-1.13-py2.7.egg-info/" "pyPdf/" "pyparsing.pyc" "pyparsing.py" "pyparsing-1.5.6-py2.7.egg-info/" "pymc-2.2-py2.7-macosx-10.8-intel.egg/" "pyHnj.so" "Pygments-1.5-py2.7.egg-info/" "pygments/" "pyflakes-0.5.0-py2.7.egg-info/" "pyflakes/" "pydns-2.3.6-py2.7.egg-info/" "psycopg2-2.4.5-py2.7.egg-info/" "psycopg2/" "pisa-3.0.33-py2.7.egg-info/" "pip-1.1-py2.7.egg/" "pika-0.9.5-py2.7.egg/" "photologue/" "pexpect-2.4-py2.7.egg" "pep8.pyc" "pep8.py" "pep8-1.3.3-py2.7.egg-info/" "patsy-0.1.0-py2.7.egg/" "PasteScript-1.7.5-py2.7.egg-info/" "PasteDeploy-1.5.0-py2.7.egg-info/" "Paste-1.7.5.1-py2.7.egg-info/" "paste/" "password_reset/" "pandas-0.8.2.dev_859aa2c_20120907-py2.7-macosx-10.8-x86_64.egg/" "openid/" "oo.pyc" "oo.py" "oo-1.1-py2.7.egg-info/" "numpy-1.8.0.dev_5c944b9_20120828-py2.7-macosx-10.8-x86_64.egg/" "nose-1.1.2-py2.7.egg/" "mptt/" "matplotlib-1.2.x-py2.7-macosx-10.8-intel.egg/" "lxml-2.3.6-py2.7.egg-info/" "lxml/" "Jinja2-2.6-py2.7.egg-info/" "jinja2/" "ipython-0.14.dev-py2.7.egg/" "ipython-0.12.1-py2.7.egg-info/" "IPython/" "indices/" "html5lib-0.95-py2.7.egg-info/" "html5lib/" "ho/" "FormEncode-1.2.4-py2.7.egg-info/" "formencode/" "floppyforms/" "file_picker/" "elementtree-1.2.7_20070827_preview-py2.7.egg-info/" "elementtree/" "easy-install.pth" "docutils-0.9-py2.7.egg-info/" "docutils/" "docs/" "DNS/" "django_xmlrpc-0.1.4-py2.7.egg-info/" "django_xmlrpc/" "django_tagging-0.3.1-py2.7.egg-info/" "django_smileys-0.1.1_pre1-py2.7.egg-info/" "django_registration-0.8-py2.7.egg-info/" "django_recaptcha-0.0.4-py2.7.egg-info/" "django_photologue-2.3-py2.7.egg-info/" "django_password_reset-0.2-py2.7.egg-info/" "django_mptt-0.5.2-py2.7.egg-info/" "django_floppyforms-1.0-py2.7.egg-info/" "django_file_picker-0.5.0-py2.7.egg-info/" "django_extensions-0.9-py2.7.egg-info/" "django_extensions/" "django_debug_toolbar-0.9.4-py2.7.egg-info/" "django_csvimport-0.6-py2.7.egg-info/" "django_csv_importer-0.1.3.5-py2.7.egg-info/" "django_crispy_forms-1.1.4-py2.7.egg-info/" "django_blog_zinnia-0.11.2-py2.7.egg-info/" "Django-1.4.1-py2.7.egg-info/" "django/" "decorator.pyc" "decorator.py" "decorator-3.3.3-py2.7.egg-info/" "debug_toolbar/" "DateUtils-0.5.2-py2.7.egg/" "csvImporter-0.1.3.2-py2.7.egg-info/" "csvImporter/" "csvimport/" "cssselect-0.7.1-py2.7.egg-info/" "cssselect/" "crispy_forms/" "chardet-1.0.1-py2.7.egg-info/" "chardet/" "Chameleon-1.2.3-py2.7.egg-info/" "chameleon/" "captcha/" "CairoSVG-0.4.4-py2.7.egg-info/" "cairosvg/" "BeautifulSoupTests.pyc" "BeautifulSoupTests.py" "BeautifulSoup.pyc" "BeautifulSoup.py" "BeautifulSoup-3.2.1-py2.7.egg-info/" "Beaker-1.6.3-py2.7.egg-info/" "beaker/" "AuthKit-0.4.5-py2.7.egg-info/" "authkit/" "_rl_accel.so" "_renderPM.so" "_pth/" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/" (20607 21585) "wcmt_wcmt.121002.sql" "wcmt_clem.121002.sql" "wcmt-td.org" "wcmt/" "wcap/" "Reference Forms online 2013.pdf" "Reference Forms online 2013 underline.pdf" "Referee-Form_temp.png" "Referee-Form_temp-scan.psd" "media_wcmt/" "media_wcap/" "media copy/" "media/" "Management_Page_Layouts 2.pdf" "Management_Page_Layouts 1a.pdf" "Management_Page_Layouts 1.pdf" "invoice" "input.py" "image001.jpg" "form_upload-text.txt" "form_bg.png" "form-ref-text.txt" "form-qs.txt" "fellows-reports_in-project.txt" "error.log" "code/" "apply_paper.png" "apply_online.png" "Application Form 2013.pdf" "Application Form 2013 Columns.pdf" "Application Form - base_wcmt.png" "Application Form - base_form.png" "Application changes 2013_2.pdf" "Application changes 2013.pdf" "Application changes 2013 copy.pdf" "admin_custom_1.html" "admin_custom.html" "_meta/" "_data/" "_admin/" "120911_1st-round-changes.html" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/form_settings/" (20608 2806) "views.py" "utils.pyc" "utils.py" "tests.py" "models.pyc" "models.py" "fixtures/" "config.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/profiles/" (20607 25147) "views.pyc" "views.py" "urls.pyc" "urls.py" "tests.py" "templates/" "models.pyc" "models.py" "forms.pyc" "forms.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/clem/proformas/submissions/" (20607 38621) "widgets.pyc" "widgets.py" "views.pyc" "views.py" "urls.pyc" "urls.py" "tests.py" "templates/" "pdfs.py" "models.pyc" "models.py" "forms.pyc" "forms.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Google Drive/" (20607 29903) "WCMT: Team Task_Bug list.gsheet" "WCMT: Project Details.gdoc" "WCMT: On Server Maintenance Details.gdoc" "WCMT Testing checklist.gdoc" "WCMT Rackspace setup.gdoc" "WCMT notes -- 17 July 2012.gdoc" "WCMT Applications Revisions 2012 (next phase).gdoc" "Untitled spreadsheet.gsheet" "Untitled spreadsheet (8).gsheet" "Untitled spreadsheet (6).gsheet" "Untitled spreadsheet (5).gsheet" "Untitled spreadsheet (4).gsheet" "Untitled spreadsheet (3).gsheet" "Untitled spreadsheet (2).gsheet" "Untitled spreadsheet (1).gsheet" "Untitled document.gdoc" "Untitled document (2).gdoc" "Untitled document (1).gdoc" "todo.htm" "ToDo.gdoc" "td.org" "td.html" "td.htm" "td.gdoc" "study/" "remember.gsheet" "Relative Rates Cost.gsheet" "Perth expenses :).gsheet" "Icon
+" "home/" "EleWil/" "Django basics.gdoc" "DBs anki backup.gsheet" "COMP6240 Assignment 2.gdoc" "COMP6240 assign2 diagram.gslides" "Artifactory--Swarf-o-matGuide.gdoc" "archive/" "121010 spending.gsheet" ".DS_Store" ".#todo.htm" "(old COMP6240 Assignment 2).gdoc" "#todo.htm#" "../" "./")
+
+ ("/Users/elena/clem/clem/" (20606 52376) "wsgi.pyc" "wsgi.py" "urls.pyc" "urls.py" "settings.py~" "settings.pyc" "settings.py" "middleware.pyc" "middleware.py" "logs" "local_urls.pyc" "local_urls.py" "local_settings.pyc" "local_settings.py" "__init__.pyc" "__init__.py" ".settings.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/wcmt/_meta/" (20606 33060) "wiki/" "wcmt_wsub.120813.sql" "wcmt_wsub.120714.sql" "wcmt_wcmt.sql" "wcmt_wcmt.120831.sql" "wcmt_wcmt.120830.sql" "wcmt_wcmt.120813.sql" "wcmt_wcmt.120717.sql" "wcmt_wcmt.120715.sql" "wcmt_wcap_dev.120813.sql" "wcmt_wcap_dev.120714.sql" "wcmt_wcap.120813.sql" "wcmt_wcap.120813 (1).sql" "wcmt_wcap.120714.sql" "WCMT_login-with-WC-captcha.png" "wcmt_clem.sql" "wcmt_clem.121006.sql" "wcmt_clem.120912.sql" "uni_form/" "tiny_issues/" "s.json" "rs-nearest-datacentre/" "profiles/" "ping-compare/" "outage_report/" "myapp_models.png" "media_wcmt/" "media_wcap/" "media_bu/" "indices/" "httpd-conf/" "hosting_ziphosting-cancel.rtf" "Header_Applications.jpg" "gen_subs.py" "fs_renaming-exercise.txt" "fs_renaming-exercise.py" "fellows_pdf_tfs.txt" "emailconfirmation/" "docs/" "db.wcmt.dreamhosters.com.120724.sql" "clem/" "applications" "2012_milestones.txt" "2011_Thorpe_Gary.pdf" "2011_Schloenhardt_Andreas.pdf" "2011_Rhodes_Sally.pdf" "2011_Myers_Jane.pdf" "2011_Levine_Greg.pdf" "2011_Ingleton_Naomi.pdf" "2011_Gilchrist_Sharon.pdf" "2011_Elliot_David.pdf" "2011_Chisholm_Natasha.pdf" "2011_Brown_Michelle.pdf" "2011_Allen_Clint.pdf" "1994_Cantle_Bryan.pdf" "1991_Wilde_Kathleen.pdf" "1990_OKane_John.pdf" "198-101.httpd.conf" "121008_file-not-found_Terminal Saved Output.txt" "121007_Terminal Saved Output.txt" "120906_customs.json" "120814_0400Terminal Saved Output.txt" "120814 Terminal Saved Output.txt" "120807_email-setup.rtf" "120718_rackspacesetup.txt" ".DS_Store" "../" "./")
+
+ ("/Users/elena/wcmt/" (20607 21585) "wcmt_wcmt.121002.sql" "wcmt_clem.121002.sql" "wcmt-td.org" "wcmt/" "wcap/" "Reference Forms online 2013.pdf" "Reference Forms online 2013 underline.pdf" "Referee-Form_temp.png" "Referee-Form_temp-scan.psd" "media_wcmt/" "media_wcap/" "media copy/" "media/" "Management_Page_Layouts 2.pdf" "Management_Page_Layouts 1a.pdf" "Management_Page_Layouts 1.pdf" "invoice" "input.py" "image001.jpg" "form_upload-text.txt" "form_bg.png" "form-ref-text.txt" "form-qs.txt" "fellows-reports_in-project.txt" "error.log" "code/" "apply_paper.png" "apply_online.png" "Application Form 2013.pdf" "Application Form 2013 Columns.pdf" "Application Form - base_wcmt.png" "Application Form - base_form.png" "Application changes 2013_2.pdf" "Application changes 2013.pdf" "Application changes 2013 copy.pdf" "admin_custom_1.html" "admin_custom.html" "_meta/" "_data/" "_admin/" "120911_1st-round-changes.html" ".DS_Store" "../" "./")
+
+ ("/Users/elena/wcap/" (20598 63205) "wcap/" "public/" "fixtures/" "clem/" ".htaccess" ".gitmodules" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/submissions/templates/" (20606 51501) "rhs_buttons.html" "include_save-success.html" "check_y.html" "check_n.html" "apply_uploads.html" "apply_start.html" "apply_review.html" "apply_refs.html" "apply_index.html" "apply_form.html" "../" "./")
+
+ ("/Users/elena/clem/proformas/form_settings/" (20606 45914) "views.py" "utils.py" "tests.py" "models.pyc" "models.py" "fixtures/" "config.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/customs/templatetags/" (20604 58122) "tags_forms.pyc" "tags_forms.py" "tags_custom.pyc" "tags_custom.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/clem/_temp_data/" (20606 18141) "wcmt_site_auth-ct.json" "wcmt_site.json" "wcmt_site-contrib.json" "wcmt_site-auth.json" "wcmt_prod.121017.sql" "wcmt_fellows.json" "wcmt_default.json" "wcmt_contrib.json" "wcmt.json" "wcmt.dat" "users" "titles" "test_data_auth.json" "temp3.dat" "temp2.dat" "temp1.dat" "temp.dat-journal" "temp.dat" "reports.json" "profiles.json" "profiles-submissions.json" "pg_wcmt.121007.sql" "pg_wcmt.121007" "old_first_names" "new_data.pk" "new_data" "generate_submissions_script.pyc" "generate_submissions_script.py" "gen_subs.py" "fs-customs.json" "fp.json" "fellows.json" "emails" "db.dat" "customs.sql" "customs.json" "clem_fs-customs.json" "clem.json" "cat.json" "c.json" "aw.json" "auth_original.json" "auth.json" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/_meta/" (20606 17880) "wiki/" "wcmt_wsub.120813.sql" "wcmt_wsub.120714.sql" "wcmt_wcmt.sql" "wcmt_wcmt.120831.sql" "wcmt_wcmt.120830.sql" "wcmt_wcmt.120813.sql" "wcmt_wcmt.120717.sql" "wcmt_wcmt.120715.sql" "wcmt_wcap_dev.120813.sql" "wcmt_wcap_dev.120714.sql" "wcmt_wcap.120813.sql" "wcmt_wcap.120813 (1).sql" "wcmt_wcap.120714.sql" "WCMT_login-with-WC-captcha.png" "wcmt_clem.sql" "wcmt_clem.121006.sql" "wcmt_clem.120912.sql" "uni_form/" "tiny_issues/" "s.json" "rs-nearest-datacentre/" "profiles/" "ping-compare/" "outage_report/" "myapp_models.png" "media_wcmt/" "media_wcap/" "media_bu/" "indices/" "httpd-conf/" "hosting_ziphosting-cancel.rtf" "Header_Applications.jpg" "gen_subs.py" "fellows_pdf_tfs.txt" "emailconfirmation/" "docs/" "db.wcmt.dreamhosters.com.120724.sql" "clem/" "applications" "2012_milestones.txt" "2011_Thorpe_Gary.pdf" "2011_Schloenhardt_Andreas.pdf" "2011_Rhodes_Sally.pdf" "2011_Myers_Jane.pdf" "2011_Levine_Greg.pdf" "2011_Ingleton_Naomi.pdf" "2011_Gilchrist_Sharon.pdf" "2011_Elliot_David.pdf" "2011_Chisholm_Natasha.pdf" "2011_Brown_Michelle.pdf" "2011_Allen_Clint.pdf" "1994_Cantle_Bryan.pdf" "1991_Wilde_Kathleen.pdf" "1990_OKane_John.pdf" "198-101.httpd.conf" "121008_file-not-found_Terminal Saved Output.txt" "121007_Terminal Saved Output.txt" "120906_customs.json" "120814_0400Terminal Saved Output.txt" "120814 Terminal Saved Output.txt" "120807_email-setup.rtf" "120718_rackspacesetup.txt" ".DS_Store" "../" "./")
+
+ ("/Users/elena/clem/proformas/submissions/templates/" (20605 2395) "rhs_buttons.html" "include_save-success.html" "check_y.html" "check_n.html" "apply_uploads.html" "apply_start.html" "apply_review.html" "apply_refs.html" "apply_index.html" "apply_form.html" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/customs/" (20593 17453) "views.py" "templatetags/" "models.pyc" "models.py" "forms.py" "fixtures/" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/media/static/css/" (20604 46989) "tablecloth.css" "sect_sponsors.css" "sect_media.css" "sect_links.css" "sect_general.css" "sect_fellows.css" "sect_applications.css" "sect_about.css" "reset.css" "progress.css" "prettify.css" "ie-hacks.css" "ie-hacks-6.css" "form.css" "bootstrap2.css" "bootstrap.min.css" "bootstrap.css" "bootstrap-responsive.min.css" "bootstrap-index.css" "base_form.css" "base.css" "_tablecloth.css" "_nav.css" "_img.css" "_font.css" "__nav.css" "__box.css" "__base-orig.css" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/media/static/" (20597 7009) "uniform/" "underConstruction.jpg" "robots.txt" "reports/" "ref-proj.jpg" "ref-prof.jpg" "popup.js" "js/" "index.html" "img/" "general.css" "favicon.ico" "favicon.gif" "end6/" "css/" "admin/" "_css/" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/media/" (20604 3232) "uni_form/" "static/" "media/" "index.html" "index.css" "img/" "admin/" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/elena/projects/" (20603 56553) "zookeepr-talk-110819222118-phpapp01.pdf" "Zookeepr -- PyCon AU 2012.pdf" "WestStar Shinbudo Starter Pack.pdf" "td.org" "tasmania/" "Talks/" "introduction_to_foss.odp" "electronics/" "DjangoConAU/" "demotivational-posters-history.jpg" "are-you-happy.jpg" "anki/" "AMP_comp2.png" "AMP_comp.png" "_recipes/" "_project_ideas/" "_people/" "_interest/" "120531_for-realz-github.png" ".DS_Store" "../" "./")
+
+ ("/Users/elena/projects/Talks/" (20519 40767) "zookeepr-talk-110819222118-phpapp01.pdf" "PyConAU talk/" "fossd/" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/" (20598 63205) "wcap/" "public/" "fixtures/" "clem/" ".htaccess" ".gitmodules" ".gitignore" ".git/" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/profiles/templates/" (20598 58985) "signup.html" "profile.html" "login.html" "include_verify-email.html" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/_temp-data/" (20602 3131) "wcmt_site_auth-ct.json" "wcmt_site.json" "wcmt_site-contrib.json" "wcmt_site-auth.json" "wcmt_fellows.json" "wcmt_default.json" "wcmt_contrib.json" "wcmt.json" "wcmt.dat" "users" "titles" "test_data_auth.json" "temp3.dat" "temp2.dat" "temp1.dat" "temp.dat-journal" "temp.dat" "reports.json" "pg_wcmt.121007.sql" "pg_wcmt.121007" "old_first_names" "new_data.pk" "new_data" "gen_subs.py" "fs-customs.json" "fp.json" "fellows.json" "emails" "db.dat" "customs.sql" "customs.json" "clem_fs-customs.json" "clem.json" "cat.json" "c.json" "aw.json" "auth_original.json" "auth.json" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Downloads/" (20601 10319) "Untitled1.py" "Untitled1.ipynb" "Untitled0.ipynb" "tinymce_init.js" "SubiacoMeatMenu2011.pdf" "Screen Capture.html" "pyconau2012_tutorial1.zip" "platypus-example.py" "Menu.pdf" "ManagingCostOverrunsonprojects.ppt" "logic-bit-equal.ppt" "Launching_Your_Day.zip" "jquery.limit-1.2.source.js" "iotest.c" "illusori-emacs-flymake-a83bcb2 2/" "illusori-emacs-flymake-a83bcb2/" "illusori-emacs-flymake-0.4.12-0-ga83bcb2.zip" "html5.html" "goodparts.ppt" "freespace.mpeg" "fellows.txt" "fellows.dh.txt" "ez_setup.py" "energy.txt" "colloquy-latest.zip" "change_form.html" "Awakening_the_Leader_Within.zip" "arrayloop.c" "abstract_template_commad.doc" "_pdfs/" "_install/" "403 Forbidden.png" "375 Bagot Rd, Subiaco WA 6008 to Avon Valley National Park, Via Moondyne Road, Toodyay WA 6566 - Google Maps.png" "2012-146.rtf" "1335781.html" ".~lock.ManagingCostOverrunsonprojects.ppt#" ".picasa.ini" ".localized" ".DS_Store" ".com.google.Chrome.sPD42w" ".com.google.Chrome.femOLb" "../" "./")
+
+ ("/Users/elena/Downloads/illusori-emacs-flymake-a83bcb2 2/" (20492 3834) "README.mkdn" "flymake.el" "Changes" ".gitignore" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/" (20601 7335) "treemenus/" "sponsors/" "section.html" "searches/" "search.html" "reports/" "quotes/" "publications/" "photo/" "password_reset/" "mediaitems/" "massmedia/" "manages/" "links/" "index.html" "includes/" "include_text-limit.html" "include_search-bar.html" "governance/" "googlea0633acf31ed3983.html" "flatpages/" "fellowships/" "fellows/" "faq/" "base_manage.html" "base_form.html" "base.html" "associations/" "apply.html" "admin_doc/" "admin/" "500.html" "404.html" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/password_reset/" (20599 29538) "reset.html" "recovery_form.html" "recovery_email_subject.txt" "recovery_email.txt" "recovery_done.html" ".DS_Store" "../" "./")
+
+ ("/Users/elena/clem/templates/password_reset/" (20561 62861) "reset.html" "recovery_form.html" "recovery_email_subject.txt" "recovery_email.txt" "recovery_done.html" ".DS_Store" "../" "./")
+
+ ("/Users/elena/clem/templates/" (20598 63843) "treemenus/" "sponsors/" "section.html" "searches/" "search.html" "reports/" "quotes/" "publications/" "photo/" "password_reset/" "mediaitems/" "massmedia/" "manages/" "links/" "index.html" "includes/" "include_text-limit.html" "include_search-bar.html" "governance/" "googlea0633acf31ed3983.html" "flatpages/" "fellowships/" "fellows/" "faq/" "base_manage.html" "base_form.html" "base.html" "associations/" "apply.html" "admin_doc/" "admin/" "500.html" "404.html" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/includes/" (20598 61721) "templatetags/" "grey_login.html" "box/" "block_header.html" "block_head.html" "block_blue_panel.html" ".DS_Store" "../" "./")
+
+ ("/Users/elena/clem/roles/profiles/templates/" (20597 10311) "signup.html" "profile.html" "login.html" "index.html" "include_verify-email.html" "../" "./")
+
+ ("/Users/elena/clem/roles/profiles/" (20598 53482) "views.pyc" "views.py" "urls.pyc" "urls.py" "tests.py" "templates/" "models.pyc" "models.py" "forms.pyc" "forms.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/proformas/" (20593 11771) "submissions/" "references/" "form_settings/" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/clem/proformas/" (20593 11771) "submissions/" "references/" "form_settings/" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/BMA/invoices/" (20597 42670) "AEW-BMA-0202-0055.html" "AEW-BMA-0202-0054.html" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/BMA/" (20597 42646) "Web Ready 404.rar" "Web Ready 404/" "invoices/" "gig_guide_cal.html" "extract_nav.html" "bma/" "apps/" "564358_10150631242600036_1797512647_n.jpg" "553330_10150631235910036_1006206850_n.jpg" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/" (20597 37513) "ymmd.jpg" "WCMT/" "PythonCharmers/" "oglaf_old/" "Oglaf/" "MediBank_ambulance_2012.jpg" "invoice.pdf" "httpd.conf" "BMA/" "aJGC/" "_ex_nav.html" "_elequ/" "_ele.wil/" "_business-admin/" "630609928.jpg" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/Oglaf/" (20597 41005) "uploads/" "side-ad-hamburger.png" "side-ad-hamburger copy.png" "Oglaf image 1.png" "oglaf/" "og-mistress-pic.jpeg" "media/" "invoices/" "invgen/" "httpd.conf" "DreamHost Web Panel > Vserver : Manage Resources.png" "DreamHost Web Panel > Support : Contact Support.png" "CREABBRG.TTF" "comic.html" "book-ad-artist-plates-V2.gif" "AEW-OGL-1501-0030.pdf" "AEW-OGL-1501-0029.pdf" "AEW-OGL-1501-0028.pdf" "AEW-OGL-1501-0027.pdf" "__dh/" "50552_273492521640_2785832_n.jpg" "120920_outage.rtf" ".DS_Store" "-1224075894.jpg" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/Oglaf/invoices/" (20597 40930) "view-source bmamag.com home .html" "Facebook_files/" "Facebook.html" "aew_graphic.jpg" "AEW-OGL-1501-0030.html" "AEW-OGL-1501-0029_files/" "AEW-OGL-1501-0029.html" "AEW-OGL-1501-0028_files/" "AEW-OGL-1501-0028.html" "AEW-OGL-1501-0027a_files/" "AEW-OGL-1501-0027a.html" "AEW-OGL-1501-0027_files/" "AEW-OGL-1501-0027.pdf" "AEW-OGL-1501-0027.html" "AEW-OGL-1501/" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/searches/" (20597 10451) "include_search-name.html" "include_search-key.html" "include_search-form.html" "include_search-cat.html" "include_search-bad.html" ".#include_search-form.html" "#include_search-form.html#" "../" "./")
+
+ ("/Users/elena/clem/roles/" (20593 11771) "profiles/" "manages/" "customs/" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/" (20593 11771) "profiles/" "manages/" "customs/" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/apps/" (20593 11771) "treemenus/" "searches/" "quotes/" "publications/" "profiles/" "photologue/" "mediaitems/" "massmedia/" "links/" "governance/" "flatpages/" "faq/" "boxes/" "associations/" "applications/" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/apps/searches/" (20594 22656) "views.pyc" "views.py" "utils.pyc" "utils.py" "urls.pyc" "urls.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/clem/apps/searches/" (20594 21363) "views.pyc" "views.py" "utils.pyc" "utils.py" "urls.pyc" "urls.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/clem/apps/" (20593 11771) "treemenus/" "searches/" "quotes/" "publications/" "profiles/" "photologue/" "mediaitems/" "massmedia/" "links/" "governance/" "flatpages/" "faq/" "boxes/" "associations/" "applications/" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/apps/treemenus/" (20591 54370) "utils.py" "tests/" "templatetags/" "templates/" "static/" "models.pyc" "models.py" "locale/" "config.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/wcap/wcmt/profiles/" (20592 62762) "views.pyc" "views.py" "utils.py" "urls.pyc" "urls.py" "tests.py" "models.pyc" "models.py" "forms.pyc" "forms.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/wcap/clem/clem/" (20593 3812) "wsgi.pyc" "wsgi.py" "urls.pyc" "urls.py" "settings.pyc" "settings.py" "middleware.pyc" "middleware.py" "logs" "local_settings.pyc" "local_settings.py" "__init__.pyc" "__init__.py" ".settings.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/apps/profiles/" (20591 52340) "views.py" "urls.py" "tests.py" "templates/" "models.py" "forms.py" "__init__.py" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/wcap/templates/" (20592 62762) "uni_form/" "submission/" "sub-nav_auth.html" "sub-nav_anon.html" "progress.html" "profiles/" "manage/" "issues/" "home_overlay.html" "home.html" "forms/" "flatpages/" "emailconfirmation/" "base_manage.html" "base_form.html" "base.html" "admin/" "_base.html" "500.html" "404.html" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/_admin/" (20588 64895) "WCMT Applications Revisions 2012.html" "aew_graphic.jpg" "AEW-WCT-2301-0029a.pdf" "AEW-WCT-2301-0029.pdf" "AEW-WCT-2301-0029.html" "AEW-WCT-2301-0028a.html" "AEW-WCT-2301-0028.pdf" "AEW-WCT-2301-0028.html" "AEW-WCT-2301-0027_files/" "AEW-WCT-2301-0027.htm" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/roles/manages/templates/" (20566 39886) "manage_selectors.html" "manage_permissions.html" "application_review.html" "application_edit.html" "../" "./")
+
+ ("/Users/elena/project/LCA2013/zookeepr/zkpylons/controllers/" (20576 1742) "voucher.py" "vote.py" "volunteer.py" "uml_graph.py" "travel.py" "time_slot.py" "stream.py" "special_offer.py" "social_network.py" "sitemap.py" "secret_hash.py" "schedule.py" "role.py" "review.py" "rego_room.py" "rego_note.py" "registration.pyc" "registration.py" "proposal_type.py" "proposal_status.py" "proposal.py" "product_category.py" "product.py" "photocomp.py" "person.pyc" "person.py" "payment.py" "not_found.pyc" "not_found.py" "miniconf_proposal.py" "map.py" "location.py" "invoice.py" "home.pyc" "home.py" "funding_type.py" "funding_review.py" "funding_attachment.py" "funding.py" "event_type.py" "event.py" "error.py" "db_content.pyc" "db_content.py" "ceiling.py" "boardingpass.py" "attachment.py" "admin_deactivated.txt" "admin.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/clem/roles/manages/" (20593 3687) "widgets.py" "views.pyc" "views.py" "urls.pyc" "urls.py" "tests.py" "templates/" "models.pyc" "models.py" "forms.pyc" "forms.py" "csvs.pyc" "csvs.py" "admin.pyc" "admin.py" "_views.py" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/media/css/" (20586 9818) "tablecloth.css" "sect_sponsors.css" "sect_media.css" "sect_links.css" "sect_general.css" "sect_fellows.css" "sect_applications.css" "sect_about.css" "reset.css" "progress.css" "prettify.css" "ie-hacks.css" "ie-hacks-6.css" "form.css" "bootstrap2.css" "bootstrap.min.css" "bootstrap.css" "bootstrap-responsive.min.css" "bootstrap-index.css" "base_form.css" "base.css" "_tablecloth.css" "_nav.css" "_img.css" "_font.css" "__nav.css" "__box.css" "__base-orig.css" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/fellows/uploads/" (20592 62763) "upload.pyc" "upload.py" "templatetags/" "models.pyc" "models.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/fellows/" (20591 52340) "uploads/" "sponsors/" "reports/" "fellowships/" "fellows/" "fellowcustoms/" "__init__.py" "../" "./")
+
+ ("/Users/elena/site-packages/django/contrib/auth/" (20520 33715) "views.pyc" "views.py" "urls.pyc" "urls.py" "tokens.pyc" "tokens.py" "tests/" "templates/" "signals.pyc" "signals.py" "models.pyc" "models.py" "middleware.pyc" "middleware.py" "management/" "locale/" "hashers.pyc" "hashers.py" "handlers/" "forms.pyc" "forms.py" "fixtures/" "decorators.pyc" "decorators.py" "create_superuser.pyc" "create_superuser.py" "context_processors.pyc" "context_processors.py" "backends.pyc" "backends.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/project/LCA2013/zookeepr/zkpylons/" (20576 873) "websetup.py" "themes/" "tests/" "templates/" "public/" "model/" "LICENSE" "lib/" "controllers/" "config/" "archive/" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/project/LCA2013/zookeepr/" (20576 970) "zkpylons/" "zk.egg-info/" "zk/" "setup.py" "requirements.txt" "README" "NEW_INSTALL" "LICENSE" "INSTALL" "docs/" "development.ini.sample" "development.ini" "data/" "AUTHORS" "alembic/" ".gitignore" ".git/" "../" "./")
+
+ ("/Users/elena/project/LCA2013/zookeepr/zk/controllers/" (20576 873) "legacy_view.pyc" "legacy_view.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/project/LCA2013/zookeepr/zk/" (20576 965) "views.pyc" "views.py" "tests/" "templates/" "scripts/" "public/" "model/" "controllers/" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/project/LCA2013/zookeepr/zk/model/" (20576 965) "voucher.pyc" "voucher.py" "vote.pyc" "vote.py" "volunteer.pyc" "volunteer.py" "url_hash.pyc" "url_hash.py" "travel.pyc" "travel.py" "time_slot.pyc" "time_slot.py" "stream.pyc" "stream.py" "special_registration.pyc" "special_registration.py" "special_offer.pyc" "special_offer.py" "social_network.pyc" "social_network.py" "schedule.pyc" "schedule.py" "role.pyc" "role.py" "review.pyc" "review.py" "rego_room.pyc" "rego_room.py" "rego_note.pyc" "rego_note.py" "registration_product.pyc" "registration_product.py" "registration.pyc" "registration.py" "proposal.pyc" "proposal.py" "product_ceiling_map.pyc" "product_ceiling_map.py" "product_category.pyc" "product_category.py" "product.pyc" "product.py" "person_social_network_map.pyc" "person_social_network_map.py" "person_role_map.pyc" "person_role_map.py" "person_proposal_map.pyc" "person_proposal_map.py" "person.pyc" "person.py" "payment_received.pyc" "payment_received.py" "payment_allocation.pyc" "payment_allocation.py" "payment.pyc" "payment.py" "password_reset_confirmation.pyc" "password_reset_confirmation.py" "meta.pyc" "meta.py" "location.pyc" "location.py" "lib/" "invoice_item.pyc" "invoice_item.py" "invoice.pyc" "invoice.py" "funding_review.pyc" "funding_review.py" "funding_attachment.pyc" "funding_attachment.py" "funding.pyc" "funding.py" "forms.pyc" "forms.py" "event_type.pyc" "event_type.py" "event.pyc" "event.py" "db_content.pyc" "db_content.py" "contentstor.pyc" "contentstor.py" "ceiling.pyc" "ceiling.py" "attachment.pyc" "attachment.py" "__init__.pyc" "__init__.py" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/includes/box/" (20560 8966) "quotes.html" "fellows.html" "default.html" "_key-dates.html" "_fellows.html" "_events.html" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/WCMT/wcap/clem/templates/flatpages/" (20510 2510) "default.html" ".DS_Store" "../" "./")
+
+ ("/Users/elena/wcmt/wcap/clem/clem/" (20560 6049) "wsgi.pyc" "wsgi.py" "urls.pyc" "urls.py" "settings.pyc" "settings.py" "middleware.pyc" "middleware.py" "logs" "local_settings.pyc" "local_settings.py" "__init__.pyc" "__init__.py" ".settings.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/study/" (20556 61903) "outline-comp6240.pdf alias" "outline-comp6240.pdf" "outline-comp2400.pdf" "Lab5 - solutions.pdf" "Lab5 - exercises.pdf" "Lab4 - solutions.pdf" "Lab4 - exercises.pdf" "Lab3 - solutions.pdf" "Lab3 - exercises.pdf" "Lab2 - solutions.pdf" "Lab2 - exercises.pdf" "Lab2 - employee.zip" "Lab1 - history.txt" "Lab1 - exercises.pdf" "Fundamentals-of-RDBS/" "dbs/" "db_anki-deck.txt" "COMP6240 assign1 diagram.png" "COMP6240 assign1 diagram.pdf" "COMP6240 assign1 diagram Q3.png" "COMP6240 assign1 diagram Q2.png" "COMP2400_120906-b9f52e53-large.mp4" "COMP2400_120904-8f0e884d-large.mp4" "COMP2400_120830-1095c9e1-large.mp4" "COMP2400_120828-782f07ab-large.mp4" "COMP2400_120824-5c239858-large.mp4" "COMP2400_120821-4_d1c8f3fc-large.mp4" "COMP2400_120821-3_b37b921b-large.mp4" "COMP2400_120821-2_75cb123e-large.mp4" "COMP2400_120821-1_37429e0e-large.mp4" "COMP2400_120816-9f86354d-large.mp4" "COMP2400_120814-d25a1b2b-large.mp4" "COMP2400_120809-1709fd23-large.mp4" "COMP2400_120807-bdef3b57-large.mp4" "COMP2400_120802-12763108-large.mp4" "COMP2400_120731-a568afd5-large.mp4" "COMP2400_120726-9a56a5a2-large.mp4" "COMP2400_120724-408ef01d-large.mp4" "COMP2400_120719-35400d37-large.mp4" "_archive/" "06_lecture_norm-4.pdf" "06_lecture_norm-1.pdf" "05_lecture_fds-4.pdf" "05_lecture_fds-1.pdf" "04_lecture_erm-4.pdf" "04_lecture_erm-1.pdf" "03_lecture_sql-4.pdf" "03_lecture_sql-1.pdf" "02_lecture_rdm-4.pdf" "02_lecture_rdm-1.pdf" "01_lecture_intro-4.pdf" "01_lecture_intro-1.pdf" ".DS_Store" "../" "./")
+
+ ("/Users/elena/code/" (20556 4843) "widget.html" "staticserv/" "pyconau2012_tutorial1/" "prf/" "indices/" "greg_120805.py" "gource-0.38/" "files/" "emacs_pony-mode_error.txt" "django-crispy-forms/" "db1/" "clem/" "check_url.py" "bin/" "basics/" "anki/" "aew/" "_git/" "_emacs" ".DS_Store" "../" "./")
+
+ ("/Users/elena/Dropbox/_pre-2012/aew/accounting/" (20397 50145) "Wolfburg - INV0151136.PDF" "template_graphics/" "schawkinvoicesfeb2010.zip" "Lotsa - Invoice# 80928.pdf" "html_invoices_2010/" "app-dev_wp/" "aew_list-from-cmqt.xls" "AEW_invoice-list.xls" "AEW-WCT-2301-0011_files/" "AEW-WCT-2301-0011.htm" "AEW-TBR-2001-quote.htm" "AEW-LNA-1202-quote.htm" "_random-hist_check-delete/" "_quotes/" "_price-lists/" "_old-billing/" "__receivables/" "__financials/" "__expenses/" "793407_39428641.jpg" "../" "./")
+
+ ("/Users/elena/wcmt/wcap/clem/proformas/submissions/templates/" (20553 47449) "rhs_buttons.html" "include_save-success.html" "check_y.html" "check_n.html" "apply_uploads.html" "apply_start.html" "apply_review.html" "apply_refs.html" "apply_index.html" "apply_form.html" "../" "./")
+
+ ("/Users/elena/wcmt/wcap/clem/roles/profiles/" (20553 46621) "views.pyc" "views.py" "urls.pyc" "urls.py" "tests.pyc" "tests.py" "templates/" "models.pyc" "models.py" "forms.pyc" "forms.py" "admin.pyc" "admin.py" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/wcmt/wcap/clem/proformas/" (20554 1999) "utils.pyc" "utils.py" "submissions/" "references/" "form_settings/" "__init__.pyc" "__init__.py" ".DS_Store" "../" "./")
+
+ ("/Users/elena/project/LCA2013/zookeepr/zkpylons/templates/registration/" (20554 5207) "volunteer.mako" "view_body.mako" "view.mako" "thankyou.mako" "status.mako" "response.mako" "remind.mako" "rego_closed.mako" "really_closed.mako" "professionals_latex.mako" "professional.mako" "product_unavailable.mako" "new.mako" "list.mako" "generate_badges.mako" "form.mako" "error.mako" "email_reminder.myt" "edit.mako" "badges_svg.mako" "badges.svg" "../" "./")
+
+ ("/Users/elena/project/LCA2013/zookeepr/zkpylons/config/" (20554 5207) "zkpylons_config.py" "routing.py" "middleware.py" "lca_info.py.sample" "lca_info.py" "environment.py" "__init__.py" "../" "./")
+
+ ("/Users/elena/project/LCA2013/zookeepr/zkpylons/model/" (20554 5207) "voucher.py" "vote.py" "volunteer.py" "url_hash.py" "travel.py" "time_slot.py" "stream.py" "special_registration.py" "special_offer.py" "social_network.py" "schedule.py" "role.py" "review.py" "rego_room.py" "rego_note.py" "registration_product.py" "registration.py" "proposal.py" "product_ceiling_map.py" "product_category.py" "product.py" "person_social_network_map.py" "person_role_map.py" "person_proposal_map.py" "person.py" "payment_received.py" "payment_allocation.py" "payment.py" "password_reset_confirmation.py" "meta.py" "location.py" "lib/" "invoice_item.py" "invoice.py" "funding_review.py" "funding_attachment.py" "funding.py" "forms.py" "event_type.py" "event.py" "db_content.py" "contentstor.py" "ceiling.py" "attachment.py" "__init__.py" "../" "./")
+
+ ("/Users/elena/wcap/clem/templates/admin/" (20553 46530) "uploads/" "index_custom.html" "flatpages/" "edit_inline/" "custom_index.html" "base_site.html" "_index.html" ".DS_Store" "#custom_index (Elenas-MacBook-Air's conflicted copy 2012-09-06).html#" "../" "./")
+
+ ("/Users/elena/Dropbox/ele.wil/BMA/bma/" (20455 7608) "views.pyc" "views.py" "urls.pyc" "urls.py" "templates/" "settings.pyc" "settings.py.debug.on" "settings.py.debug-off" "settings.py" "python2.5" "ph.json" "ph.120210.json" "manage.py" "issue.json" "articles.json" "a.json" "a.120130.json" "_views.py" "_urls.py" "_grep.txt" "__init__.pyc" "__init__.py" "367_upload.json" "365_upload.json" "110302_photo.json" "110211_customs.json" "110121.sql" ".git/" "../" "./")
+
+ ("/Users/elena/wcap/clem/templates/" (20551 42917) "treemenus/" "sponsors/" "section.html" "searches/" "search.html" "reports/" "quotes/" "publications/" "photo/" "mediaitems/" "massmedia/" "manages/" "links/" "index.html" "includes/" "include_text-limit.html" "governance/" "googlea0633acf31ed3983.html" "flatpages/" "fellowships/" "fellows/" "faq/" "base_manage.html" "base_form.html" "base.html" "associations/" "admin_doc/" "admin/" "500.html" "404.html" ".DS_Store" "../" "./")
+
+ ("/Users/elena/wcap/clem/" (20551 46940) "templates/" "s.json" "roles/" "requirements.txt" "proformas/" "manage.py" "input.py" "gen_subs.py" "fixtures/" "fellows/" "clem/" "apps/" "__init__.py" "120906_customs.json" ".DS_Store" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
