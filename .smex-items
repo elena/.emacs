@@ -1,18 +1,18 @@
 
 ;; ----- smex-history -----
 (
+ html-mode
+ rst-mode
  delete-trailing-whitespace
- describe-function
+ magit-status
  python-mode
- calc
- edit-tab-stops
  shell
- org-mode
+ compile
 )
 
 ;; ----- smex-data -----
 (
- (html-mode . 2)
+ (html-mode . 5)
  (org-mode . 4)
  (org-export-htmlize-generate-css . 2)
  (load-file . 4)
@@ -20,17 +20,20 @@
  (org-agenda . 2)
  (slitex-mode . 1)
  (org-iswitchb . 2)
- (delete-trailing-whitespace . 13)
+ (delete-trailing-whitespace . 20)
  (comment-or-uncomment-region . 3)
  (autopair-mode . 2)
- (magit-status . 4)
- (python-mode . 2)
+ (magit-status . 7)
+ (python-mode . 3)
  (sort-lines . 4)
- (shell . 2)
+ (shell . 5)
  (auto-complete . 1)
  (edit-tab-stops . 1)
  (calc . 1)
- (python-shell-completion-complete-or-indent . 1)
+ (python-shell-completion-complete-or-indent . 2)
  (inferior-python-mode . 1)
  (describe-function . 1)
+ (compile . 2)
+ (magit-log . 1)
+ (rst-mode . 1)
 )
