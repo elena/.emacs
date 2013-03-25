@@ -14,18 +14,13 @@
 ;;   - rst/markdown
 ;;
 ;; ~ org-mode
-;;
 
 ;; ALL THE 'REQUIRES' up the top
 ;; In load order.
-
 (add-to-list 'load-path "~/.emacs.d/")
-
 (require 'recentf)
 (require 'auto-complete-config)
 (require 'color-theme)
-
-(require 'highlight-indentation)
 
 
 ;; ---------------
@@ -35,17 +30,18 @@
 ;; ---------------
 ;; The day-to-day stuff can't live without and works universally.
 ;; Not specific to an application
-
+(setq inhibit-splash-screen t)
 (delete-selection-mode 1)
 (line-number-mode 1)
-(setq inhibit-splash-screen t)
-(setq find-file-wildcards t)
 (tool-bar-mode -1)
+(setq calendar-latitude -35.17)
+(setq calendar-location-name "Sydney")
+(setq calendar-longitude 149.08)
+(setq find-file-wildcards t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(setq calendar-latitude -35.17)
-(setq calendar-longitude 149.08)
-(setq calendar-location-name "Sydney")
+(find-file "~/Dropbox/td/todo.htm")
+(find-file "~/.emacs.d/init.el")
 
 ;; Options have liked the look of at whatever stage.
 ;; (desktop-save-mode 1)
@@ -55,19 +51,16 @@
 ;; (framemove-default-keybindings) ;; default prefix is Meta
 ;; (setq pop-up-frames t)
 ;; (setq iswitchb-buffer-ignore '("^\\*"))
-;; (find-file "~/Dropbox/td/todo.htm")
-
-(find-file "~/.emacs.d/init.el")
 
 ;; -----------------------
 ;; ** Backup management **
 ;; -----------------------
 ;; Put `*.*~` files in `~/.saves` rather than throughout my fs
 (setq backup-by-copying t
-      backup-directory-alist '(("." . "~/.saves"))
-      delete-old-versions t
-      kept-new-versions 6
-      kept-old-versions 2)
+  backup-directory-alist '(("." . "~/.saves"))
+  delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2)
 
 ;; ------------
 ;; ** Recent **
@@ -82,7 +75,6 @@
 ;; =================
 ;; -----------------
 ;; Niceties not specific to an application.
-
 
 ;; ------------------
 ;; * Linux specific *
@@ -110,7 +102,6 @@
 ;;   (w32-send-sys-command 61488))
 ;; (set-default-font "ProggyCleanTT CE-11:bold")
 ;; (set-default-font "DejaVu Sans Mono-9")
-
 
 ;; ------------------
 ;; ** Key-Bindings **
@@ -162,7 +153,6 @@
   (setq ido-everywhere t)
   (ido-mode 1)
 
-
 ;; Snippets
 ;; --------
 (setq yas/prompt-functions '(yas/ido-prompt
@@ -200,15 +190,12 @@
         (yank)))))
 (global-set-key (kbd "C-c d") 'duplicate-line)
 
-
-;; -------
-;; Display
-;; -------
-
+;; -------------
+;; ** Display **
+;; -------------
 (color-theme-initialize)
 (setq color-theme-is-global t)
 (color-theme-charcoal-black)
-
 ;; (color-theme-shaman)
 ;; (require 'theme-changer)
 ;; (change-theme 'color-theme-gtk-ide 'color-theme-charcoal-black)
@@ -221,108 +208,50 @@
 
 
 
-
-
-
-
-
-
-
-
 ;; the fold ---------------------------------------------------------------------
 ;; ==============================================================================
 ;; application specific configuration -------------------------------------------
-
-
-;; -----------------
-;; =================
-;; **  Org        **
-;; =================
-;; -----------------
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(setq org-log-done 'time)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(display-battery-mode t)
- '(display-time-mode t)
- '(indicate-empty-lines t)
- '(org-agenda-custom-commands (quote (
-				      ("d" todo "DELEGATED" nil)
-				      ("c" todo "DONE|DEFERRED|CANCELLED" nil)
-				      ("w" todo "WAITING" nil)
-				      ("W" agenda "" ((org-agenda-ndays 21)))
-				      ("A" agenda "" ((org-agenda-skip-function (lambda nil
-										  (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
-						      (org-agenda-ndays 1) (org-agenda-overriding-header "Today's Priority #A tasks: ")))
-				      ("u" alltodo "" ((org-agenda-skip-function (lambda nil
-										   (org-agenda-skip-entry-if (quote scheduled) (quote deadline) (quote regexp) "]+>")))
-						       (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
- '(org-agenda-files (quote ("~/Google Drive/td.htm")))
- '(org-agenda-ndays 7)
- '(org-agenda-show-all-dates t)
- '(org-agenda-skip-deadline-if-done t)
- '(org-agenda-skip-scheduled-if-done t)
- '(org-agenda-start-on-weekday nil)
- '(org-deadline-warning-days 14)
- '(org-default-notes-file "~/notes.org")
- '(org-fast-tag-selection-single-key (quote expert))
- '(org-remember-store-without-prompt t)
- '(org-remember-templates (quote (
-                                  ("todo" 116 "* TODO %? %u" "~/todo.org" "Tasks" nil)
-                                  ("notes" 110 "* %u %?" "~/notes.org" "Notes" nil)
-                                  ("past" 110 "* %u %?" "~/past.org" "Notes" nil)
-                                  ("wcmt" 119 "* TODO %? :wcmt:" "~/wcmt-td.org" "WCMT ongoing" nil))))
- '(org-reverse-note-order t)
- '(remember-annotation-functions (quote (org-remember-annotation)))
- '(remember-handler-functions (quote (org-remember-handler)))
- '(save-place t nil (saveplace))
- '(send-mail-function (quote sendmail-send-it))
- '(show-paren-mode t)
- '(size-indication-mode t)
- '(tool-bar-mode nil)
- '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
-;; (setq org-completion-use-iswitchb t)
-;; (setq org-completion-use-ido nil)
-;; (add-hook 'org-mode-hook '(lambda () (auto-fill-mode -1)))
-;; (add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))
-
 
 ;; -----------------
 ;; =================
 ;; **  Python     **
 ;; =================
 ;; -----------------
-;; Vanilla settings: (autoload 'python-mode "python-mode.el" "Major mode for editing Python source." t)
+;; Vanilla settings:
+;(autoload 'python-mode "python-mode.el" "Major mode for editing Python source." t)
 ;; Not using vanilla emacs python settings, using Gabriel Elanaro's:
+;; https://github.com/gabrielelanaro/emacs-for-python
+;(load-file "~/.emacs.d/emacs-for-python/epy-init.el")
 
 ;; * emacs-for-python *
 ;; --------------------
-;; https://github.com/gabrielelanaro/emacs-for-python
 (add-to-list 'load-path "~/.emacs.d/emacs-for-python/")
 (require 'epy-setup)
 (require 'epy-python)
 (require 'epy-completion)
 (require 'epy-editing)
 (require 'epy-bindings)
-; (require 'epy-nose)
-; (require 'epy-nose)
-(add-hook 'python-mode-hook 'highlight-indentation)
 (setq skeleton-pair nil)
+;(require 'highlight-indentation)
+;(add-hook 'python-mode-hook 'highlight-indentation)
+; (require 'epy-nose)
 
 ;; * pyflakes *
 ;; ------------
 ;; Requires python package "pyflakes" to be installed
-(epy-setup-checker "~/site-packages/pyflakes/bin/pyflakes %f")
+
+;25-Mar-2013: sadness.
+; need to reinstall old init.
+;Flymake: Configuration error has occured while running
+;   (/Users/elena/site-packages/pyflakes/bin/pyflakes ../../../var/folders/qj/672z5vgd6jn2cwn4g0g8c5l00000gn/T/flymake36758nX\A). Flymake will be switched OFF
+; (epy-setup-checker "~/site-packages/pyflakes/bin/pyflakes %f")
+(epy-setup-checker "/usr/local/bin/pyflakes %f")
 
 ;; * ipython *
 ;; ------------
 ;; load ipython.el if ipython is available
 ;; (when (executable-find "ipython")
-;;    (require 'ipython nil 'noerror))
+;;   (require 'ipython nil 'noerror))
 ;; (when (featurep 'ipython)
 ;;   (setq python-python-command "ipython")
 ;;   (autoload 'py-shell "ipython"
@@ -332,10 +261,52 @@
 
 ;; -----------------
 ;; =================
+;; **  Org        **
+;; =================
+;; -----------------
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(setq org-log-done 'time)
+(setq org-agenda-files (quote ("~/Google Drive/td.htm")))
+(setq org-agenda-ndays 7)
+(setq org-agenda-show-all-dates t)
+(setq org-agenda-skip-deadline-if-done t)
+(setq org-agenda-skip-scheduled-if-done t)
+(setq org-agenda-start-on-weekday nil)
+(setq org-deadline-warning-days 14)
+(setq org-default-notes-file "~/notes.org")
+(setq org-fast-tag-selection-single-key (quote expert))
+(setq org-remember-store-without-prompt t)
+(setq org-reverse-note-order t)
+(setq remember-annotation-functions (quote (org-remember-annotation)))
+(setq remember-handler-functions (quote (org-remember-handler)))
+ ;; syntax incorrect -- need to have in 'setq'
+ ;; '(org-agenda-custom-commands (quote (
+ ;;   ("d" todo "DELEGATED" nil)
+ ;;   ("c" todo "DONE|DEFERRED|CANCELLED" nil)
+ ;;   ("w" todo "WAITING" nil)
+ ;;   ("W" agenda "" ((org-agenda-ndays 21)))
+ ;;   ("A" agenda "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
+ ;;     (org-agenda-ndays 1) (org-agenda-overriding-header "Today's Priority #A tasks: ")))
+ ;;   ("u" alltodo "" ((org-agenda-skip-function (lambda nil
+ ;;     (org-agenda-skip-entry-if (quote scheduled) (quote deadline) (quote regexp) "]+>")))
+ ;;     (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
+ ;; '(org-remember-templates (quote (
+ ;;    ("todo" 116 "* TODO %? %u" "~/todo.org" "Tasks" nil)
+ ;;    ("notes" 110 "* %u %?" "~/notes.org" "Notes" nil)
+ ;;    ("past" 110 "* %u %?" "~/past.org" "Notes" nil)
+ ;;    ("wcmt" 119 "* TODO %? :wcmt:" "~/wcmt-td.org" "WCMT ongoing" nil))))
+;; (setq org-completion-use-iswitchb t)
+;; (setq org-completion-use-ido nil)
+;; (add-hook 'org-mode-hook '(lambda () (auto-fill-mode -1)))
+;; (add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))
+
+
+
+;; -----------------
+;; =================
 ;; **  Web        **
 ;; =================
 ;; -----------------
-
 
 (epy-django-snippets)
 
@@ -343,7 +314,6 @@
 ;; ----------------
 (add-hook 'less-css-mode-hook '(lambda () (rainbow-mode 1)))
 (add-hook 'css-mode-hook '(lambda () (rainbow-mode 1)))
-
 
 ;; (require 'web-vcs)
 ;; (add-to-list 'load-path "~/.emacs.d/nxhtml")
@@ -379,7 +349,6 @@
 
 ;; (require 'javascript-mode)
 
-
 ;; ;; django everything
 ;; ;; Old!
 ;; (require 'pony-mode)
@@ -392,7 +361,6 @@
 ;;       (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
 ;; (setq mumamo-background-colors nil)
 ;; (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
-
 
 ;; ;; Restructured Text
 ;; ;; http://docutils.sourceforge.net/docs/user/emacs.html
@@ -414,7 +382,6 @@
 ;;                 ;;("\\.rst$" . rst-mode)
 ;;                 ;;("\\.rest$" . rst-mode)
 ;; 		) auto-mode-alist))
-
 ;; ;;(setq auto-mode-alist (cons '("\\.html$" . html-helper-mode) auto-mode-alist))
 
 ;; (require 'php-mode)
@@ -426,20 +393,12 @@
 ;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-
 ;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-
 ;; (add-hook 'web-mode-hook (lambda () (global-font-lock-mode -1)))
-
-
-
-
-
 
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ;; Package management ;;
 ;; ;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;; (defvar custom-packages
 ;;   '(
 ;;     yasnippet
@@ -451,8 +410,6 @@
 ;;       (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
 ;; (setq mumamo-background-colors nil)
 ;; (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
-
-
 ;; (add-hook 'html-mode-hook
 ;;           '(lambda ()
 ;;              (auto-fill-mode -1)))
@@ -460,7 +417,6 @@
 ;; ;; ;;;;;;;;;;;;;;;
 ;; ;; ;; text mode ;;
 ;; ;; ;;;;;;;;;;;;;;;
-
 ;; (add-hook 'text-mode-hook
 ;;           '(lambda ()
 ;;              (auto-fill-mode -1)))
@@ -469,23 +425,31 @@
 ;; ;; ;;;;;;;;;;;;;;
 ;; ;; ;; markdown ;;
 ;; ;; ;;;;;;;;;;;;;;
-
 ;; (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 
-
-
-
-;; ;;---
-;; ;; CUSTOM set variables
-;; ;; custom-set-variables was added by Custom. blah blah blah.
-;; ;;
-
-
+;;---
+;; CUSTOM set variables
+;; custom-set-variables was added by Custom. blah blah blah.
+;;
+;; custom-set-variables was added by Custom.
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+(custom-set-variables
+ '(column-number-mode t)
+ '(display-battery-mode t)
+ '(display-time-mode t)
+ '(indicate-empty-lines t)
+ '(save-place t nil (saveplace))
+ '(send-mail-function (quote sendmail-send-it))
+ '(show-paren-mode t)
+ '(size-indication-mode t)
+ '(tool-bar-mode nil)
+ '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
 ;;  '(yas/good-grace t)
 ;;  '(yas/prompt-functions (quote (yas/ido-prompt yas/completing-prompt yas/no-prompt)))
 ;;  '(yas/prompt-functions (quote (yas/ido-prompt yas/dropdown-prompt yas/completing-prompt yas/x-prompt yas/no-prompt)))
 ;;  '(yas/snippet-dirs (quote ("~/.emacs.d/yasnippet/snippets")) nil (yasnippet))
-
 ;; (put 'downcase-region 'disabled nil)
 ;; (put 'upcase-region 'disabled nil)

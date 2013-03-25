@@ -69,13 +69,10 @@
 ;; Flymake additions, I have to put this one somwhere else?
 ;;=========================================================
 
-(defun flymake-create-temp-in-system-tempdir (filename prefix)
-  (make-temp-file (or prefix "flymake")))
-
 (defun flymake-create-copy-file ()
   "Create a copy local file"
   (let* ((temp-file (flymake-init-create-temp-buffer-copy 
-                     'flymake-create-temp-in-system-tempdir)))
+                     'flymake-create-temp-inplace)))
     (file-relative-name 
      temp-file 
      (file-name-directory buffer-file-name))))     

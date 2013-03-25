@@ -1,9 +1,9 @@
 
 ;; ----- smex-history -----
 (
+ comment-or-uncomment-region
  sort-lines
  load-file
- comment-or-uncomment-region
  query-replace-regexp
  yas/global-mode
  idle-highlight-mode
@@ -21,7 +21,7 @@
  (slitex-mode . 1)
  (org-iswitchb . 2)
  (delete-trailing-whitespace . 31)
- (comment-or-uncomment-region . 9)
+ (comment-or-uncomment-region . 10)
  (autopair-mode . 2)
  (magit-status . 7)
  (python-mode . 5)
