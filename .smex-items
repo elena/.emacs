@@ -1,33 +1,33 @@
 
 ;; ----- smex-history -----
 (
- html-mode
- rst-mode
- delete-trailing-whitespace
- magit-status
- python-mode
- shell
- compile
+ sort-lines
+ load-file
+ comment-or-uncomment-region
+ query-replace-regexp
+ yas/global-mode
+ idle-highlight-mode
+ hi-lock-mode
 )
 
 ;; ----- smex-data -----
 (
- (html-mode . 5)
+ (html-mode . 13)
  (org-mode . 4)
  (org-export-htmlize-generate-css . 2)
- (load-file . 4)
+ (load-file . 5)
  (bruce . 1)
  (org-agenda . 2)
  (slitex-mode . 1)
  (org-iswitchb . 2)
- (delete-trailing-whitespace . 20)
- (comment-or-uncomment-region . 3)
+ (delete-trailing-whitespace . 31)
+ (comment-or-uncomment-region . 9)
  (autopair-mode . 2)
  (magit-status . 7)
- (python-mode . 3)
- (sort-lines . 4)
+ (python-mode . 5)
+ (sort-lines . 6)
  (shell . 5)
- (auto-complete . 1)
+ (auto-complete . 3)
  (edit-tab-stops . 1)
  (calc . 1)
  (python-shell-completion-complete-or-indent . 2)
@@ -35,5 +35,42 @@
  (describe-function . 1)
  (compile . 2)
  (magit-log . 1)
- (rst-mode . 1)
+ (rst-mode . 2)
+ (replace-regexp . 1)
+ (query-replace-regexp . 4)
+ (rename-file . 2)
+ (rename-buffer . 1)
+ (toggle-truncate-lines . 2)
+ (command-history . 1)
+ (indent-region . 3)
+ (web-mode . 3)
+ (php-mode . 2)
+ (describe-key . 2)
+ (dired . 3)
+ (list-directory . 1)
+ (find-lisp-find-dired . 8)
+ (normal-mode . 1)
+ (lisp-mode . 1)
+ (hi-lock-mode . 4)
+ (refill-mode . 3)
+ (mouse-wheel-mode . 1)
+ (yas/global-mode . 2)
+ (transient-mark-mode . 1)
+ (size-indication-mode . 1)
+ (show-paren-mode . 1)
+ (rngalt-minimal-validation-header-toggle . 2)
+ (rngalt-minimal-validation-header . 1)
+ (rngalt-display-validation-header . 1)
+ (nxhtml-tag-do-also . 1)
+ (ido-ubiquitous . 1)
+ (ido-everywhere . 1)
+ (idle-highlight-mode . 3)
+ (hl-line-mode . 3)
+ (global-font-lock-mode . 13)
+ (font-lock-mode . 1)
+ (auto-composition-mode . 1)
+ (auto-compression-mode . 1)
+ (auto-encryption-mode . 1)
+ (auto-fill-mode . 1)
+ (global-auto-complete-mode . 1)
 )
