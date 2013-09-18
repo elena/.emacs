@@ -22,6 +22,10 @@
 (require 'auto-complete-config)
 (require 'color-theme)
 
+(defun set-frame-width-interactive (arg)
+   (interactive "p")
+   (set-frame-width (selected-frame) arg))
+
 
 ;; ---------------
 ;; ===============
@@ -38,10 +42,13 @@
 (setq calendar-location-name "Sydney")
 (setq calendar-longitude 149.08)
 (setq find-file-wildcards t)
+(setq minibuffer-default-add-shell-commands t)
+(setq iswitchb-buffer-ignore '("^\*"))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(find-file "~/Dropbox/td/todo.htm")
-(find-file "~/.emacs.d/init.el")
+
+;(find-file "~/Dropbox/td/todo.htm")
+;(find-file "~/.emacs.d/init.el")
 
 ;; Options have liked the look of at whatever stage.
 ;; (desktop-save-mode 1)
@@ -79,6 +86,7 @@
 ;; ------------------
 ;; * Linux specific *
 ;; ------------------
+(set-default-font "Mono-8")
 ;; (set-default-font "DejaVu Sans Mono-9")
 ;; (set-default-font "Monaco Regular-10")
 ;; (set-default-font "Nimbus Mono")
@@ -88,9 +96,9 @@
 ;; ----------------
 ;; * OSX specific *
 ;; ----------------
-(set-keyboard-coding-system nil)
-(setq mac-command-modifier 'meta)
-(set-default-font "Menlo-10")
+;; (set-keyboard-coding-system nil)
+;; (setq mac-command-modifier 'meta)
+;; (set-default-font "Menlo-10")
 
 ;; --------------------
 ;; * Windows specific *
@@ -320,6 +328,8 @@
 ;; (add-to-list 'load-path "~/.emacs.d/nxhtml/nxhtml")
 ;; (require 'nxhtml)
 
+(add-hook 'html-mode-hook' '(lambda () (setq indent-tabs-mode nil)))
+
 ;; (require 'html-helper-mode)
 ;; (autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
 
@@ -437,9 +447,14 @@
 ;; Your init file should contain only one such instance.
 ;; If there is more than one, they won't work right.
 (custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(display-battery-mode t)
  '(display-time-mode t)
+ '(indent-tabs-mode nil)
  '(indicate-empty-lines t)
  '(save-place t nil (saveplace))
  '(send-mail-function (quote sendmail-send-it))
@@ -452,4 +467,10 @@
 ;;  '(yas/prompt-functions (quote (yas/ido-prompt yas/dropdown-prompt yas/completing-prompt yas/x-prompt yas/no-prompt)))
 ;;  '(yas/snippet-dirs (quote ("~/.emacs.d/yasnippet/snippets")) nil (yasnippet))
 ;; (put 'downcase-region 'disabled nil)
-;; (put 'upcase-region 'disabled nil)
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+(put 'upcase-region 'disabled nil)
