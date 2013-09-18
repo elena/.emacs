@@ -219,52 +219,44 @@
 ;; the fold ---------------------------------------------------------------------
 ;; ==============================================================================
 ;; application specific configuration -------------------------------------------
+;; 25-Mar-2013:
+;; Tidying still required.
+;;
 
 ;; -----------------
 ;; =================
 ;; **  Python     **
 ;; =================
 ;; -----------------
-;; Vanilla settings:
-;(autoload 'python-mode "python-mode.el" "Major mode for editing Python source." t)
-;; Not using vanilla emacs python settings, using Gabriel Elanaro's:
 ;; https://github.com/gabrielelanaro/emacs-for-python
-;(load-file "~/.emacs.d/emacs-for-python/epy-init.el")
 
 ;; * emacs-for-python *
 ;; --------------------
 (add-to-list 'load-path "~/.emacs.d/emacs-for-python/")
 (require 'epy-setup)
 (require 'epy-python)
-(require 'epy-completion)
 (require 'epy-editing)
 (require 'epy-bindings)
+(require 'highlight-indentation)
+(add-hook 'python-mode-hook 'highlight-indentation)
 (setq skeleton-pair nil)
-;(require 'highlight-indentation)
-;(add-hook 'python-mode-hook 'highlight-indentation)
-; (require 'epy-nose)
+
+;; * completions *
+;; ---------------
+(require 'epy-completion)
+
+;; * nose tests *
+;; --------------
+;; "nose extends unittest to make testing easier"
+(require 'epy-nose)
 
 ;; * pyflakes *
 ;; ------------
-;; Requires python package "pyflakes" to be installed
-
-;25-Mar-2013: sadness.
-; need to reinstall old init.
-;Flymake: Configuration error has occured while running
-;   (/Users/elena/site-packages/pyflakes/bin/pyflakes ../../../var/folders/qj/672z5vgd6jn2cwn4g0g8c5l00000gn/T/flymake36758nX\A). Flymake will be switched OFF
-; (epy-setup-checker "~/site-packages/pyflakes/bin/pyflakes %f")
 (epy-setup-checker "/usr/local/bin/pyflakes %f")
 
 ;; * ipython *
 ;; ------------
-;; load ipython.el if ipython is available
-;; (when (executable-find "ipython")
-;;   (require 'ipython nil 'noerror))
-;; (when (featurep 'ipython)
-;;   (setq python-python-command "ipython")
-;;   (autoload 'py-shell "ipython"
-;;     "Use IPython as the Python interpreter." t))
-
+(epy-setup-ipython)
 
 
 ;; -----------------
