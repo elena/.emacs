@@ -1,1 +1,5 @@
 .DS_Store
+session.*
+eproject.*
+auto-save-list*
+url*

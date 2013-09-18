@@ -43,7 +43,6 @@
 (setq calendar-longitude 149.08)
 (setq find-file-wildcards t)
 (setq minibuffer-default-add-shell-commands t)
-(setq iswitchb-buffer-ignore '("^\*"))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
