@@ -132,6 +132,9 @@
 (global-set-key "\C-\M-r" 'remember)
 (global-set-key "\C-x\ g" 'magit-status)
 
+(global-set-key "\C-c\ n" 'flymake-goto-next-error)
+
+
 ;; -------------------
 ;; ** Auto-Complete **
 ;; -------------------
