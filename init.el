@@ -22,6 +22,9 @@
 (require 'auto-complete-config)
 (require 'color-theme)
 
+(add-to-list 'load-path "~/src/emacs-jabber")
+(require 'jabber)
+
 (defun set-frame-width-interactive (arg)
    (interactive "p")
    (set-frame-width (selected-frame) arg))
@@ -46,8 +49,6 @@
 (setq skeleton-pair nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-
-;(find-file "~/Dropbox/td/todo.htm")
 ;(find-file "~/.emacs.d/init.el")
 
 ;; Options have liked the look of at whatever stage.
@@ -86,7 +87,26 @@
 ;; ------------------
 ;; * Linux specific *
 ;; ------------------
-(set-default-font "Mono-8")
+
+;; (set-default-font "-unknown-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;; (set-frame-font "-unknown-Monaco-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;; (set-default-font "-unknown-ProggyCleanTT-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;; (set-frame-font "-unknown-ProggyCleanTT-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;; (set-default-font "-monotype-Andale Mono-normal-normal-normal--8-*-75-75-m-0-iso10646-1")
+;; (set-frame-font "-monotype-Andale Mono-normal-normal-normal--8-*-75-75-m-0-iso10646-1")
+;; (set-default-font "Monaco 8")
+;; (set-frame-font "Monaco 8")
+;; (set-face-attribute 'default nil :height 80)
+;;(set-face-attribute 'default nil :font "Ubuntu Mono")
+;;(set-default-font "Monaco 7")
+(set-default-font "Ubuntu Mono 8")
+;;(set-default-font "DejaVu Sans Mono 8")
+;;(set-default-font "Andale Mono 8")
+;;(set-default-font "ProggyCleanTT 10")
+
+;; (set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;; (set-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
+;; (set-default-font "Mono-8")
 ;; (set-default-font "DejaVu Sans Mono-9")
 ;; (set-default-font "Monaco Regular-10")
 ;; (set-default-font "Nimbus Mono")
@@ -132,7 +152,7 @@
 (global-set-key "\C-\M-r" 'remember)
 (global-set-key "\C-x\ g" 'magit-status)
 
-(global-set-key "\C-c\ n" 'flymake-goto-next-error)
+(global-set-key "\C-x\ n" 'flymake-goto-next-error)
 
 
 ;; -------------------
@@ -261,6 +281,18 @@
 ;; ------------
 (epy-setup-ipython)
 
+;; -----------------
+;; =================
+;; **  todo.txt   **
+;; =================
+;; -----------------
+
+;;(find-file "~/Dropbox/todo/todo.txt")
+
+;(require 'todotxt)
+(require 'todotxt-mode)
+;(add-to-list 'auto-mode-alist '("\\todo.txt\\'" . todotxt))
+(add-to-list 'auto-mode-alist '("\\todo.txt\\'" . todotxt-mode))
 
 ;; -----------------
 ;; =================
@@ -442,15 +474,18 @@
 ;; Your init file should contain only one such instance.
 ;; If there is more than one, they won't work right.
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(display-battery-mode t)
  '(display-time-mode t)
+ '(ibuffer-saved-filter-groups nil)
+ '(ibuffer-saved-filters (quote (("" ((filename . "") (content . "") (filename . "") (name . ""))) ("gnus" ((or (mode . message-mode) (mode . mail-mode) (mode . gnus-group-mode) (mode . gnus-summary-mode) (mode . gnus-article-mode)))) ("programming" ((or (mode . emacs-lisp-mode) (mode . cperl-mode) (mode . c-mode) (mode . java-mode) (mode . idl-mode) (mode . lisp-mode)))))))
  '(indent-tabs-mode nil)
  '(indicate-empty-lines t)
+ '(jabber-account-list (quote (("ele.wil@gmail.com" (:password . "") (:network-server . "talk.google.com") (:port . 80) (:connection-type . ssl)))))
  '(save-place t nil (saveplace))
  '(send-mail-function (quote sendmail-send-it))
  '(show-paren-mode t)
@@ -461,11 +496,18 @@
 ;;  '(yas/prompt-functions (quote (yas/ido-prompt yas/completing-prompt yas/no-prompt)))
 ;;  '(yas/prompt-functions (quote (yas/ido-prompt yas/dropdown-prompt yas/completing-prompt yas/x-prompt yas/no-prompt)))
 ;;  '(yas/snippet-dirs (quote ("~/.emacs.d/yasnippet/snippets")) nil (yasnippet))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
+;; (custom-set-faces
+;;   ;; custom-set-faces was added by Custom.
+;;   ;; If you edit it by hand, you could mess it up, so be careful.
+;;   ;; Your init file should contain only one such instance.
+;;   ;; If there is more than one, they won't work right.
+;;  '(default ((t (:inherit nil :stipple nil :background "Grey15" :foreground "Grey" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 90 :width normal :foundry "monotype" :family "Andale Mono")))))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
