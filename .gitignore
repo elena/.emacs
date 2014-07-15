@@ -4,3 +4,7 @@ eproject.*
 auto-save-list*
 url*
 ac-comphist.dat
+eproject.lst
+.emacs.desktop
+.emacs.desktop.lock
+emacs-jabber
