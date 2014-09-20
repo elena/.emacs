@@ -44,6 +44,7 @@
 (setq find-file-wildcards t)
 (setq minibuffer-default-add-shell-commands t)
 (setq iswitchb-buffer-ignore '("^\*"))
+(setq skeleton-pair nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
@@ -92,6 +93,7 @@
 ;; (set-default-font "Nimbus Mono")
 ;; (set-default-font "ProggyClean-11:bold")
 ;; (set-default-font "Monaco Regular-10")
+(set-face-attribute 'default nil :height 75)
 
 ;; ----------------
 ;; * OSX specific *
@@ -131,6 +133,9 @@
 (global-set-key "\C-c\ l" 'org-store-link)
 (global-set-key "\C-\M-r" 'remember)
 (global-set-key "\C-x\ g" 'magit-status)
+
+(global-set-key "\C-c\ n" 'flymake-goto-next-error)
+
 
 ;; -------------------
 ;; ** Auto-Complete **
@@ -198,6 +203,22 @@
         (yank)))))
 (global-set-key (kbd "C-c d") 'duplicate-line)
 
+(defun uniquify-all-lines-region (start end)
+  "Find duplicate lines in region START to END keeping first occurrence."
+  (interactive "*r")
+  (save-excursion
+    (let ((end (copy-marker end)))
+      (while
+          (progn
+            (goto-char start)
+            (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
+        (replace-match "\\1\n\\2")))))
+
+(defun uniquify-all-lines-buffer ()
+  "Delete duplicate lines in buffer and keep first occurrence."
+  (interactive "*")
+  (uniquify-all-lines-region (point-min) (point-max)))
+
 ;; -------------
 ;; ** Display **
 ;; -------------
@@ -219,52 +240,45 @@
 ;; the fold ---------------------------------------------------------------------
 ;; ==============================================================================
 ;; application specific configuration -------------------------------------------
+;; 25-Mar-2013:
+;; Tidying still required.
+;;
 
 ;; -----------------
 ;; =================
 ;; **  Python     **
 ;; =================
 ;; -----------------
-;; Vanilla settings:
-;(autoload 'python-mode "python-mode.el" "Major mode for editing Python source." t)
-;; Not using vanilla emacs python settings, using Gabriel Elanaro's:
 ;; https://github.com/gabrielelanaro/emacs-for-python
-;(load-file "~/.emacs.d/emacs-for-python/epy-init.el")
 
 ;; * emacs-for-python *
 ;; --------------------
 (add-to-list 'load-path "~/.emacs.d/emacs-for-python/")
 (require 'epy-setup)
 (require 'epy-python)
-(require 'epy-completion)
 (require 'epy-editing)
 (require 'epy-bindings)
+(require 'highlight-indentation)
+(add-hook 'python-mode-hook 'highlight-indentation)
 (setq skeleton-pair nil)
-;(require 'highlight-indentation)
-;(add-hook 'python-mode-hook 'highlight-indentation)
-; (require 'epy-nose)
+
+;; * completions *
+;; ---------------
+(require 'epy-completion)
+
+;; * nose tests *
+;; --------------
+;; "nose extends unittest to make testing easier"
+(require 'epy-nose)
 
 ;; * pyflakes *
 ;; ------------
-;; Requires python package "pyflakes" to be installed
-
-;25-Mar-2013: sadness.
-; need to reinstall old init.
-;Flymake: Configuration error has occured while running
-;   (/Users/elena/site-packages/pyflakes/bin/pyflakes ../../../var/folders/qj/672z5vgd6jn2cwn4g0g8c5l00000gn/T/flymake36758nX\A). Flymake will be switched OFF
-; (epy-setup-checker "~/site-packages/pyflakes/bin/pyflakes %f")
+;; Need to python install pyflakes.
 (epy-setup-checker "/usr/local/bin/pyflakes %f")
 
 ;; * ipython *
 ;; ------------
-;; load ipython.el if ipython is available
-;; (when (executable-find "ipython")
-;;   (require 'ipython nil 'noerror))
-;; (when (featurep 'ipython)
-;;   (setq python-python-command "ipython")
-;;   (autoload 'py-shell "ipython"
-;;     "Use IPython as the Python interpreter." t))
-
+(epy-setup-ipython)
 
 
 ;; -----------------
@@ -467,10 +481,12 @@
 ;;  '(yas/prompt-functions (quote (yas/ido-prompt yas/dropdown-prompt yas/completing-prompt yas/x-prompt yas/no-prompt)))
 ;;  '(yas/snippet-dirs (quote ("~/.emacs.d/yasnippet/snippets")) nil (yasnippet))
 ;; (put 'downcase-region 'disabled nil)
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
+;; (custom-set-faces
+;;   ;; custom-set-faces was added by Custom.
+;;   ;; If you edit it by hand, you could mess it up, so be careful.
+;;   ;; Your init file should contain only one such instance.
+;;   ;; If there is more than one, they won't work right.
+;;  )
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
