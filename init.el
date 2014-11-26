@@ -11,9 +11,15 @@
 ;;   - php
 ;;
 ;; ~ text editing (crazy!)
-;;   - rst/markdown
+;;   - rst
+;;   - markdown
 ;;
 ;; ~ org-mode
+;;
+;; install the following
+;;  git@github.com:magit/magit.git
+;;  git@github.com:magit/git-modes.git
+
 
 ;; ALL THE 'REQUIRES' up the top
 ;; In load order.
@@ -21,6 +27,13 @@
 (require 'recentf)
 (require 'auto-complete-config)
 (require 'color-theme)
+
+(add-to-list 'load-path "~/src/git-modes")
+(require 'git-commit-mode)
+(require 'git-rebase-mode)
+
+(add-to-list 'load-path "~/src/magit")
+(require 'magit)
 
 (add-to-list 'load-path "~/src/emacs-jabber")
 (require 'jabber)
@@ -83,6 +96,13 @@
 ;; =================
 ;; -----------------
 ;; Niceties not specific to an application.
+
+(defun stop-using-minibuffer ()
+  "kill the minibuffer"
+  (when (and (>= (recursion-depth) 1) (active-minibuffer-window))
+    (abort-recursive-edit)))
+
+(add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)
 
 ;; ------------------
 ;; * Linux specific *
@@ -202,7 +222,7 @@
     (beginning-of-line)))
 (global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
 
-;; Duplicate Line
+;; Duplicate/Uniquify Line
 ;; --------------
 (defun duplicate-line ()
   "Clone line at cursor, leaving the latter intact."
@@ -220,6 +240,22 @@
         (toggle-read-only 0)
         (yank)))))
 (global-set-key (kbd "C-c d") 'duplicate-line)
+
+(defun uniquify-all-lines-region (start end)
+  "Find duplicate lines in region START to END keeping first occurrence."
+  (interactive "*r")
+  (save-excursion
+    (let ((end (copy-marker end)))
+      (while
+          (progn
+            (goto-char start)
+            (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
+        (replace-match "\\1\n\\2")))))
+
+(defun uniquify-all-lines-buffer ()
+  "Delete duplicate lines in buffer and keep first occurrence."
+  (interactive "*")
+  (uniquify-all-lines-region (point-min) (point-max)))
 
 ;; -------------
 ;; ** Display **
@@ -290,9 +326,9 @@
 ;;(find-file "~/Dropbox/todo/todo.txt")
 
 ;(require 'todotxt)
-(require 'todotxt-mode)
+;; (require 'todotxt-mode)
 ;(add-to-list 'auto-mode-alist '("\\todo.txt\\'" . todotxt))
-(add-to-list 'auto-mode-alist '("\\todo.txt\\'" . todotxt-mode))
+;; (add-to-list 'auto-mode-alist '("\\todo.txt\\'" . todotxt-mode))
 
 ;; -----------------
 ;; =================
