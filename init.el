@@ -44,9 +44,8 @@
 (setq find-file-wildcards t)
 (setq minibuffer-default-add-shell-commands t)
 (setq iswitchb-buffer-ignore '("^\*"))
-(setq skeleton-pair nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
+(setq skeleton-pair nil)
 
 ;(find-file "~/Dropbox/td/todo.htm")
 ;(find-file "~/.emacs.d/init.el")
