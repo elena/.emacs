@@ -1,1 +1,0 @@
-/home/elena/src/gitsum/gitsum.el

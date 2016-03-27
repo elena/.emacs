@@ -16,9 +16,11 @@
 ;;
 ;; ~ org-mode
 ;;
-;; install the following
+;; install the following:
+;;
 ;;  git@github.com:magit/magit.git
 ;;  git@github.com:magit/git-modes.git
+;;  https://github.com/defunkt/markdown-mode
 
 
 ;; ALL THE 'REQUIRES' up the top
@@ -28,15 +30,7 @@
 (require 'auto-complete-config)
 (require 'color-theme)
 
-(add-to-list 'load-path "~/src/git-modes")
-(require 'git-commit-mode)
-(require 'git-rebase-mode)
-
-(add-to-list 'load-path "~/src/magit")
-(require 'magit)
-
-(add-to-list 'load-path "~/src/emacs-jabber")
-(require 'jabber)
+(setq package-enable-at-startup nil)
 
 (defun set-frame-width-interactive (arg)
    (interactive "p")
@@ -59,7 +53,6 @@
 (setq calendar-longitude 149.08)
 (setq find-file-wildcards t)
 (setq minibuffer-default-add-shell-commands t)
-(setq skeleton-pair nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;(find-file "~/.emacs.d/init.el")
@@ -88,6 +81,7 @@
 ;; ------------
 (recentf-mode 1)
 (setq recentf-max-menu-items 99)
+(setq recentf-max-saved-items 99)
 
 
 ;; -----------------
@@ -96,13 +90,6 @@
 ;; =================
 ;; -----------------
 ;; Niceties not specific to an application.
-
-(defun stop-using-minibuffer ()
-  "kill the minibuffer"
-  (when (and (>= (recursion-depth) 1) (active-minibuffer-window))
-    (abort-recursive-edit)))
-
-(add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)
 
 ;; ------------------
 ;; * Linux specific *
@@ -117,12 +104,15 @@
 ;; (set-default-font "Monaco 8")
 ;; (set-frame-font "Monaco 8")
 ;; (set-face-attribute 'default nil :height 80)
-;;(set-face-attribute 'default nil :font "Ubuntu Mono")
-;;(set-default-font "Monaco 7")
-(set-default-font "Ubuntu Mono 8")
-;;(set-default-font "DejaVu Sans Mono 8")
-;;(set-default-font "Andale Mono 8")
-;;(set-default-font "ProggyCleanTT 10")
+;; (set-face-attribute 'default nil :font "Ubuntu Mono")
+;; (set-default-font "Monaco 7")
+;; (set-default-font "Ubuntu Mono 8")
+;; (set-default-font "DejaVu Sans Mono 8")
+;; (set-default-font "Andale Mono 8")
+;; (set-default-font "ProggyCleanTT 10")
+
+(set-default-font "DejaVu Sans Mono-9")
+(set-face-attribute 'default nil :height 75)
 
 ;; (set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
 ;; (set-frame-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
@@ -204,6 +194,18 @@
   (setq ido-everywhere t)
   (ido-mode 1)
 
+;; Kill unused minibuffer
+;; ----------------------
+;; Automatically killing the the minibuffer if mouse is clicked outside minibuffer.
+;; This often happens after C-x f when trying to find location of file trying to find.
+
+(defun stop-using-minibuffer ()
+  "kill the minibuffer"
+  (when (and (>= (recursion-depth) 1) (active-minibuffer-window))
+    (abort-recursive-edit)))
+
+(add-hook 'mouse-leave-buffer-hook 'stop-using-minibuffer)
+
 ;; Snippets
 ;; --------
 (setq yas/prompt-functions '(yas/ido-prompt
@@ -257,6 +259,37 @@
   (interactive "*")
   (uniquify-all-lines-region (point-min) (point-max)))
 
+;; ====================
+;; insert date and time
+
+(defvar current-date-time-format "%a %b %d %H:%M:%S %Z %Y"
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+(defvar current-time-format "%a %H:%M:%S"
+  "Format of date to insert with `insert-current-time' func.
+Note the weekly scope of the command's precision.")
+
+(defun insert-current-date-time ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+       (interactive)
+       (insert "==========\n")
+;       (insert (let () (comment-start)))
+       (insert (format-time-string current-date-time-format (current-time)))
+       (insert "\n")
+       )
+
+(defun insert-current-time ()
+  "insert the current time (1-week scope) into the current buffer."
+       (interactive)
+       (insert (format-time-string current-time-format (current-time)))
+       (insert "\n")
+       )
+
+(global-set-key "\C-c\C-d" 'insert-current-date-time)
+(global-set-key "\C-c\C-t" 'insert-current-time)
+
 ;; -------------
 ;; ** Display **
 ;; -------------
@@ -271,7 +304,6 @@
 ;; ;;(require 'icicles)
 ;; ;;(icy-mode 1)
 ;; ;; (require 'doremi-cmd)
-
 
 
 
@@ -296,13 +328,11 @@
 (require 'epy-python)
 (require 'epy-editing)
 (require 'epy-bindings)
-(require 'highlight-indentation)
-(add-hook 'python-mode-hook 'highlight-indentation)
-(setq skeleton-pair nil)
 
 ;; * completions *
 ;; ---------------
 (require 'epy-completion)
+(setq skeleton-pair nil) ;; this setting (in this location) drove me nuts to find
 
 ;; * nose tests *
 ;; --------------
@@ -316,6 +346,24 @@
 ;; * ipython *
 ;; ------------
 (epy-setup-ipython)
+
+;; * misc *
+;; ------------
+
+;; (global-hl-line-mode t)
+;; (set-face-background 'hl-line "black")
+
+;; (require 'highlight-indentation)
+;; (add-hook 'python-mode-hook 'highlight-indentation)
+
+;; ------------
+;; * additional python *
+;; ------------
+
+(defun pymacs-restart ()
+  (interactive)
+  (pymacs-load "ropemacs" "rope-"))
+
 
 ;; -----------------
 ;; =================
@@ -379,7 +427,7 @@
 ;; =================
 ;; -----------------
 
-(epy-django-snippets)
+;; (epy-django-snippets)
 
 ;; * rainbow-mode *
 ;; ----------------
@@ -392,6 +440,21 @@
 ;; (require 'nxhtml)
 
 (add-hook 'html-mode-hook' '(lambda () (setq indent-tabs-mode nil)))
+
+
+;; * web-mode *
+;; ----------------
+
+(require 'web-mode)
+(defun add-auto-mode (mode &rest patterns)
+  (mapc (lambda (pattern)
+          (add-to-list 'auto-mode-alist (cons pattern mode)))
+        patterns))
+
+(add-auto-mode 'web-mode
+               "*html*" "*twig*" "*tmpl*" "\\.erb" "\\.rhtml$" "\\.ejs$" "\\.hbs$"
+               "\\.ctp$" "\\.tpl$" "/\\(views\\|html\\|templates\\)/.*\\.php$")
+
 
 ;; (require 'html-helper-mode)
 ;; (autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
@@ -498,8 +561,12 @@
 ;; ;; ;;;;;;;;;;;;;;
 ;; ;; ;; markdown ;;
 ;; ;; ;;;;;;;;;;;;;;
-;; (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
-;; (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
+
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.txt" . markdown-mode))
+
 
 ;;---
 ;; CUSTOM set variables
@@ -515,7 +582,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(display-battery-mode t)
+ ;; '(display-battery-mode t)
  '(display-time-mode t)
  '(ibuffer-saved-filter-groups nil)
  '(ibuffer-saved-filters (quote (("" ((filename . "") (content . "") (filename . "") (name . ""))) ("gnus" ((or (mode . message-mode) (mode . mail-mode) (mode . gnus-group-mode) (mode . gnus-summary-mode) (mode . gnus-article-mode)))) ("programming" ((or (mode . emacs-lisp-mode) (mode . cperl-mode) (mode . c-mode) (mode . java-mode) (mode . idl-mode) (mode . lisp-mode)))))))
@@ -547,3 +614,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'scroll-left 'disabled nil)
