@@ -15,6 +15,48 @@
 ;;
 ;; ~ org-mode
 
+(package-initialize)
+
+(let ((default-directory "~/.emacs.d/"))
+  (normal-top-level-add-subdirs-to-load-path))
+
+(require 'package)
+
+(defvar my-packages
+  '(better-defaults
+    cyberpunk-theme
+    elpy
+    exec-path-from-shell
+    flycheck
+    js2-mode
+    json-mode
+    magit
+    markdown-mode
+    markdown-preview-mode
+    osx-clipboard
+    py-autopep8
+    rainbow-delimiters
+    smart-mode-line
+    web-mode
+    yaml-mode))
+
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/"))
+
+
+(when (not package-archive-contents)
+    (package-refresh-contents))
+(package-initialize)
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+(require 'better-defaults)
+;; (require 'modeline-posn)
+
+
+
 ;; ALL THE 'REQUIRES' up the top
 ;; In load order.
 (add-to-list 'load-path "~/.emacs.d/")
@@ -26,6 +68,19 @@
    (interactive "p")
    (set-frame-width (selected-frame) arg))
 
+(add-to-list 'load-path "~/.emacs.d/beancount/src/elisp")
+(require 'beancount)
+(add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
+
+
+(require 'god-mode)
+(global-set-key (kbd "<f9>") 'god-mode-all)
+(define-key god-local-mode-map (kbd ".") 'repeat)
+(define-key god-local-mode-map (kbd "i") 'god-local-mode)
+
+;; (require 'golden-ratio)
+;; (golden-ratio-mode 1)
+;; (setq golden-ratio-auto-scale t)
 
 ;; ---------------
 ;; ===============
@@ -38,6 +93,8 @@
 (delete-selection-mode 1)
 (line-number-mode 1)
 (tool-bar-mode -1)
+(column-number-mode 1)
+(size-indication-mode 1)
 (setq calendar-latitude -35.17)
 (setq calendar-location-name "Sydney")
 (setq calendar-longitude 149.08)
@@ -86,7 +143,7 @@
 ;; ------------------
 ;; * Linux specific *
 ;; ------------------
-(set-default-font "Mono-8")
+
 ;; (set-default-font "DejaVu Sans Mono-9")
 ;; (set-default-font "Monaco Regular-10")
 ;; (set-default-font "Nimbus Mono")
@@ -264,7 +321,106 @@
 ;;   (setq python-python-command "ipython")
 ;;   (autoload 'py-shell "ipython"
 ;;     "Use IPython as the Python interpreter." t))
+=======
+;; INSTALL PACKAGES
+;; --------------------------------------
 
+(require 'package)
+
+(add-to-list 'package-archives
+       '("melpa" . "http://melpa.org/packages/") t)
+
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar myPackages
+  '(better-defaults
+    ein
+    elpy
+    flycheck
+    material-theme
+    py-autopep8))
+
+(mapc #'(lambda (package)
+    (unless (package-installed-p package)
+      (package-install package)))
+      myPackages)
+
+;; BASIC CUSTOMIZATION
+;; --------------------------------------
+
+(setq inhibit-startup-message t) ;; hide the startup message
+(load-theme 'material t) ;; load material theme
+(global-linum-mode t) ;; enable line numbers globally
+
+;; PYTHON CONFIGURATION
+;; --------------------------------------
+
+(elpy-enable)
+;; (elpy-use-ipython)
+
+;; use flycheck not flymake with elpy
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+;; enable autopep8 formatting on save
+(require 'py-autopep8)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+;; ;; * emacs-for-python *
+;; ;; --------------------
+;; (add-to-list 'load-path "~/.emacs.d/emacs-for-python/")
+;; (require 'epy-setup)
+;; (require 'epy-python)
+;; (require 'epy-editing)
+;; (require 'epy-bindings)
+
+;; ;; * completions *
+;; ;; ---------------
+;; (require 'epy-completion)
+;; (setq skeleton-pair nil) ;; this setting (in this location) drove me nuts to find
+
+;; ;; * nose tests *
+;; ;; --------------
+;; ;; "nose extends unittest to make testing easier"
+;; (require 'epy-nose)
+
+;; ;; * pyflakes *
+;; ;; ------------
+;; (epy-setup-checker "/usr/local/bin/pyflakes %f")
+;; ;; (require 'flymake-python-pyflakes)
+;; ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+;; ;; (setq flymake-python-pyflakes-executable "flake8")
+
+;; ;; * ipython *
+;; ;; ------------
+;; (epy-setup-ipython)
+
+;; * misc *
+;; ------------
+
+;; (global-hl-line-mode t)
+;; (set-face-background 'hl-line "black")
+
+;; (require 'highlight-indentation)
+;; (add-hook 'python-mode-hook 'highlight-indentation)
+
+;; ------------
+;; * additional python *
+;; ------------
+
+(defun pymacs-restart ()
+  (interactive)
+  (pymacs-load "ropemacs" "rope-"))
+
+
+;; -----------------
+;; =================
+;; **  todo.txt   **
+;; =================
+;; -----------------
 
 
 ;; -----------------
@@ -328,7 +484,7 @@
 ;; (add-to-list 'load-path "~/.emacs.d/nxhtml/nxhtml")
 ;; (require 'nxhtml)
 
-(add-hook 'html-mode-hook' '(lambda () (setq indent-tabs-mode nil)))
+;; (add-hook 'html-mode-hook' '(lambda () (setq indent-tabs-mode nil)))
 
 ;; (require 'html-helper-mode)
 ;; (autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
