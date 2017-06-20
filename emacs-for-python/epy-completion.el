@@ -28,6 +28,7 @@
 (define-key ac-complete-mode-map "\M-n" 'ac-next)
 (define-key ac-complete-mode-map "\M-p" 'ac-previous)
 
+<<<<<<< Updated upstream
 
 ;; Disabling Yasnippet completion 
 (defun epy-snips-from-table (table)
@@ -40,22 +41,34 @@
                hashtab)
       (identity candidates)
       )))
+=======
+;; Disabling Yasnippet completion
+(when epy-load-yasnippet-p
+  (defun epy-snips-from-table (table)
+    (with-no-warnings
+      (let ((hashtab (ac-yasnippet-table-hash table))
+	    (parent (ac-yasnippet-table-parent table))
+	    candidates)
+	(maphash (lambda (key value)
+		   (push key candidates))
+		 hashtab)
+	(identity candidates))))
+>>>>>>> Stashed changes
 
-(defun epy-get-all-snips ()
-  (require 'yasnippet) ;; FIXME: find a way to conditionally load it
-  (let (candidates)
-    (maphash
-     (lambda (kk vv) (push (epy-snips-from-table vv) candidates)) yas/tables)
-    (apply 'append candidates))
-  )
+  (defun epy-get-all-snips ()
+    (require 'yasnippet) ;; FIXME: find a way to conditionally load it
+    (let (candidates)
+      (maphash
+       (lambda (kk vv) (push (epy-snips-from-table vv) candidates)) yas/tables)
+      (apply 'append candidates))))
 
 ;;(setq ac-ignores (concatenate 'list ac-ignores (epy-get-all-snips)))
 
 ;; ropemacs Integration with auto-completion
 (defun ac-ropemacs-candidates ()
   (mapcar (lambda (completion)
-      (concat ac-prefix completion))
-    (rope-completions)))
+	    (concat ac-prefix completion))
+	  (rope-completions)))
 
 (ac-define-source nropemacs
   '((candidates . ac-ropemacs-candidates)
@@ -71,7 +84,8 @@
   (setq ac-sources (append '(ac-source-nropemacs
                              ac-source-nropemacs-dot) ac-sources)))
 (defun ac-python-mode-setup ()
-  (add-to-list 'ac-sources 'ac-source-yasnippet))
+  (when epy-load-yasnippet-p
+    (add-to-list 'ac-sources 'ac-source-yasnippet)))
 
 (add-hook 'python-mode-hook 'ac-python-mode-setup)
 (add-hook 'rope-open-project-hook 'ac-nropemacs-setup)

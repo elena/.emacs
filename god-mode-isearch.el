@@ -1,0 +1,1 @@
+/home/elena/src/god-mode/god-mode-isearch.el
