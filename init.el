@@ -1,120 +1,123 @@
-;; Elena's emacs init
+;; ;; Elena's emacs init
 
-;; emacs usage:
-;;
-;; ~ python
-;;   - django
-;;   - scripts
-;;
-;; ~ web front-end
-;;   - html/css/javascript
-;;   - php
-;;
-;; ~ text editing (crazy!)
-;;   - rst/markdown
-;;
-;; ~ org-mode
+;; ;; emacs usage:
+;; ;;
+;; ;; ~ python
+;; ;;   - django
+;; ;;   - scripts
+;; ;;
+;; ;; ~ web front-end
+;; ;;   - html/css/javascript
+;; ;;   - php
+;; ;;
+;; ;; ~ text editing (crazy!)
+;; ;;   - rst/markdown
+;; ;;
+;; ;; ~ org-mode
 
-(package-initialize)
+;; (package-initialize)
 
-(let ((default-directory "~/.emacs.d/"))
-  (normal-top-level-add-subdirs-to-load-path))
+;; (let ((default-directory "~/.emacs.d/"))
+;;   (normal-top-level-add-subdirs-to-load-path))
 
-(require 'package)
+;; (require 'package)
+;; (add-to-list 'package-archives
+;;              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+;; (add-to-list 'package-archives
+;;              '("melpa" . "http://melpa.org/packages/"))
+;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
+;;                          ("melpa" . "http://melpa.org/packages/")))
 
-(defvar my-packages
-  '(better-defaults
-    cyberpunk-theme
-    elpy
-    exec-path-from-shell
-    flycheck
-    js2-mode
-    json-mode
-    magit
-    markdown-mode
-    markdown-preview-mode
-    osx-clipboard
-    py-autopep8
-    rainbow-delimiters
-    smart-mode-line
-    web-mode
-    yaml-mode))
-
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/"))
-
-
-(when (not package-archive-contents)
-    (package-refresh-contents))
-(package-initialize)
-
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
-
-(require 'better-defaults)
-;; (require 'modeline-posn)
+;; (defvar my-packages
+;;   '(better-defaults
+;;     cyberpunk-theme
+;;     elpy
+;;     exec-path-from-shell
+;;     flycheck
+;;     magit
+;;     markdown-mode
+;;     markdown-preview-mode
+;;     py-autopep8
+;;     rainbow-delimiters
+;;     smart-mode-line
+;;     web-mode
+;;     yaml-mode
+;;     ))
 
 
 
-;; ALL THE 'REQUIRES' up the top
-;; In load order.
-(add-to-list 'load-path "~/.emacs.d/")
-(require 'recentf)
-(require 'auto-complete-config)
-(require 'color-theme)
+;; (when (not package-archive-contents)
+;;     (package-refresh-contents))
+;; (package-initialize)
 
-(defun set-frame-width-interactive (arg)
-   (interactive "p")
-   (set-frame-width (selected-frame) arg))
+;; (dolist (p my-packages)
+;;   (when (not (package-installed-p p))
+;;     (package-install p)))
 
-(add-to-list 'load-path "~/.emacs.d/beancount/src/elisp")
-(require 'beancount)
-(add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
+;; (require 'better-defaults)
+;; ;; (require 'modeline-posn)
 
 
-(require 'god-mode)
-(global-set-key (kbd "<f9>") 'god-mode-all)
-(define-key god-local-mode-map (kbd ".") 'repeat)
-(define-key god-local-mode-map (kbd "i") 'god-local-mode)
 
-;; (require 'golden-ratio)
-;; (golden-ratio-mode 1)
-;; (setq golden-ratio-auto-scale t)
+;; ;; ALL THE 'REQUIRES' up the top
+;; ;; In load order.
+;; (add-to-list 'load-path "~/.emacs.d/")
+;; (require 'recentf)
+;; (require 'auto-complete-config)
+;; (require 'color-theme)
 
-;; ---------------
-;; ===============
-;; ** UTILITIES **
-;; ===============
-;; ---------------
-;; The day-to-day stuff can't live without and works universally.
-;; Not specific to an application
-(setq inhibit-splash-screen t)
-(delete-selection-mode 1)
-(line-number-mode 1)
-(tool-bar-mode -1)
-(column-number-mode 1)
-(size-indication-mode 1)
-(setq calendar-latitude -35.17)
-(setq calendar-location-name "Sydney")
-(setq calendar-longitude 149.08)
-(setq find-file-wildcards t)
-(setq minibuffer-default-add-shell-commands t)
-(setq iswitchb-buffer-ignore '("^\*"))
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; (defun set-frame-width-interactive (arg)
+;;    (interactive "p")
+;;    (set-frame-width (selected-frame) arg))
+
+;; (add-to-list 'load-path "~/.emacs.d/beancount/src/elisp")
+;; (require 'beancount)
+;; (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
 
 
-;(find-file "~/Dropbox/td/todo.htm")
-;(find-file "~/.emacs.d/init.el")
+;; (require 'god-mode)
+;; (global-set-key (kbd "<f9>") 'god-mode-all)
+;; (define-key god-local-mode-map (kbd ".") 'repeat)
+;; (define-key god-local-mode-map (kbd "i") 'god-local-mode)
 
-;; Options have liked the look of at whatever stage.
-;; (desktop-save-mode 1)
-;; (split-window-horizontally)
-;; (windmove-default-keybindings) ;; use shift-arrowkeys
-;; (require 'framemove)
-;; (framemove-default-keybindings) ;; default prefix is Meta
-;; (setq pop-up-frames t)
-;; (setq iswitchb-buffer-ignore '("^\\*"))
+;; ;; (require 'golden-ratio)
+;; ;; (golden-ratio-mode 1)
+;; ;; (setq golden-ratio-auto-scale t)
+
+;; ;; ---------------
+;; ;; ===============
+;; ;; ** UTILITIES **
+;; ;; ===============
+;; ;; ---------------
+;; ;; The day-to-day stuff can't live without and works universally.
+;; ;; Not specific to an application
+;; (setq inhibit-splash-screen t)
+;; (delete-selection-mode 1)
+;; (line-number-mode 1)
+;; (tool-bar-mode -1)
+;; (column-number-mode 1)
+;; (size-indication-mode 1)
+;; (setq calendar-latitude -35.17)
+;; (setq calendar-location-name "Sydney")
+;; (setq calendar-longitude 149.08)
+;; (setq find-file-wildcards t)
+;; (setq minibuffer-default-add-shell-commands t)
+;; (setq iswitchb-buffer-ignore '("^\*"))
+;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+;; ;(find-file "~/Dropbox/td/todo.htm")
+;; ;(find-file "~/.emacs.d/init.el")
+
+;; ;; Options have liked the look of at whatever stage.
+;; ;; (desktop-save-mode 1)
+;; ;; (split-window-horizontally)
+;; ;; (windmove-default-keybindings) ;; use shift-arrowkeys
+;; ;; (require 'framemove)
+;; ;; (framemove-default-keybindings) ;; default prefix is Meta
+;; ;; (setq pop-up-frames t)
+;; ;; (setq iswitchb-buffer-ignore '("^\\*"))
 
 ;; -----------------------
 ;; ** Backup management **
@@ -133,22 +136,25 @@
 (setq recentf-max-menu-items 99)
 
 
-;; -----------------
-;; =================
-;; ** CONVENIENCE **
-;; =================
-;; -----------------
-;; Niceties not specific to an application.
+;; ;; -----------------
+;; ;; =================
+;; ;; ** CONVENIENCE **
+;; ;; =================
+;; ;; -----------------
+;; ;; Niceties not specific to an application.
 
-;; ------------------
-;; * Linux specific *
-;; ------------------
+;; ;; ------------------
+;; ;; * Linux specific *
+;; ;; ------------------
 
+(set-default-font "Monospace-9")
+;; (set-default-font "Ubuntu Mono-10")
+;; (set-default-font "Liberation Mono-9")
 ;; (set-default-font "DejaVu Sans Mono-9")
 ;; (set-default-font "Monaco Regular-10")
 ;; (set-default-font "Nimbus Mono")
 ;; (set-default-font "ProggyClean-11:bold")
-;; (set-default-font "Monaco Regular-10")
+;; (set-default-font "Monaco Regular-9")
 
 ;; ----------------
 ;; * OSX specific *
@@ -258,12 +264,18 @@
 ;; -------------
 ;; ** Display **
 ;; -------------
+
+
+;; BASIC CUSTOMIZATION
+;; --------------------------------------
+
+(setq inhibit-startup-message t) ;; hide the startup message
+(load-theme 'material t) ;; load material theme
+(global-linum-mode t) ;; enable line numbers globally
+
 (color-theme-initialize)
 (setq color-theme-is-global t)
 (color-theme-charcoal-black)
-;; (color-theme-shaman)
-;; (require 'theme-changer)
-;; (change-theme 'color-theme-gtk-ide 'color-theme-charcoal-black)
 ;; ;; Icicles
 ;; ;; Pretty, nice, but greedy.
 ;; ;;(require 'icicles)
@@ -282,138 +294,6 @@
 ;; **  Python     **
 ;; =================
 ;; -----------------
-;; Vanilla settings:
-;(autoload 'python-mode "python-mode.el" "Major mode for editing Python source." t)
-;; Not using vanilla emacs python settings, using Gabriel Elanaro's:
-;; https://github.com/gabrielelanaro/emacs-for-python
-;(load-file "~/.emacs.d/emacs-for-python/epy-init.el")
-
-;; * emacs-for-python *
-;; --------------------
-(add-to-list 'load-path "~/.emacs.d/emacs-for-python/")
-(require 'epy-setup)
-(require 'epy-python)
-(require 'epy-completion)
-(require 'epy-editing)
-(require 'epy-bindings)
-(setq skeleton-pair nil)
-;(require 'highlight-indentation)
-;(add-hook 'python-mode-hook 'highlight-indentation)
-; (require 'epy-nose)
-
-;; * pyflakes *
-;; ------------
-;; Requires python package "pyflakes" to be installed
-
-;25-Mar-2013: sadness.
-; need to reinstall old init.
-;Flymake: Configuration error has occured while running
-;   (/Users/elena/site-packages/pyflakes/bin/pyflakes ../../../var/folders/qj/672z5vgd6jn2cwn4g0g8c5l00000gn/T/flymake36758nX\A). Flymake will be switched OFF
-; (epy-setup-checker "~/site-packages/pyflakes/bin/pyflakes %f")
-(epy-setup-checker "/usr/local/bin/pyflakes %f")
-
-;; * ipython *
-;; ------------
-;; load ipython.el if ipython is available
-;; (when (executable-find "ipython")
-;;   (require 'ipython nil 'noerror))
-;; (when (featurep 'ipython)
-;;   (setq python-python-command "ipython")
-;;   (autoload 'py-shell "ipython"
-;;     "Use IPython as the Python interpreter." t))
-=======
-;; INSTALL PACKAGES
-;; --------------------------------------
-
-(require 'package)
-
-(add-to-list 'package-archives
-       '("melpa" . "http://melpa.org/packages/") t)
-
-(package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-(defvar myPackages
-  '(better-defaults
-    ein
-    elpy
-    flycheck
-    material-theme
-    py-autopep8))
-
-(mapc #'(lambda (package)
-    (unless (package-installed-p package)
-      (package-install package)))
-      myPackages)
-
-;; BASIC CUSTOMIZATION
-;; --------------------------------------
-
-(setq inhibit-startup-message t) ;; hide the startup message
-(load-theme 'material t) ;; load material theme
-(global-linum-mode t) ;; enable line numbers globally
-
-;; PYTHON CONFIGURATION
-;; --------------------------------------
-
-(elpy-enable)
-;; (elpy-use-ipython)
-
-;; use flycheck not flymake with elpy
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-;; enable autopep8 formatting on save
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-
-;; ;; * emacs-for-python *
-;; ;; --------------------
-;; (add-to-list 'load-path "~/.emacs.d/emacs-for-python/")
-;; (require 'epy-setup)
-;; (require 'epy-python)
-;; (require 'epy-editing)
-;; (require 'epy-bindings)
-
-;; ;; * completions *
-;; ;; ---------------
-;; (require 'epy-completion)
-;; (setq skeleton-pair nil) ;; this setting (in this location) drove me nuts to find
-
-;; ;; * nose tests *
-;; ;; --------------
-;; ;; "nose extends unittest to make testing easier"
-;; (require 'epy-nose)
-
-;; ;; * pyflakes *
-;; ;; ------------
-;; (epy-setup-checker "/usr/local/bin/pyflakes %f")
-;; ;; (require 'flymake-python-pyflakes)
-;; ;; (add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-;; ;; (setq flymake-python-pyflakes-executable "flake8")
-
-;; ;; * ipython *
-;; ;; ------------
-;; (epy-setup-ipython)
-
-;; * misc *
-;; ------------
-
-;; (global-hl-line-mode t)
-;; (set-face-background 'hl-line "black")
-
-;; (require 'highlight-indentation)
-;; (add-hook 'python-mode-hook 'highlight-indentation)
-
-;; ------------
-;; * additional python *
-;; ------------
-
-(defun pymacs-restart ()
-  (interactive)
-  (pymacs-load "ropemacs" "rope-"))
 
 
 ;; -----------------
@@ -472,127 +352,19 @@
 ;; =================
 ;; -----------------
 
-(epy-django-snippets)
-
 ;; * rainbow-mode *
 ;; ----------------
 (add-hook 'less-css-mode-hook '(lambda () (rainbow-mode 1)))
 (add-hook 'css-mode-hook '(lambda () (rainbow-mode 1)))
 
-;; (require 'web-vcs)
-;; (add-to-list 'load-path "~/.emacs.d/nxhtml")
-;; (add-to-list 'load-path "~/.emacs.d/nxhtml/nxhtml")
-;; (require 'nxhtml)
 
-;; (add-hook 'html-mode-hook' '(lambda () (setq indent-tabs-mode nil)))
-
-;; (require 'html-helper-mode)
-;; (autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
-
-;; ;; (defun django-html-mode-hook ()
-;; ;;   "Switch to `django-mode' if Django template was opened."
-;; ;;   (save-excursion
-;; ;;     (if (or (search-forward "{%")
-;; ;;             (search-forward "{{"))
-;; ;; 	(django-mode))))
-;; ;;         ;;(django-html-mumamo-mode))))
-
-;; ;; (add-hook 'nxhtml-mumamo-mode-hook 'django-html-mode-hook)
-
-;; ;; css
-;; (require 'css-mode)
-;; (require 'css-check)
-
-;; (autoload 'css-mode "css-mode")
-
-;; (add-hook 'html-helper-load-hook
-;;   (function (lambda () (load "css.el"))))
-
-;; ;; javascript
-;; ;; js2 is too heavy handed! No minor mode!
-;; ;; (autoload 'js2-mode "js2" nil t)
-;; ;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-;; (require 'javascript-mode)
-
-;; ;; django everything
-;; ;; Old!
-;; (require 'pony-mode)
-;; (require 'django-mode)
-;; (require 'django-html-mode)
-
-;; ;; new: https://code.djangoproject.com/wiki/autoload
-;; (autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
-;; (setq auto-mode-alist
-;;       (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
-;; (setq mumamo-background-colors nil)
-;; (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
-
-;; ;; Restructured Text
-;; ;; http://docutils.sourceforge.net/docs/user/emacs.html
-;; ;;(require 'rst)
+;; Restructured Text
+;; http://docutils.sourceforge.net/docs/user/emacs.html
+(require 'rst)
 
 ;; ;; Emacs IRC
-;; (require 'erc)
+(require 'erc)
 
-;; ;;---
-;; ;; MODE ASSOCIATIONS
-;; (setq auto-mode-alist
-;;       (append '(
-;; 		("\\.htm$" . html-mode)
-;;                 ("\\.html$" . html-mode)
-;;                 ("\\.html$" . html-helper-mode)
-;; 		("\\.mako$" . html-mode)
-;; 		("\\.css$" . css-mode)
-;; 		;;("\\.txt$" . rst-mode)
-;;                 ;;("\\.rst$" . rst-mode)
-;;                 ;;("\\.rest$" . rst-mode)
-;; 		) auto-mode-alist))
-;; ;;(setq auto-mode-alist (cons '("\\.html$" . html-helper-mode) auto-mode-alist))
-
-;; (require 'php-mode)
-;; (require 'web-mode)
-;; (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-;; (add-hook 'web-mode-hook (lambda () (global-font-lock-mode -1)))
-
-;; ;;;;;;;;;;;;;;;;;;;;;;;;
-;; ;; Package management ;;
-;; ;;;;;;;;;;;;;;;;;;;;;;;;
-;; (defvar custom-packages
-;;   '(
-;;     yasnippet
-;;     rainbow-mode
-;;     ))
-
-;; (autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
-;; (setq auto-mode-alist
-;;       (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
-;; (setq mumamo-background-colors nil)
-;; (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
-;; (add-hook 'html-mode-hook
-;;           '(lambda ()
-;;              (auto-fill-mode -1)))
-
-;; ;; ;;;;;;;;;;;;;;;
-;; ;; ;; text mode ;;
-;; ;; ;;;;;;;;;;;;;;;
-;; (add-hook 'text-mode-hook
-;;           '(lambda ()
-;;              (auto-fill-mode -1)))
-;; (remove-hook 'text-mode-hook 'turn-on-auto-fill)
-
-;; ;; ;;;;;;;;;;;;;;
-;; ;; ;; markdown ;;
-;; ;; ;;;;;;;;;;;;;;
-;; (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
-;; (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 
 ;;---
 ;; CUSTOM set variables
@@ -613,12 +385,11 @@
  '(indent-tabs-mode nil)
  '(indicate-empty-lines t)
  '(save-place t nil (saveplace))
- '(send-mail-function (quote sendmail-send-it))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
-;;  '(yas/good-grace t)
+ '(yas/good-grace t)
 ;;  '(yas/prompt-functions (quote (yas/ido-prompt yas/completing-prompt yas/no-prompt)))
 ;;  '(yas/prompt-functions (quote (yas/ido-prompt yas/dropdown-prompt yas/completing-prompt yas/x-prompt yas/no-prompt)))
 ;;  '(yas/snippet-dirs (quote ("~/.emacs.d/yasnippet/snippets")) nil (yasnippet))
