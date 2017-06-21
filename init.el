@@ -20,6 +20,8 @@
 (let ((default-directory "~/.emacs.d/"))
   (normal-top-level-add-subdirs-to-load-path))
 
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp/") t)
+
 (require 'package)
 (add-to-list 'package-archives
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
@@ -31,10 +33,13 @@
 
 (defvar my-packages
   '(better-defaults
-    cyberpunk-theme
+    auto-complete
+    color-theme
     elpy
     exec-path-from-shell
     flycheck
+    flycheck-pyflakes
+    js3-mode
     magit
     markdown-mode
     markdown-preview-mode
@@ -43,23 +48,33 @@
     smart-mode-line
     web-mode
     yaml-mode
+    yasnippet
     ))
-
 
 (when (not package-archive-contents)
     (package-refresh-contents))
 (package-initialize)
 
 (dolist (p my-packages)
-  (when (not (package-installed-p p))
+  (when (not (require p nil 'noerror))
     (package-install p)))
 
-(add-to-list 'load-path "~/.emacs.d/")
 (require 'better-defaults)
-(require 'modeline-posn)
 (require 'recentf)
 (require 'auto-complete-config)
 (require 'color-theme)
+(require 'exec-path-from-shell)
+(require 'js3-mode)
+(require 'magit)
+(require 'markdown-mode)
+(require 'markdown-preview-mode)
+(require 'py-autopep8)
+(require 'rainbow-delimiters)
+(require 'smart-mode-line)
+(require 'web-mode)
+(require 'yaml-mode)
+(require 'yasnippet)
+
 
 (defun set-frame-width-interactive (arg)
    (interactive "p")
@@ -270,11 +285,17 @@
 ;; =================
 ;; -----------------
 
+(require 'flycheck)
+(require 'flycheck-pyflakes)
+
 (require 'py-autopep8)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
+(require 'elpy)
+(package-initialize)
+(elpy-enable)
 
-(add-to-list 'load-path "path/to/emacs-for-python/") ;; tell where to load the various files
+(add-to-list 'load-path "~/emacs.d/lisp/emacs-for-python/") ;; tell where to load the various files
 (require 'epy-setup)      ;; It will setup other loads, it is required!
 (require 'epy-python)     ;; If you want the python facilities [optional]
 ;; (require 'epy-completion) ;; If you want the autocompletion settings [optional]
@@ -356,6 +377,8 @@
 ;; ;; Emacs IRC
 (require 'erc)
 (setq skeleton-pair nil)
+
+
 
 ;;---
 ;; CUSTOM set variables
