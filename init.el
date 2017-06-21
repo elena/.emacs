@@ -15,109 +15,87 @@
 ;; ;;
 ;; ;; ~ org-mode
 
-;; (package-initialize)
+(package-initialize)
 
-;; (let ((default-directory "~/.emacs.d/"))
-;;   (normal-top-level-add-subdirs-to-load-path))
+(let ((default-directory "~/.emacs.d/"))
+  (normal-top-level-add-subdirs-to-load-path))
 
-;; (require 'package)
-;; (add-to-list 'package-archives
-;;              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
-;; (add-to-list 'package-archives
-;;              '("melpa" . "http://melpa.org/packages/"))
-;; (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-;;                          ("marmalade" . "http://marmalade-repo.org/packages/")
-;;                          ("melpa" . "http://melpa.org/packages/")))
+(require 'package)
+(add-to-list 'package-archives
+             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/"))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
 
-;; (defvar my-packages
-;;   '(better-defaults
-;;     cyberpunk-theme
-;;     elpy
-;;     exec-path-from-shell
-;;     flycheck
-;;     magit
-;;     markdown-mode
-;;     markdown-preview-mode
-;;     py-autopep8
-;;     rainbow-delimiters
-;;     smart-mode-line
-;;     web-mode
-;;     yaml-mode
-;;     ))
-
-
-
-;; (when (not package-archive-contents)
-;;     (package-refresh-contents))
-;; (package-initialize)
-
-;; (dolist (p my-packages)
-;;   (when (not (package-installed-p p))
-;;     (package-install p)))
-
-;; (require 'better-defaults)
-;; ;; (require 'modeline-posn)
+(defvar my-packages
+  '(better-defaults
+    cyberpunk-theme
+    elpy
+    exec-path-from-shell
+    flycheck
+    magit
+    markdown-mode
+    markdown-preview-mode
+    py-autopep8
+    rainbow-delimiters
+    smart-mode-line
+    web-mode
+    yaml-mode
+    ))
 
 
+(when (not package-archive-contents)
+    (package-refresh-contents))
+(package-initialize)
 
-;; ;; ALL THE 'REQUIRES' up the top
-;; ;; In load order.
-;; (add-to-list 'load-path "~/.emacs.d/")
-;; (require 'recentf)
-;; (require 'auto-complete-config)
-;; (require 'color-theme)
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
 
-;; (defun set-frame-width-interactive (arg)
-;;    (interactive "p")
-;;    (set-frame-width (selected-frame) arg))
+(add-to-list 'load-path "~/.emacs.d/")
+(require 'better-defaults)
+(require 'modeline-posn)
+(require 'recentf)
+(require 'auto-complete-config)
+(require 'color-theme)
 
-;; (add-to-list 'load-path "~/.emacs.d/beancount/src/elisp")
-;; (require 'beancount)
-;; (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
+(defun set-frame-width-interactive (arg)
+   (interactive "p")
+   (set-frame-width (selected-frame) arg))
 
-
-;; (require 'god-mode)
-;; (global-set-key (kbd "<f9>") 'god-mode-all)
-;; (define-key god-local-mode-map (kbd ".") 'repeat)
-;; (define-key god-local-mode-map (kbd "i") 'god-local-mode)
-
-;; ;; (require 'golden-ratio)
-;; ;; (golden-ratio-mode 1)
-;; ;; (setq golden-ratio-auto-scale t)
-
-;; ;; ---------------
-;; ;; ===============
-;; ;; ** UTILITIES **
-;; ;; ===============
-;; ;; ---------------
-;; ;; The day-to-day stuff can't live without and works universally.
-;; ;; Not specific to an application
-;; (setq inhibit-splash-screen t)
-;; (delete-selection-mode 1)
-;; (line-number-mode 1)
-;; (tool-bar-mode -1)
-;; (column-number-mode 1)
-;; (size-indication-mode 1)
-;; (setq calendar-latitude -35.17)
-;; (setq calendar-location-name "Sydney")
-;; (setq calendar-longitude 149.08)
-;; (setq find-file-wildcards t)
-;; (setq minibuffer-default-add-shell-commands t)
-;; (setq iswitchb-buffer-ignore '("^\*"))
-;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-to-list 'load-path "~/.emacs.d/beancount/src/elisp")
+(require 'beancount)
+(add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
 
 
-;; ;(find-file "~/Dropbox/td/todo.htm")
-;; ;(find-file "~/.emacs.d/init.el")
+(require 'god-mode)
+(global-set-key (kbd "<f9>") 'god-mode-all)
+(define-key god-local-mode-map (kbd ".") 'repeat)
+(define-key god-local-mode-map (kbd "i") 'god-local-mode)
 
-;; ;; Options have liked the look of at whatever stage.
-;; ;; (desktop-save-mode 1)
-;; ;; (split-window-horizontally)
-;; ;; (windmove-default-keybindings) ;; use shift-arrowkeys
-;; ;; (require 'framemove)
-;; ;; (framemove-default-keybindings) ;; default prefix is Meta
-;; ;; (setq pop-up-frames t)
-;; ;; (setq iswitchb-buffer-ignore '("^\\*"))
+;; ---------------
+;; ===============
+;; ** UTILITIES **
+;; ===============
+;; ---------------
+;; The day-to-day stuff can't live without and works universally.
+;; Not specific to an application
+(setq inhibit-splash-screen t)
+(delete-selection-mode 1)
+(line-number-mode 1)
+(tool-bar-mode -1)
+(column-number-mode 1)
+(size-indication-mode 1)
+(setq calendar-latitude -35.17)
+(setq calendar-location-name "Sydney")
+(setq calendar-longitude 149.08)
+(setq find-file-wildcards t)
+(setq minibuffer-default-add-shell-commands t)
+(setq iswitchb-buffer-ignore '("^\*"))
+(setq skeleton-pair nil)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; -----------------------
 ;; ** Backup management **
@@ -148,13 +126,14 @@
 ;; ;; ------------------
 
 (set-default-font "Monospace-9")
+;; (set-default-font "Mono-8")
 ;; (set-default-font "Ubuntu Mono-10")
 ;; (set-default-font "Liberation Mono-9")
 ;; (set-default-font "DejaVu Sans Mono-9")
 ;; (set-default-font "Monaco Regular-10")
 ;; (set-default-font "Nimbus Mono")
 ;; (set-default-font "ProggyClean-11:bold")
-;; (set-default-font "Monaco Regular-9")
+;; (set-default-font "Monaco Regular-10")
 
 ;; ----------------
 ;; * OSX specific *
@@ -204,18 +183,18 @@
  (unless (minibufferp (current-buffer))
    (auto-complete-mode 1)))
 (global-auto-complete-mode t)
-;; ;; to ensure activated:
-;; (add-to-list 'auto-complete-mode 'sql-mode)
-;; (add-to-list 'auto-complete-mode 'python-mode)
-;; (add-to-list 'auto-complete-mode 'django-mode)
-;; (add-to-list 'auto-complete-mode 'pony-mode)
-;; (add-to-list 'auto-complete-mode 'pony-minor-mode)
-;; (add-to-list 'auto-complete-mode 'html-mode)
-;; (add-to-list 'auto-complete-mode 'html-helper-mode)
-;; (add-to-list 'auto-complete-mode 'css-mode)
-;; (add-to-list 'auto-complete-mode 'rst-mode)
-;; (add-to-list 'auto-complete-mode 'conf-mode)
-;; (add-to-list 'auto-complete-mode 'emacs-lisp-mode)
+;; to ensure activated:
+(add-to-list 'auto-complete-mode 'sql-mode)
+(add-to-list 'auto-complete-mode 'python-mode)
+(add-to-list 'auto-complete-mode 'django-mode)
+(add-to-list 'auto-complete-mode 'pony-mode)
+(add-to-list 'auto-complete-mode 'pony-minor-mode)
+(add-to-list 'auto-complete-mode 'html-mode)
+(add-to-list 'auto-complete-mode 'html-helper-mode)
+(add-to-list 'auto-complete-mode 'css-mode)
+(add-to-list 'auto-complete-mode 'rst-mode)
+(add-to-list 'auto-complete-mode 'conf-mode)
+(add-to-list 'auto-complete-mode 'emacs-lisp-mode)
 
 ;; -----------------------------------
 ;; ** Interactively Do Things (ido) **
@@ -228,9 +207,6 @@
 ;; --------
 (setq yas/prompt-functions '(yas/ido-prompt
                              yas/completing-prompt))
-;;(add-to-list 'load-path "~/.emacs.d/yasnippet")
-;;(require 'yasnippet)
-;;(yas/global-mode 1)
 
 ;; Beginning of indent
 ;; -------------------
@@ -273,16 +249,15 @@
 (load-theme 'material t) ;; load material theme
 (global-linum-mode t) ;; enable line numbers globally
 
+(global-hl-line-mode t) ;; To enable
+(set-face-background 'hl-line "grey19") ;; change with the color that you like
+                                       ;; for a list of colors: http://raebear.net/comp/emacscolors.h
+;; Theme
+;; --------------------------------------
+
 (color-theme-initialize)
 (setq color-theme-is-global t)
 (color-theme-charcoal-black)
-;; ;; Icicles
-;; ;; Pretty, nice, but greedy.
-;; ;;(require 'icicles)
-;; ;;(icy-mode 1)
-;; ;; (require 'doremi-cmd)
-
-
 
 
 ;; the fold ---------------------------------------------------------------------
@@ -295,6 +270,17 @@
 ;; =================
 ;; -----------------
 
+(add-to-list 'load-path "path/to/emacs-for-python/") ;; tell where to load the various files
+(require 'epy-setup)      ;; It will setup other loads, it is required!
+(require 'epy-python)     ;; If you want the python facilities [optional]
+;; (require 'epy-completion) ;; If you want the autocompletion settings [optional]
+(require 'epy-editing)    ;; For configurations related to editing [optional]
+(require 'epy-bindings)   ;; For my suggested keybindings [optional]
+(require 'epy-nose)       ;; For nose integratio
+(epy-django-snippets)
+(epy-setup-ipython)
+(epy-setup-checker "pyflakes %f")
+
 
 ;; -----------------
 ;; =================
@@ -302,12 +288,14 @@
 ;; =================
 ;; -----------------
 
+;(find-file "~/Dropbox/td/todo.htm")
 
 ;; -----------------
 ;; =================
 ;; **  Org        **
 ;; =================
 ;; -----------------
+
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (setq org-log-done 'time)
 (setq org-agenda-files (quote ("~/Google Drive/td.htm")))
@@ -324,26 +312,25 @@
 (setq remember-annotation-functions (quote (org-remember-annotation)))
 (setq remember-handler-functions (quote (org-remember-handler)))
  ;; syntax incorrect -- need to have in 'setq'
- ;; '(org-agenda-custom-commands (quote (
- ;;   ("d" todo "DELEGATED" nil)
- ;;   ("c" todo "DONE|DEFERRED|CANCELLED" nil)
- ;;   ("w" todo "WAITING" nil)
- ;;   ("W" agenda "" ((org-agenda-ndays 21)))
- ;;   ("A" agenda "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
- ;;     (org-agenda-ndays 1) (org-agenda-overriding-header "Today's Priority #A tasks: ")))
- ;;   ("u" alltodo "" ((org-agenda-skip-function (lambda nil
- ;;     (org-agenda-skip-entry-if (quote scheduled) (quote deadline) (quote regexp) "]+>")))
- ;;     (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
- ;; '(org-remember-templates (quote (
- ;;    ("todo" 116 "* TODO %? %u" "~/todo.org" "Tasks" nil)
- ;;    ("notes" 110 "* %u %?" "~/notes.org" "Notes" nil)
- ;;    ("past" 110 "* %u %?" "~/past.org" "Notes" nil)
- ;;    ("wcmt" 119 "* TODO %? :wcmt:" "~/wcmt-td.org" "WCMT ongoing" nil))))
-;; (setq org-completion-use-iswitchb t)
-;; (setq org-completion-use-ido nil)
-;; (add-hook 'org-mode-hook '(lambda () (auto-fill-mode -1)))
-;; (add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))
-
+ '(org-agenda-custom-commands (quote (
+   ("d" todo "DELEGATED" nil)
+   ("c" todo "DONE|DEFERRED|CANCELLED" nil)
+   ("w" todo "WAITING" nil)
+   ("W" agenda "" ((org-agenda-ndays 21)))
+   ("A" agenda "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
+     (org-agenda-ndays 1) (org-agenda-overriding-header "Today's Priority #A tasks: ")))
+   ("u" alltodo "" ((org-agenda-skip-function (lambda nil
+     (org-agenda-skip-entry-if (quote scheduled) (quote deadline) (quote regexp) "]+>")))
+     (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
+ '(org-remember-templates (quote (
+    ("todo" 116 "* TODO %? %u" "~/todo.org" "Tasks" nil)
+    ("notes" 110 "* %u %?" "~/notes.org" "Notes" nil)
+    ("past" 110 "* %u %?" "~/past.org" "Notes" nil)
+    ("wcmt" 119 "* TODO %? :wcmt:" "~/wcmt-td.org" "WCMT ongoing" nil))))
+(setq org-completion-use-iswitchb t)
+(setq org-completion-use-ido nil)
+(add-hook 'org-mode-hook '(lambda () (auto-fill-mode -1)))
+(add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))
 
 
 ;; -----------------
@@ -364,7 +351,7 @@
 
 ;; ;; Emacs IRC
 (require 'erc)
-
+(setq skeleton-pair nil)
 
 ;;---
 ;; CUSTOM set variables
@@ -401,3 +388,4 @@
   ;; If there is more than one, they won't work right.
  )
 (put 'upcase-region 'disabled nil)
+(setq skeleton-pair nil)
