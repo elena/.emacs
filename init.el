@@ -51,9 +51,9 @@
     yasnippet
     ))
 
-(when (not package-archive-contents)
-    (package-refresh-contents))
-(package-initialize)
+;; (when (not package-archive-contents)
+;;     (package-refresh-contents))
+;; (package-initialize)
 
 (dolist (p my-packages)
   (when (not (require p nil 'noerror))
@@ -126,8 +126,9 @@
 ;; ** Recent **
 ;; ------------
 (recentf-mode 1)
-(setq recentf-max-menu-items 99)
-
+(setq recentf-max-saved-items 200
+      recentf-max-menu-items 99)
+(recentf-mode +1)
 
 ;; ;; -----------------
 ;; ;; =================
@@ -252,6 +253,38 @@
         (yank)))))
 (global-set-key (kbd "C-c d") 'duplicate-line)
 
+;; Insert date and time
+;; --------------------
+
+(defvar current-date-time-format "%a %b %d %H:%M:%S %Z %Y"
+  "Format of date to insert with `insert-current-date-time' func
+See help of `format-time-string' for possible replacements")
+
+(defvar current-time-format "%a %H:%M:%S"
+  "Format of date to insert with `insert-current-time' func.
+Note the weekly scope of the command's precision.")
+
+(defun insert-current-date-time ()
+  "insert the current date and time into current buffer.
+Uses `current-date-time-format' for the formatting the date/time."
+       (interactive)
+       (insert "==========\n")
+;       (insert (let () (comment-start)))
+       (insert (format-time-string current-date-time-format (current-time)))
+       (insert "\n")
+       )
+
+(defun insert-current-time ()
+  "insert the current time (1-week scope) into the current buffer."
+       (interactive)
+       (insert (format-time-string current-time-format (current-time)))
+       (insert "\n")
+       )
+
+(global-set-key "\C-c \C-d" 'insert-current-date-time)
+(global-set-key "\C-c \C-t" 'insert-current-time)
+
+
 ;; -------------
 ;; ** Display **
 ;; -------------
@@ -285,26 +318,18 @@
 ;; =================
 ;; -----------------
 
-(require 'flycheck)
-(require 'flycheck-pyflakes)
-
-(require 'py-autopep8)
-(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-
 (require 'elpy)
 (package-initialize)
 (elpy-enable)
 
-(add-to-list 'load-path "~/emacs.d/lisp/emacs-for-python/") ;; tell where to load the various files
-(require 'epy-setup)      ;; It will setup other loads, it is required!
-(require 'epy-python)     ;; If you want the python facilities [optional]
-;; (require 'epy-completion) ;; If you want the autocompletion settings [optional]
-(require 'epy-editing)    ;; For configurations related to editing [optional]
-(require 'epy-bindings)   ;; For my suggested keybindings [optional]
-(require 'epy-nose)       ;; For nose integratio
-(epy-django-snippets)
-(epy-setup-ipython)
-(epy-setup-checker "pyflakes %f")
+(require 'py-autopep8)
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+
+;; (require 'flycheck)
+;; (require 'flycheck-pyflakes)
+
+(global-set-key "\M-n" 'next-error)
+(global-set-key "\M-p" 'previous-error)
 
 
 ;; -----------------
