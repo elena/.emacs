@@ -1,1 +1,8 @@
 .DS_Store
+places
+ido.last
+init.el~
+recentf
+auto-save-list/*
+backups/*
+session.*
