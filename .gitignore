@@ -6,3 +6,4 @@ recentf
 auto-save-list/*
 backups/*
 session.*
+init.dead.el 
