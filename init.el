@@ -22,100 +22,53 @@
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp/") t)
 
-(require 'package)
-(add-to-list 'package-archives
-             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/"))
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")))
-
 (defvar my-packages
-  '(better-defaults
+  '(
     auto-complete
-    color-theme
-    elpy
-    exec-path-from-shell
-    flycheck
-    flycheck-pyflakes
-    js3-mode
+    better-defaults
     magit
-    markdown-mode
-    markdown-preview-mode
     py-autopep8
-    rainbow-delimiters
-    smart-mode-line
-    web-mode
-    yaml-mode
-    yasnippet
-    ))
+    recentf
 
-;; (when (not package-archive-contents)
-;;     (package-refresh-contents))
-;; (package-initialize)
+    ;; auto-complete-config
+    ;; exec-path-from-shell
+    ;; js3-mode
+    ;; markdown-mode
+    ;; markdown-preview-mode
+    ;; rainbow-delimiters
+    ;; web-mode
+    ;; yaml-mode
+    ;; yasnippet
+    ))
 
 (dolist (p my-packages)
   (when (not (require p nil 'noerror))
     (package-install p)))
 
-(require 'better-defaults)
-(require 'recentf)
-(require 'auto-complete-config)
-(require 'color-theme)
-(require 'exec-path-from-shell)
-(require 'js3-mode)
-(require 'magit)
-(require 'markdown-mode)
-(require 'markdown-preview-mode)
-(require 'py-autopep8)
-(require 'rainbow-delimiters)
-(require 'smart-mode-line)
-(require 'web-mode)
-(require 'yaml-mode)
-(require 'yasnippet)
-
-
-(defun set-frame-width-interactive (arg)
-   (interactive "p")
-   (set-frame-width (selected-frame) arg))
-
-(add-to-list 'load-path "~/.emacs.d/beancount/src/elisp")
-(require 'beancount)
-(add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
-
-
-(require 'god-mode)
-(global-set-key (kbd "<f9>") 'god-mode-all)
-(define-key god-local-mode-map (kbd ".") 'repeat)
-(define-key god-local-mode-map (kbd "i") 'god-local-mode)
-
-;; ---------------
-;; ===============
-;; ** UTILITIES **
-;; ===============
-;; ---------------
-;; The day-to-day stuff can't live without and works universally.
-;; Not specific to an application
+;; ;; ---------------
+;; ;; ===============
+;; ;; ** UTILITIES **
+;; ;; ===============
+;; ;; ---------------
+;; ;; The day-to-day stuff can't live without and works universally.
+;; ;; Not specific to an application
 (setq inhibit-splash-screen t)
 (delete-selection-mode 1)
 (line-number-mode 1)
 (tool-bar-mode -1)
 (column-number-mode 1)
 (size-indication-mode 1)
-(setq calendar-latitude -35.17)
-(setq calendar-location-name "Sydney")
-(setq calendar-longitude 149.08)
 (setq find-file-wildcards t)
 (setq minibuffer-default-add-shell-commands t)
 (setq iswitchb-buffer-ignore '("^\*"))
-(setq skeleton-pair nil)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq calendar-latitude -35.17)
+(setq calendar-location-name "Sydney")
+(setq calendar-longitude 149.08)
 
-;; -----------------------
-;; ** Backup management **
-;; -----------------------
-;; Put `*.*~` files in `~/.saves` rather than throughout my fs
+;; ;; -----------------------
+;; ;; ** Backup management **
+;; ;; -----------------------
+;; ;; Put `*.*~` files in `~/.saves` rather than throughout my fs
 (setq backup-by-copying t
   backup-directory-alist '(("." . "~/.saves"))
   delete-old-versions t
@@ -183,6 +136,8 @@
 (global-set-key (kbd "C-c <down>")  'windmove-down)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 (global-set-key "\C-c\ \C-a" 'auto-complete-mode)
+(global-set-key "\M-n" 'next-error)
+(global-set-key "\M-p" 'previous-error)
 ;; below the fold
 (global-set-key "\C-c\ o" 'org-iswitchb)
 (global-set-key "\C-c\ a" 'org-agenda)
@@ -190,39 +145,31 @@
 (global-set-key "\C-\M-r" 'remember)
 (global-set-key "\C-x\ g" 'magit-status)
 
+
+;; Save RSI by while in god-mode to assume \C- prefix 
+;; see: https://github.com/chrisdone/god-mode/
+(require 'god-mode)
+(global-set-key (kbd "<f9>") 'god-mode-all)
+(define-key god-local-mode-map (kbd ".") 'repeat)
+(define-key god-local-mode-map (kbd "i") 'god-local-mode)
+
 ;; -------------------
 ;; ** Auto-Complete **
 ;; -------------------
 (add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
-(ac-config-default)
-(defun auto-complete-mode-maybe ()
- (unless (minibufferp (current-buffer))
-   (auto-complete-mode 1)))
 (global-auto-complete-mode t)
-;; to ensure activated:
-(add-to-list 'auto-complete-mode 'sql-mode)
-(add-to-list 'auto-complete-mode 'python-mode)
-(add-to-list 'auto-complete-mode 'django-mode)
-(add-to-list 'auto-complete-mode 'pony-mode)
-(add-to-list 'auto-complete-mode 'pony-minor-mode)
-(add-to-list 'auto-complete-mode 'html-mode)
-(add-to-list 'auto-complete-mode 'html-helper-mode)
-(add-to-list 'auto-complete-mode 'css-mode)
-(add-to-list 'auto-complete-mode 'rst-mode)
-(add-to-list 'auto-complete-mode 'conf-mode)
-(add-to-list 'auto-complete-mode 'emacs-lisp-mode)
 
-;; -----------------------------------
-;; ** Interactively Do Things (ido) **
-;; -----------------------------------
-(setq ido-enable-flex-matching t)
-  (setq ido-everywhere t)
-  (ido-mode 1)
+;; ;; -----------------------------------
+;; ;; ** Interactively Do Things (ido) **
+;; ;; -----------------------------------
+;; (setq ido-enable-flex-matching t)
+;;   (setq ido-everywhere t)
+;;   (ido-mode 1)
 
-;; Snippets
-;; --------
-(setq yas/prompt-functions '(yas/ido-prompt
-                             yas/completing-prompt))
+;; ;; Snippets
+;; ;; --------
+;; (setq yas/prompt-functions '(yas/ido-prompt
+;;                              yas/completing-prompt))
 
 ;; Beginning of indent
 ;; -------------------
@@ -252,6 +199,7 @@
         (toggle-read-only 0)
         (yank)))))
 (global-set-key (kbd "C-c d") 'duplicate-line)
+
 
 ;; Insert date and time
 ;; --------------------
@@ -318,18 +266,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; =================
 ;; -----------------
 
-(require 'elpy)
-(package-initialize)
 (elpy-enable)
-
-(require 'py-autopep8)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-
-;; (require 'flycheck)
-;; (require 'flycheck-pyflakes)
-
-(global-set-key "\M-n" 'next-error)
-(global-set-key "\M-p" 'previous-error)
 
 
 ;; -----------------
@@ -340,47 +278,47 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;(find-file "~/Dropbox/td/todo.htm")
 
-;; -----------------
-;; =================
-;; **  Org        **
-;; =================
-;; -----------------
+;; ;; -----------------
+;; ;; =================
+;; ;; **  Org        **
+;; ;; =================
+;; ;; -----------------
 
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(setq org-log-done 'time)
-(setq org-agenda-files (quote ("~/Google Drive/td.htm")))
-(setq org-agenda-ndays 7)
-(setq org-agenda-show-all-dates t)
-(setq org-agenda-skip-deadline-if-done t)
-(setq org-agenda-skip-scheduled-if-done t)
-(setq org-agenda-start-on-weekday nil)
-(setq org-deadline-warning-days 14)
-(setq org-default-notes-file "~/notes.org")
-(setq org-fast-tag-selection-single-key (quote expert))
-(setq org-remember-store-without-prompt t)
-(setq org-reverse-note-order t)
-(setq remember-annotation-functions (quote (org-remember-annotation)))
-(setq remember-handler-functions (quote (org-remember-handler)))
- ;; syntax incorrect -- need to have in 'setq'
- '(org-agenda-custom-commands (quote (
-   ("d" todo "DELEGATED" nil)
-   ("c" todo "DONE|DEFERRED|CANCELLED" nil)
-   ("w" todo "WAITING" nil)
-   ("W" agenda "" ((org-agenda-ndays 21)))
-   ("A" agenda "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
-     (org-agenda-ndays 1) (org-agenda-overriding-header "Today's Priority #A tasks: ")))
-   ("u" alltodo "" ((org-agenda-skip-function (lambda nil
-     (org-agenda-skip-entry-if (quote scheduled) (quote deadline) (quote regexp) "]+>")))
-     (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
- '(org-remember-templates (quote (
-    ("todo" 116 "* TODO %? %u" "~/todo.org" "Tasks" nil)
-    ("notes" 110 "* %u %?" "~/notes.org" "Notes" nil)
-    ("past" 110 "* %u %?" "~/past.org" "Notes" nil)
-    ("wcmt" 119 "* TODO %? :wcmt:" "~/wcmt-td.org" "WCMT ongoing" nil))))
-(setq org-completion-use-iswitchb t)
-(setq org-completion-use-ido nil)
-(add-hook 'org-mode-hook '(lambda () (auto-fill-mode -1)))
-(add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))
+;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;; (setq org-log-done 'time)
+;; (setq org-agenda-files (quote ("~/Google Drive/td.htm")))
+;; (setq org-agenda-ndays 7)
+;; (setq org-agenda-show-all-dates t)
+;; (setq org-agenda-skip-deadline-if-done t)
+;; (setq org-agenda-skip-scheduled-if-done t)
+;; (setq org-agenda-start-on-weekday nil)
+;; (setq org-deadline-warning-days 14)
+;; (setq org-default-notes-file "~/notes.org")
+;; (setq org-fast-tag-selection-single-key (quote expert))
+;; (setq org-remember-store-without-prompt t)
+;; (setq org-reverse-note-order t)
+;; (setq remember-annotation-functions (quote (org-remember-annotation)))
+;; (setq remember-handler-functions (quote (org-remember-handler)))
+;;  ;; syntax incorrect -- need to have in 'setq'
+;;  '(org-agenda-custom-commands (quote (
+;;    ("d" todo "DELEGATED" nil)
+;;    ("c" todo "DONE|DEFERRED|CANCELLED" nil)
+;;    ("w" todo "WAITING" nil)
+;;    ("W" agenda "" ((org-agenda-ndays 21)))
+;;    ("A" agenda "" ((org-agenda-skip-function (lambda nil (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
+;;      (org-agenda-ndays 1) (org-agenda-overriding-header "Today's Priority #A tasks: ")))
+;;    ("u" alltodo "" ((org-agenda-skip-function (lambda nil
+;;      (org-agenda-skip-entry-if (quote scheduled) (quote deadline) (quote regexp) "]+>")))
+;;      (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
+;;  '(org-remember-templates (quote (
+;;     ("todo" 116 "* TODO %? %u" "~/todo.org" "Tasks" nil)
+;;     ("notes" 110 "* %u %?" "~/notes.org" "Notes" nil)
+;;     ("past" 110 "* %u %?" "~/past.org" "Notes" nil)
+;;     ("wcmt" 119 "* TODO %? :wcmt:" "~/wcmt-td.org" "WCMT ongoing" nil))))
+;; (setq org-completion-use-iswitchb t)
+;; (setq org-completion-use-ido nil)
+;; (add-hook 'org-mode-hook '(lambda () (auto-fill-mode -1)))
+;; (add-hook 'org-mode-hook '(lambda () (visual-line-mode 1)))
 
 
 ;; -----------------
@@ -389,19 +327,12 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; =================
 ;; -----------------
 
-;; * rainbow-mode *
-;; ----------------
-(add-hook 'less-css-mode-hook '(lambda () (rainbow-mode 1)))
-(add-hook 'css-mode-hook '(lambda () (rainbow-mode 1)))
-
-
 ;; Restructured Text
 ;; http://docutils.sourceforge.net/docs/user/emacs.html
 (require 'rst)
 
-;; ;; Emacs IRC
-(require 'erc)
-(setq skeleton-pair nil)
+;; ;; ;; Emacs IRC
+;; (require 'erc)
 
 
 
@@ -409,15 +340,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; CUSTOM set variables
 ;; custom-set-variables was added by Custom. blah blah blah.
 ;;
-;; custom-set-variables was added by Custom.
-;; If you edit it by hand, you could mess it up, so be careful.
-;; Your init file should contain only one such instance.
-;; If there is more than one, they won't work right.
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(display-battery-mode t)
  '(display-time-mode t)
@@ -429,10 +352,6 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify)))
  '(yas/good-grace t)
-;;  '(yas/prompt-functions (quote (yas/ido-prompt yas/completing-prompt yas/no-prompt)))
-;;  '(yas/prompt-functions (quote (yas/ido-prompt yas/dropdown-prompt yas/completing-prompt yas/x-prompt yas/no-prompt)))
-;;  '(yas/snippet-dirs (quote ("~/.emacs.d/yasnippet/snippets")) nil (yasnippet))
-;; (put 'downcase-region 'disabled nil)
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
