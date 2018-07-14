@@ -1,1 +1,0 @@
-/home/elena/src/god-mode/god-mode.el

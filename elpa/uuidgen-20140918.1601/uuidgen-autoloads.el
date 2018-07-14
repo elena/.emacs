@@ -1,10 +1,9 @@
 ;;; uuidgen-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "uuidgen" "uuidgen.el" (22850 32606 463995
-;;;;;;  356000))
+;;;### (autoloads nil "uuidgen" "uuidgen.el" (23366 4363 353739 659000))
 ;;; Generated autoloads from uuidgen.el
 
 (autoload 'insert-uuid-cid "uuidgen" "\

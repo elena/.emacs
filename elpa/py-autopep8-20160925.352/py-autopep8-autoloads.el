@@ -1,10 +1,10 @@
 ;;; py-autopep8-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "py-autopep8" "py-autopep8.el" (22850 32614
-;;;;;;  910395 427000))
+;;;### (autoloads nil "py-autopep8" "py-autopep8.el" (23365 46773
+;;;;;;  224292 689000))
 ;;; Generated autoloads from py-autopep8.el
 
 (autoload 'py-autopep8 "py-autopep8" "\

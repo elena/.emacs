@@ -1,10 +1,10 @@
 ;;; web-server-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "web-server" "web-server.el" (22850 32609 477508
-;;;;;;  628000))
+;;;### (autoloads nil "web-server" "web-server.el" (23366 4370 917779
+;;;;;;  732000))
 ;;; Generated autoloads from web-server.el
 
 (autoload 'ws-start "web-server" "\
@@ -51,7 +51,7 @@ function.
 ;;;***
 
 ;;;### (autoloads nil nil ("web-server-pkg.el" "web-server-status-codes.el")
-;;;;;;  (22850 32609 493669 997000))
+;;;;;;  (23366 4370 921779 753000))
 
 ;;;***
 
