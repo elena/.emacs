@@ -5,23 +5,34 @@
 ;; --
 ;; Installation
 ;; See README and files at: https://github.com/elena/.emacs
-;; melpa: autopair
-;; melpa: god-mode
-;; melpa: magit
-;; melpa: neotree
-;; melpa: soft-charcoal-theme
-;; melpa: vimish-fold
-;; --
-;; melpa: cypher-mode
-;; melpa: django-manage
-;; melpa: django-mode
-;; melpa: django-snippets
-;; melpa: djangonaut
-;; melpa: elpy
-;; melpa: indium
-;; melpa: markdown-preview-mode
-;; melpa: py-autopep8
 
+;; (setq package-list '(
+
+;;     ;; convenience
+;;     autopair
+;;     god-mode
+;;     magit
+;;     neotree
+;;     soft-charcoal-theme
+;;     vimish-fold
+;;     whitespace-cleanup-mode
+
+;;     ;; application
+;;     cypher-mode
+;;     django-manage
+;;     django-mode
+;;     django-snippets
+;;     djangonaut
+;;     elpy
+;;     indium
+;;     markdown-preview-mode
+;;     py-autopep8
+;; ))
+
+;; (package-initialize)
+;; (dolist (package package-list)
+;;   (unless (package-installed-p package)
+;;     (package-install package)))
 
 ;; --
 ;; Guidelines for using this file (to prevent confusion and delay):
@@ -62,6 +73,7 @@
 
 ;; To install a new package:
 ;; https://www.emacswiki.org/emacs/InstallingPackages
+
 ;; http://ergoemacs.org/emacs/emacs_package_system.html
 
 ;; 1. uncomment the following as required:
@@ -86,8 +98,6 @@
 ;; - [*] backup
 ;; - [*] recentf
 ;; ++++++++++++++++++++++++++++++++++++++++++
-
-(package-initialize)
 
 ;; -----------------------
 ;; key-bindings
