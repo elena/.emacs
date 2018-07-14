@@ -13,7 +13,6 @@
 ;;     god-mode
 ;;     magit
 ;;     neotree
-;;     soft-charcoal-theme
 ;;     vimish-fold
 ;;     whitespace-cleanup-mode
 
@@ -135,7 +134,7 @@
 
 ;; -----------------------
 ;; theme/visuals settings
-(load-theme 'soft-charcoal t)
+(load "~/.emacs.d/charcoal-theme")
 (global-linum-mode t) ;; enable line numbers globally
 (global-hl-line-mode t) ;; enable highlight current line
 
