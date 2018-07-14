@@ -34,7 +34,7 @@
 	'(cursor ((t (:background "#626262"))))
         '(show-paren-match-face ((t (:background "#f03f3f"))))
         '(isearch ((t (:bold t :foreground "#f03f3f" :background "#e2e2e5"))))
-        '(mode-line ((t (:box (:line-width 1 :color nil :style released-button) :bold t :foreground "#babdb6" :background "#202020"))))
+        '(mode-line ((t (:box (:line-width 1 :color nil :style released-button) :bold t :foreground "#303030" :background "#999999"))))
         '(mode-line-inactive ((t (:box (:line-width 1 :color nil :style released-button) :foreground "#808080" :background "#2b2b2b"))))
         '(mode-line-buffer-id ((t (:bold t :foreground "#5d90cd" :background nil))))
 	'(mode-line-highlight ((t (:background "#808080"))))
