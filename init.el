@@ -28,7 +28,7 @@
 ;;     py-autopep8
 ;; ))
 
-;; (package-initialize)
+(package-initialize)
 ;; (dolist (package package-list)
 ;;   (unless (package-installed-p package)
 ;;     (package-install package)))
