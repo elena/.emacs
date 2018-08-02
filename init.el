@@ -10,6 +10,7 @@
 
 ;;     ;; convenience
 ;;     autopair
+;;     buffer-move
 ;;     god-mode
 ;;     magit
 ;;     neotree
@@ -111,6 +112,11 @@
 (global-set-key (kbd "M-n") 'next-error)
 (global-set-key (kbd "M-p") 'previous-error)
 (global-set-key (kbd "C-M-r") 'remember)
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
 
 ;; key-bindings: my custom functions
 (global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
@@ -119,7 +125,8 @@
 (global-set-key (kbd "C-c C-t") 'insert-current-time)
 
 ;; key-bindings: installed extensions
-(global-set-key (kbd "<f9>") 'neotree)
+(global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
+(global-set-key (kbd "<f8>") 'neotree)
 (global-set-key (kbd "<f9>") 'god-mode-all)
 (global-set-key (kbd "C-c o") 'org-iswitchb)
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -139,7 +146,7 @@
 (global-hl-line-mode t) ;; enable highlight current line
 
 ;; linux specific
-(set-default-font "Monospace-9")
+(set-default-font "Monospace-9.5")
 (add-to-list 'default-frame-alist '(height . 1440))
 (add-to-list 'default-frame-alist '(width . 180))
 
@@ -165,6 +172,7 @@
 (size-indication-mode 1)
 (tool-bar-mode -1)
 (whitespace-cleanup-mode 1)
+(windmove-default-keybindings)
 
 
 ;; configure variables
@@ -224,6 +232,13 @@
 (require 'vimish-fold)
 (vimish-fold-global-mode 1)
 
+;; -----------------------
+(require 'buffer-move)
+;; (global-set-key (kbd "<C-S-up>")     'buf-move-up)
+;; (global-set-key (kbd "<C-S-down>")   'buf-move-down)
+;; (global-set-key (kbd "<C-S-left>")   'buf-move-left)
+;; (global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
 
 ;; ++++++++++++++++++++++++++++++++++++++++++
 ;; EMACS modules
@@ -231,6 +246,7 @@
 ;; - [*] custom: beginning-of-line-or-indentation
 ;; - [*] custom: date-time
 ;; - [*] custom: duplicate-line
+;; - [*] custom: switch-to-minibuffer
 ;; - [*] god-mode
 ;; - [ ] org-mode
 ;; - [ ] remember
@@ -289,6 +305,17 @@ Uses `current-date-time-format' for the formatting the date/time."
         (kill-whole-line)
         (toggle-read-only 0)
         (yank)))))
+
+
+;; -----------------------
+;; (global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
+(defun switch-to-minibuffer-window ()
+  "switch to minibuffer window (if active)"
+  (interactive)
+  (when (active-minibuffer-window)
+    (select-frame-set-input-focus (window-frame (active-minibuffer-window)))
+    (select-window (active-minibuffer-window))))
+
 
 ;; -----------------------
 ;; see: https://github.com/chrisdone/god-mode/
