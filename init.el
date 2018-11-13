@@ -184,6 +184,7 @@
 (setq display-time-mode t)
 (setq find-file-wildcards t)
 (setq indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 (setq indicate-empty-lines t)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t) ;; hide the startup message
@@ -340,7 +341,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; - [ ] CSS
 ;; - [ ] Django
 ;; - [ ] Git
-;; - [ ] HTML
+;; - [*] HTML # web-mode
 ;; - [ ] Java
 ;; - [ ] Javascript
 ;; - [*] Markdown
@@ -353,16 +354,59 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
 ;; -----------------------
+(require 'magit-gitflow)
+(add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
+
+
+;; -----------------------
 (elpy-enable)
 (require 'py-autopep8)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+
+;; (setq python-shell-interpreter "jupyter"
+;;       python-shell-interpreter-args "console --simple-prompt"
+;;       python-shell-prompt-detect-failure-warning nil)
+;; (add-to-list 'python-shell-completion-native-disabled-interpreters
+;;              "jupyter")
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "-i --simple-prompt")
 
 ;; -----------------------
 (require 'rst)
 
 
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.api\\'" . web-mode))
+
+
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(custom-safe-themes
    (quote
     ("62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" default)))
+ '(display-battery-mode t)
+ '(display-time-mode t)
+ '(package-selected-packages
+   (quote
+    (magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold py-autopep8 neotree markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
+ '(show-paren-mode t)
+ '(size-indication-mode t)
+ '(tool-bar-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
