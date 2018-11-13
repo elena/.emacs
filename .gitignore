@@ -1,5 +1,7 @@
 *.*~
-session.*
-elpa/
 \#recentf#
 recentf*
+session.*
+tidy.el
+elpa/
+url/
