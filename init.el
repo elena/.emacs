@@ -1,6 +1,6 @@
 ;; owner: Elena Williams
 ;; new version initialised: 5-Jul-2018
-;; last updated: 14-Jul-2018
+;; last updated: 13-Jun-2019
 
 ;; --
 ;; Installation
@@ -373,7 +373,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; -----------------------
 (require 'rst)
-
+(add-hook 'text-mode-hook #'visual-line-mode)
 
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
@@ -400,7 +400,7 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-    (magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold py-autopep8 neotree markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
+    (ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold py-autopep8 neotree markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
@@ -410,3 +410,4 @@ Uses `current-date-time-format' for the formatting the date/time."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'upcase-region 'disabled nil)
