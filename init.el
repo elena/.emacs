@@ -148,7 +148,7 @@
 ;; linux specific
 (set-default-font "Monospace-9.5")
 (add-to-list 'default-frame-alist '(height . 1440))
-(add-to-list 'default-frame-alist '(width . 180))
+(add-to-list 'default-frame-alist '(width . 255))
 
 ;; OSX specific
 ;; (set-keyboard-coding-system nil)
