@@ -1,6 +1,6 @@
 ;; owner: Elena Williams
 ;; new version initialised: 5-Jul-2018
-;; last updated: 13-Jun-2019
+;; last updated: 5-Ju1-2019
 
 ;; --
 ;; Installation
@@ -106,6 +106,7 @@
 (global-set-key (kbd "C-c #") 'comment-region)
 (global-set-key (kbd "C-x #") 'uncomment-region)
 (global-set-key (kbd "C-x ^")  'delete-indentation)
+(global-set-key (kbd "C-c v") 'browse-url-of-buffer)
 (global-set-key (kbd "C-c C-a") 'auto-complete-mode)
 (global-set-key (kbd "C-c C-e") 'load-file)
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
