@@ -183,6 +183,7 @@
 (setq column-number-mode t)
 (setq display-battery-mode t)
 (setq display-time-mode t)
+(setq fill-column 120)
 (setq find-file-wildcards t)
 (setq indent-tabs-mode nil)
 (setq-default indent-tabs-mode nil)
@@ -327,8 +328,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 (define-key god-local-mode-map (kbd "i") 'god-local-mode)
 
 
-
-
 ;; ++++++++++++++++++++++++++++++++++++++++++
 ;; USES
 ;;
@@ -361,8 +360,19 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; -----------------------
 (elpy-enable)
+
+(setq-default python-indent 4)
+
+;; py-autopep8 Installation
+;; Ubuntu: apt install flymake
+;; pip install autopep8, black
+(require 'flycheck)
 (require 'py-autopep8)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+(add-hook 'python-mode-hook 'python-black-on-save-mode)
+(setq py-autopep8-options '("--max-line-length=120"))
+
+
 
 ;; (setq python-shell-interpreter "jupyter"
 ;;       python-shell-interpreter-args "console --simple-prompt"
