@@ -25,7 +25,7 @@
 
 (custom-theme-set-faces
   'blue-charcoal-theme
-        '(default ((t (:background "#191919" :foreground "#c2c2c2"))))
+        '(default ((t (:background "#191919" :foreground "#cacaca"))))
         '(font-lock-builtin-face ((t (:foreground "#54686d"))))
         '(region ((t (:background "#3c414c" :foreground "#faf4c6"))))
         '(highlight ((t (:foreground "#d5dd83" :background "#191919"))))
@@ -34,10 +34,10 @@
 	'(cursor ((t (:background "#626262"))))
         '(show-paren-match-face ((t (:background "#f03f3f"))))
         '(isearch ((t (:bold t :foreground "#f03f3f" :background "#e2e2e5"))))
-        '(mode-line ((t (:box (:line-width 1 :color nil :style released-button) :bold t :foreground "#303030" :background "#999999"))))
+        '(mode-line ((t (:box (:line-width 1 :color nil :style released-button) :bold t :foreground "#303030" :background "#fff3e1"))))
         '(mode-line-inactive ((t (:box (:line-width 1 :color nil :style released-button) :foreground "#808080" :background "#2b2b2b"))))
         '(mode-line-buffer-id ((t (:bold t :foreground "#5d90cd" :background nil))))
-	'(mode-line-highlight ((t (:background "#808080"))))
+	'(mode-line-highlight ((t (:background "#191919"))))
 	'(vertical-border ((t (:foreground "#232323"))))
         '(minibuffer-prompt ((t (:bold t :foreground "#708090"))))
         '(default-italic ((t (:italic t))))

@@ -6,33 +6,50 @@
 ;; Installation
 ;; See README and files at: https://github.com/elena/.emacs
 
-;; (setq package-list '(
 
-;;     ;; convenience
-;;     autopair
-;;     buffer-move
-;;     god-mode
-;;     magit
-;;     neotree
-;;     vimish-fold
-;;     whitespace-cleanup-mode
 
-;;     ;; application
-;;     cypher-mode
-;;     django-manage
-;;     django-mode
-;;     django-snippets
-;;     djangonaut
-;;     elpy
-;;     indium
-;;     markdown-preview-mode
-;;     py-autopep8
-;; ))
+
+;; -----------------------
+;; theme/visuals settings
+(load "~/.emacs.d/charcoal-theme")
+(global-linum-mode t) ;; enable line numbers globally
+(global-hl-line-mode t) ;; enable highlight current line
+
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+;; (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
+
+(setq package-list '(
+
+    ;; convenience
+    autopair
+    buffer-move
+    flycheck
+    god-mode
+    magit
+    neotree
+    vimish-fold
+    whitespace-cleanup-mode
+
+    ;; application
+    ;; black
+    cypher-mode
+    django-manage
+    django-mode
+    django-snippets
+    djangonaut
+    elpy
+    indium
+    markdown-preview-mode
+    pipenv
+    py-autopep8
+))
 
 (package-initialize)
-;; (dolist (package package-list)
-;;   (unless (package-installed-p package)
-;;     (package-install package)))
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
 
 ;; --
 ;; Guidelines for using this file (to prevent confusion and delay):
@@ -77,8 +94,8 @@
 ;; http://ergoemacs.org/emacs/emacs_package_system.html
 
 ;; 1. uncomment the following as required:
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+;; (require 'package)
+;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 ;; (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 ;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
 
@@ -110,14 +127,13 @@
 (global-set-key (kbd "C-c C-a") 'auto-complete-mode)
 (global-set-key (kbd "C-c C-e") 'load-file)
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
-(global-set-key (kbd "M-n") 'next-error)
-(global-set-key (kbd "M-p") 'previous-error)
+(global-set-key (kbd "C-x M-n") 'next-error)
+(global-set-key (kbd "C-x M-p") 'previous-error)
 (global-set-key (kbd "C-M-r") 'remember)
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
 (global-set-key (kbd "<C-S-down>")   'buf-move-down)
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
-
 
 ;; key-bindings: my custom functions
 (global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
@@ -127,17 +143,18 @@
 
 ;; key-bindings: installed extensions
 (global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
-(global-set-key (kbd "<f8>") 'neotree)
 (global-set-key (kbd "<f9>") 'god-mode-all)
+
 (global-set-key (kbd "C-c o") 'org-iswitchb)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-c C-v f") 'vimish-fold)
-(global-set-key (kbd "C-c C-v v") 'vimish-unfold)
-(global-set-key (kbd "C-c C-v a") 'vimish-refold-all)
-(global-set-key (kbd "C-c C-v t") 'vimish-toggle)
-(global-set-key (kbd "C-c C-v d") 'vimish-fold-delete)
+;; (global-set-key (kbd "<f8>") 'neotree)
+;; (global-set-key (kbd "C-c C-v f") 'vimish-fold)
+;; (global-set-key (kbd "C-c C-v v") 'vimish-unfold)
+;; (global-set-key (kbd "C-c C-v a") 'vimish-refold-all)
+;; (global-set-key (kbd "C-c C-v t") 'vimish-toggle)
+;; (global-set-key (kbd "C-c C-v d") 'vimish-fold-delete)
 
 
 ;; -----------------------
@@ -146,8 +163,11 @@
 (global-linum-mode t) ;; enable line numbers globally
 (global-hl-line-mode t) ;; enable highlight current line
 
+(setq sml/theme 'dark) ;; smart-mode-line
+
 ;; linux specific
-(set-default-font "Monospace-9.5")
+(set-default-font "DejaVu Sans Mono-8")
+;; (set-default-font "Monospace-8.5")
 (add-to-list 'default-frame-alist '(height . 1440))
 (add-to-list 'default-frame-alist '(width . 255))
 
@@ -174,7 +194,6 @@
 (tool-bar-mode -1)
 (whitespace-cleanup-mode 1)
 (windmove-default-keybindings)
-
 
 ;; configure variables
 (setq calendar-latitude -35.17)
@@ -212,8 +231,8 @@
 
 ;; -----------------------
 ;; (global-set-key (kbd "<f8>") 'neotree)
-(require 'neotree)
-(setq neo-default-system-application "open")
+;; (require 'neotree)
+;; (setq neo-default-system-application "open")
 
 ;; -----------------------
 (require 'recentf)
@@ -224,19 +243,20 @@
 
 ;; -----------------------
 ;; autopair
-(autopair-global-mode)
-(show-paren-mode 1)
+;; (autopair-global-mode)
+;; (show-paren-mode 1)
 
 ;; -----------------------
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
 ;; -----------------------
-(require 'vimish-fold)
-(vimish-fold-global-mode 1)
+;; (require 'vimish-fold)
+;; (vimish-fold-global-mode 1)
 
 ;; -----------------------
 (require 'buffer-move)
+;; defined in keymaps:
 ;; (global-set-key (kbd "<C-S-up>")     'buf-move-up)
 ;; (global-set-key (kbd "<C-S-down>")   'buf-move-down)
 ;; (global-set-key (kbd "<C-S-left>")   'buf-move-left)
@@ -257,17 +277,17 @@
 
 
 ;; ----------------------
-;; (global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
 (defun beginning-of-line-or-indentation ()
   "Move to beginning of line, or indentation"
   (interactive)
   (if (bolp)
       (back-to-indentation)
     (beginning-of-line)))
+;; defined in keymaps:
+;; (global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
+
 
 ;; -----------------------
-;; (global-set-key (kbd "C-c C-d") 'insert-current-date-time)
-;; (global-set-key (kbd "C-c C-t") 'insert-current-time)
 (defvar current-date-time-format "%a %b %d %H:%M:%S %Z %Y"
   "Format of date to insert with `insert-current-date-time' func
 See help of `format-time-string' for possible replacements")
@@ -290,9 +310,12 @@ Uses `current-date-time-format' for the formatting the date/time."
        (interactive)
        (insert (format-time-string current-time-format (current-time)))
        (insert "\n"))
+;; defined in keymaps:
+;; (global-set-key (kbd "C-c C-d") 'insert-current-date-time)
+;; (global-set-key (kbd "C-c C-t") 'insert-current-time)
+
 
 ;; -----------------------
-;; (global-set-key (kbd "C-c d") 'duplicate-line)
 (defun duplicate-line ()
   "Clone line at cursor, leaving the latter intact."
   (interactive "*")
@@ -308,16 +331,19 @@ Uses `current-date-time-format' for the formatting the date/time."
         (kill-whole-line)
         (toggle-read-only 0)
         (yank)))))
+;; defined in keymaps:
+;; (global-set-key (kbd "C-c d") 'duplicate-line)
 
 
 ;; -----------------------
-;; (global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
 (defun switch-to-minibuffer-window ()
   "switch to minibuffer window (if active)"
   (interactive)
   (when (active-minibuffer-window)
     (select-frame-set-input-focus (window-frame (active-minibuffer-window)))
     (select-window (active-minibuffer-window))))
+;; defined in keymaps:
+;; (global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
 
 
 ;; -----------------------
@@ -370,6 +396,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 (require 'py-autopep8)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 (add-hook 'python-mode-hook 'python-black-on-save-mode)
+;; (add-hook 'python-mode-hook #'pipenv-mode)
+
+(setq py-autopep8-options '("--ignore=E501,C901,E203  "))
+;; (setq py-autopep8-options . ("--ignore=E501,E701,E702,E70,E125"))
 (setq py-autopep8-options '("--max-line-length=120"))
 
 
@@ -381,6 +411,16 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;;              "jupyter")
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --simple-prompt")
+
+;; (defun elena-django-shell ()
+;;   (interactive)
+;;   (let ((python-shell-interpreter (read-file-name "Locate manage.py "))
+;;         (python-shell-interpreter-args "shell -i ipython --simple-prompt"))
+;;     (run-python (python-shell-calculate-command) nil t)
+
+;; trying to get ipython to work with ./manage.py
+(setq python-shell-completion-native-enable nil)
+
 
 ;; -----------------------
 (require 'rst)
@@ -398,6 +438,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 (add-to-list 'auto-mode-alist '("\\.api\\'" . web-mode))
 
 
+(global-set-key (kbd "C-x #") 'uncomment-region)
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -406,12 +449,11 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(column-number-mode t)
  '(custom-safe-themes
    (quote
-    ("62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" default)))
- '(display-battery-mode t)
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" default)))
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-    (ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold py-autopep8 neotree markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
+    (smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold py-autopep8 markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
