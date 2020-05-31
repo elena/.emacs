@@ -350,8 +350,28 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; see: https://github.com/chrisdone/god-mode/
 ;; Save RSI by while in god-mode to assume \C- prefix
 (require 'god-mode)
-(define-key god-local-mode-map (kbd ".") 'repeat)
+(define-key god-local-mode-map (kbd "z") 'repeat)
 (define-key god-local-mode-map (kbd "i") 'god-local-mode)
+
+(defun my-god-mode-update-cursor ()
+  (setq cursor-type (if (or god-local-mode buffer-read-only)
+                        'box
+                      'bar)))
+
+(add-hook 'god-mode-enabled-hook #'my-god-mode-update-cursor)
+(add-hook 'god-mode-disabled-hook #'my-god-mode-update-cursor)
+
+(defun my-god-mode-update-modeline ()
+  (let ((limited-colors-p (> 257 (length (defined-colors)))))
+    (cond (god-local-mode (progn
+                            (set-face-background 'mode-line (if limited-colors-p "#303030" "#fff3e1"))
+                            (set-face-background 'mode-line-inactive (if limited-colors-p "#808080" "#2b2b2b"))))
+          (t (progn
+               (set-face-background 'mode-line (if limited-colors-p "black" "#0a2832"))
+               (set-face-background 'mode-line-inactive (if limited-colors-p "black" "#0a2832")))))))
+
+(add-hook 'god-mode-enabled-hook #'my-god-mode-update-modeline)
+(add-hook 'god-mode-disabled-hook #'my-god-mode-update-modeline)
 
 
 ;; ++++++++++++++++++++++++++++++++++++++++++
