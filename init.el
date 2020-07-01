@@ -126,6 +126,7 @@
 (global-set-key (kbd "C-c v") 'browse-url-of-buffer)
 (global-set-key (kbd "C-c C-a") 'auto-complete-mode)
 (global-set-key (kbd "C-c C-e") 'load-file)
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
 (global-set-key (kbd "C-x M-n") 'next-error)
 (global-set-key (kbd "C-x M-p") 'previous-error)
@@ -135,21 +136,40 @@
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
+(global-set-key (kbd "C-x C-2") 'split-window-below)
+(global-set-key (kbd "C-x C-3") 'split-window-right)
+(global-set-key (kbd "C-x C-4") 'kill-buffer-and-window)
+(global-set-key (kbd "C-x C-0") 'delete-window)
+(global-set-key (kbd "C-,") 'beginning-of-buffer)
+(global-set-key (kbd "C-.") 'end-of-buffer)
+
+(global-set-key (kbd "C-c C-#") 'comment-region)
+(global-set-key (kbd "C-x C-#") 'uncomment-region)
+
+
 ;; key-bindings: my custom functions
 (global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
-(global-set-key (kbd "C-c d") 'duplicate-line)
+(global-set-key (kbd "C-c M-d") 'duplicate-line)
 (global-set-key (kbd "C-c C-d") 'insert-current-date-time)
 (global-set-key (kbd "C-c C-t") 'insert-current-time)
 
 ;; key-bindings: installed extensions
+(global-set-key (kbd "<f5>") 'save-buffer)
 (global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
 (global-set-key (kbd "<f9>") 'god-mode-all)
+(global-set-key (kbd "C-<f5>") 'save-buffer)
+(global-set-key (kbd "C-<f6>") 'kill-buffer)
+(global-set-key (kbd "C-<f7>") 'switch-to-minibuffer-window)
+
+(global-set-key (kbd "<f8>") 'neotree)
+(global-set-key (kbd "C-<f8>") 'neotree)
 
 (global-set-key (kbd "C-c o") 'org-iswitchb)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-x g") 'magit-status)
-;; (global-set-key (kbd "<f8>") 'neotree)
+
+(global-set-key (kbd "C-x C-g") 'magit-status)
+
 ;; (global-set-key (kbd "C-c C-v f") 'vimish-fold)
 ;; (global-set-key (kbd "C-c C-v v") 'vimish-unfold)
 ;; (global-set-key (kbd "C-c C-v a") 'vimish-refold-all)
@@ -240,6 +260,8 @@
 (setq recentf-max-saved-items 200
       recentf-max-menu-items 99)
 (recentf-mode +1)
+
+(add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
 
 ;; -----------------------
 ;; autopair
@@ -347,37 +369,45 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 
 ;; -----------------------
+(require 'smart-mode-line)
+
+;; -----------------------
 ;; see: https://github.com/chrisdone/god-mode/
 ;; Save RSI by while in god-mode to assume \C- prefix
 (require 'god-mode)
+(god-mode-all)
 (define-key god-local-mode-map (kbd "z") 'repeat)
 (define-key god-local-mode-map (kbd "i") 'god-local-mode)
 
 (defun my-god-mode-update-cursor ()
   (setq cursor-type (if (or god-local-mode buffer-read-only)
                         'box
-                      'bar)))
+                        'bar)))
 
 (add-hook 'god-mode-enabled-hook #'my-god-mode-update-cursor)
 (add-hook 'god-mode-disabled-hook #'my-god-mode-update-cursor)
 
-(defun my-god-mode-update-modeline ()
-  (let ((limited-colors-p (> 257 (length (defined-colors)))))
-    (cond (god-local-mode (progn
-                            (set-face-background 'mode-line (if limited-colors-p "#303030" "#fff3e1"))
-                            (set-face-background 'mode-line-inactive (if limited-colors-p "#808080" "#2b2b2b"))))
-          (t (progn
-               (set-face-background 'mode-line (if limited-colors-p "black" "#0a2832"))
-               (set-face-background 'mode-line-inactive (if limited-colors-p "black" "#0a2832")))))))
 
-(add-hook 'god-mode-enabled-hook #'my-god-mode-update-modeline)
-(add-hook 'god-mode-disabled-hook #'my-god-mode-update-modeline)
+(defun my-god-mode-enabled-modeline ()
+  (set-face-background 'mode-line "#fff3e1")
+  ;; (set-face-background 'mode-line-inactive ((:box (:line-width 1 :color nil :style released-button) :foreground "#808080" :background "#2b2b2b")))
+)
+
+(defun my-god-mode-disabled-modeline ()
+  (set-face-background 'mode-line "#0a2832")
+  ;; (set-face-background 'mode-line-inactive ((:background "#0a2832")))
+)
+(add-hook 'god-mode-enabled-hook #'my-god-mode-enabled-modeline)
+(add-hook 'god-mode-disabled-hook #'my-god-mode-disabled-modeline)
+
+(add-hook 'before-save-hook 'god-mode-all)
+(add-hook 'before-save-hook #'my-god-mode-enabled-modeline)
 
 
 ;; ++++++++++++++++++++++++++++++++++++++++++
 ;; USES
 ;;
-;; *programming: c, Git, Java, Javascript, Python
+;; *programmin = tests_settings. c, Git, Java, Javascript, Pytho
 ;; *web front end: CSS, HTML
 ;; *text: Markdown, Text, ReStructured Text, LaTex
 ;; *data: Neo4j/cypher, SQL
@@ -418,6 +448,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (add-hook 'python-mode-hook 'python-black-on-save-mode)
 ;; (add-hook 'python-mode-hook #'pipenv-mode)
 
+
 (setq py-autopep8-options '("--ignore=E501,C901,E203  "))
 ;; (setq py-autopep8-options . ("--ignore=E501,E701,E702,E70,E125"))
 (setq py-autopep8-options '("--max-line-length=120"))
@@ -425,8 +456,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 
 ;; (setq python-shell-interpreter "jupyter"
-;;       python-shell-interpreter-args "console --simple-prompt"
-;;       python-shell-prompt-detect-failure-warning nil)
+
+;       python-shell-interpreter-args "console --simple-prompt";
+;       python-shell-prompt-detect-failure-warning nil)
 ;; (add-to-list 'python-shell-completion-native-disabled-interpreters
 ;;              "jupyter")
 (setq python-shell-interpreter "ipython"
