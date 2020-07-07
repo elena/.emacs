@@ -1,6 +1,6 @@
 ;; owner: Elena Williams
 ;; new version initialised: 5-Jul-2018
-;; last updated: 5-Ju1-2019
+;; last updated: 8-Jul-2020
 
 ;; --
 ;; Installation
@@ -116,65 +116,6 @@
 ;; - [*] recentf
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
-;; -----------------------
-;; key-bindings
-
-;; key-bindings: built-ins
-(global-set-key (kbd "C-c #") 'comment-region)
-(global-set-key (kbd "C-x #") 'uncomment-region)
-(global-set-key (kbd "C-x ^")  'delete-indentation)
-(global-set-key (kbd "C-c v") 'browse-url-of-buffer)
-(global-set-key (kbd "C-c C-a") 'auto-complete-mode)
-(global-set-key (kbd "C-c C-e") 'load-file)
-(global-set-key (kbd "C-x C-b") 'buffer-menu)
-(global-set-key (kbd "C-x C-r") 'recentf-open-files)
-(global-set-key (kbd "C-x M-n") 'next-error)
-(global-set-key (kbd "C-x M-p") 'previous-error)
-(global-set-key (kbd "C-M-r") 'remember)
-(global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
-(global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)
-
-(global-set-key (kbd "C-x C-2") 'split-window-below)
-(global-set-key (kbd "C-x C-3") 'split-window-right)
-(global-set-key (kbd "C-x C-4") 'kill-buffer-and-window)
-(global-set-key (kbd "C-x C-0") 'delete-window)
-(global-set-key (kbd "C-,") 'beginning-of-buffer)
-(global-set-key (kbd "C-.") 'end-of-buffer)
-
-(global-set-key (kbd "C-c C-#") 'comment-region)
-(global-set-key (kbd "C-x C-#") 'uncomment-region)
-
-
-;; key-bindings: my custom functions
-(global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
-(global-set-key (kbd "C-c M-d") 'duplicate-line)
-(global-set-key (kbd "C-c C-d") 'insert-current-date-time)
-(global-set-key (kbd "C-c C-t") 'insert-current-time)
-
-;; key-bindings: installed extensions
-(global-set-key (kbd "<f5>") 'save-buffer)
-(global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
-(global-set-key (kbd "<f9>") 'god-mode-all)
-(global-set-key (kbd "C-<f5>") 'save-buffer)
-(global-set-key (kbd "C-<f6>") 'kill-buffer)
-(global-set-key (kbd "C-<f7>") 'switch-to-minibuffer-window)
-
-(global-set-key (kbd "<f8>") 'neotree)
-(global-set-key (kbd "C-<f8>") 'neotree)
-
-(global-set-key (kbd "C-c o") 'org-iswitchb)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c l") 'org-store-link)
-
-(global-set-key (kbd "C-x C-g") 'magit-status)
-
-;; (global-set-key (kbd "C-c C-v f") 'vimish-fold)
-;; (global-set-key (kbd "C-c C-v v") 'vimish-unfold)
-;; (global-set-key (kbd "C-c C-v a") 'vimish-refold-all)
-;; (global-set-key (kbd "C-c C-v t") 'vimish-toggle)
-;; (global-set-key (kbd "C-c C-v d") 'vimish-fold-delete)
 
 
 ;; -----------------------
@@ -490,7 +431,64 @@ Uses `current-date-time-format' for the formatting the date/time."
 (add-to-list 'auto-mode-alist '("\\.api\\'" . web-mode))
 
 
+;; -----------------------
+;; key-bindings
+
+;; key-bindings: built-ins
+(global-set-key (kbd "C-c #") 'comment-region)
 (global-set-key (kbd "C-x #") 'uncomment-region)
+(global-set-key (kbd "C-x ^")  'delete-indentation)
+(global-set-key (kbd "C-c v") 'browse-url-of-buffer)
+(global-set-key (kbd "C-c C-a") 'auto-complete-mode)
+(global-set-key (kbd "C-c C-e") 'load-file)
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)
+(global-set-key (kbd "C-x M-n") 'next-error)
+(global-set-key (kbd "C-x M-p") 'previous-error)
+(global-set-key (kbd "C-M-r") 'remember)
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
+(global-set-key (kbd "C-x C-2") 'split-window-below)
+(global-set-key (kbd "C-x C-3") 'split-window-right)
+(global-set-key (kbd "C-x C-4") 'kill-buffer-and-window)
+(global-set-key (kbd "C-x C-0") 'delete-window)
+(global-set-key (kbd "C-,") 'beginning-of-buffer)
+(global-set-key (kbd "C-.") 'end-of-buffer)
+(global-set-key (kbd "C-x C-l") 'toggle-truncate-lines)
+
+(global-set-key (kbd "C-c C-#") 'comment-region)
+(global-set-key (kbd "C-x C-#") 'uncomment-region)
+
+
+;; key-bindings: my custom functions
+(global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
+(global-set-key (kbd "C-c M-d") 'duplicate-line)
+(global-set-key (kbd "C-c C-c C-d") 'insert-current-date-time)
+(global-set-key (kbd "C-c C-c C-t") 'insert-current-time)
+
+
+;; key-bindings: function keys and installed extensions
+(global-set-key (kbd "<f4>") 'keyboard-quit)
+(global-set-key (kbd "<f5>") 'save-buffer)
+(global-set-key (kbd "<f6>") 'kill-buffer)
+(global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
+(global-set-key (kbd "<f8>") 'neotree)
+(global-set-key (kbd "<f9>") 'god-mode-all)
+(global-set-key (kbd "C-<f4>") 'keyboard-quit)
+(global-set-key (kbd "C-<f5>") 'save-buffer)
+(global-set-key (kbd "C-<f6>") 'kill-buffer)
+(global-set-key (kbd "C-<f8>") 'neotree)
+(global-set-key (kbd "C-<f7>") 'switch-to-minibuffer-window)
+
+(global-set-key (kbd "C-c o") 'org-iswitchb)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c l") 'org-store-link)
+
+(global-set-key (kbd "C-x C-g") 'magit-status)
+
 
 
 (custom-set-variables
