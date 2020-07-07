@@ -7,8 +7,6 @@
 ;; See README and files at: https://github.com/elena/.emacs
 
 
-
-
 ;; -----------------------
 ;; theme/visuals settings
 (load "~/.emacs.d/charcoal-theme")
@@ -33,7 +31,6 @@
     whitespace-cleanup-mode
 
     ;; application
-    ;; black
     cypher-mode
     django-manage
     django-mode
@@ -128,7 +125,6 @@
 
 ;; linux specific
 (set-default-font "DejaVu Sans Mono-8")
-;; (set-default-font "Monospace-8.5")
 (add-to-list 'default-frame-alist '(height . 1440))
 (add-to-list 'default-frame-alist '(width . 255))
 
@@ -137,7 +133,7 @@
 ;; (setq mac-command-modifier 'meta)
 ;; (set-default-font "Menlo-10")
 
-;; window specific
+;; Windows specific
 ;; set default size to maximum window
 ;; (defun w32-maximize-frame ()
 ;;   "Maximize the current frame"
@@ -190,10 +186,6 @@
       kept-new-versions 9
       kept-old-versions 2)
 
-;; -----------------------
-;; (global-set-key (kbd "<f8>") 'neotree)
-;; (require 'neotree)
-;; (setq neo-default-system-application "open")
 
 ;; -----------------------
 (require 'recentf)
@@ -204,18 +196,11 @@
 
 (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
 
-;; -----------------------
-;; autopair
-;; (autopair-global-mode)
-;; (show-paren-mode 1)
 
 ;; -----------------------
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
-;; -----------------------
-;; (require 'vimish-fold)
-;; (vimish-fold-global-mode 1)
 
 ;; -----------------------
 (require 'buffer-move)
@@ -274,8 +259,8 @@ Uses `current-date-time-format' for the formatting the date/time."
        (insert (format-time-string current-time-format (current-time)))
        (insert "\n"))
 ;; defined in keymaps:
-;; (global-set-key (kbd "C-c C-d") 'insert-current-date-time)
-;; (global-set-key (kbd "C-c C-t") 'insert-current-time)
+;; (global-set-key (kbd "C-c C-c C-d") 'insert-current-date-time)
+;; (global-set-key (kbd "C-c C-c C-t") 'insert-current-time)
 
 
 ;; -----------------------
@@ -295,7 +280,7 @@ Uses `current-date-time-format' for the formatting the date/time."
         (toggle-read-only 0)
         (yank)))))
 ;; defined in keymaps:
-;; (global-set-key (kbd "C-c d") 'duplicate-line)
+;; (global-set-key (kbd "C-c M-d") 'duplicate-line)
 
 
 ;; -----------------------
@@ -331,12 +316,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (defun my-god-mode-enabled-modeline ()
   (set-face-background 'mode-line "#fff3e1")
-  ;; (set-face-background 'mode-line-inactive ((:box (:line-width 1 :color nil :style released-button) :foreground "#808080" :background "#2b2b2b")))
 )
 
 (defun my-god-mode-disabled-modeline ()
   (set-face-background 'mode-line "#0a2832")
-  ;; (set-face-background 'mode-line-inactive ((:background "#0a2832")))
 )
 (add-hook 'god-mode-enabled-hook #'my-god-mode-enabled-modeline)
 (add-hook 'god-mode-disabled-hook #'my-god-mode-disabled-modeline)
@@ -352,7 +335,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; *web front end: CSS, HTML
 ;; *text: Markdown, Text, ReStructured Text, LaTex
 ;; *data: Neo4j/cypher, SQL
-;; [12]
 ;;
 ;; - [ ] C
 ;; - [ ] CSS
@@ -367,7 +349,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; - [ ] SQL
 ;; - [ ] Text
 ;; - [*] reStructured Text
-;; [12]
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
 ;; -----------------------
@@ -391,27 +372,15 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 
 (setq py-autopep8-options '("--ignore=E501,C901,E203  "))
-;; (setq py-autopep8-options . ("--ignore=E501,E701,E702,E70,E125"))
 (setq py-autopep8-options '("--max-line-length=120"))
 
 
 
-;; (setq python-shell-interpreter "jupyter"
 
-;       python-shell-interpreter-args "console --simple-prompt";
-;       python-shell-prompt-detect-failure-warning nil)
-;; (add-to-list 'python-shell-completion-native-disabled-interpreters
-;;              "jupyter")
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i --simple-prompt")
 
-;; (defun elena-django-shell ()
-;;   (interactive)
-;;   (let ((python-shell-interpreter (read-file-name "Locate manage.py "))
-;;         (python-shell-interpreter-args "shell -i ipython --simple-prompt"))
-;;     (run-python (python-shell-calculate-command) nil t)
 
-;; trying to get ipython to work with ./manage.py
 (setq python-shell-completion-native-enable nil)
 
 
