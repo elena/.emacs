@@ -159,7 +159,6 @@
 (setq column-number-mode t)
 (setq display-battery-mode t)
 (setq display-time-mode t)
-(setq fill-column 120)
 (setq find-file-wildcards t)
 (setq indent-tabs-mode nil)
 (setq-default indent-tabs-mode nil)
@@ -372,7 +371,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 
 (setq py-autopep8-options '("--ignore=E501,C901,E203  "))
-(setq py-autopep8-options '("--max-line-length=120"))
 
 
 
@@ -429,7 +427,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "C-x C-l") 'toggle-truncate-lines)
 
 (global-set-key (kbd "C-c C-#") 'comment-region)
+(global-set-key (kbd "C-c C-3") 'comment-region)
 (global-set-key (kbd "C-x C-#") 'uncomment-region)
+(global-set-key (kbd "C-c C-c C-3") 'uncomment-region)
+
 
 
 ;; key-bindings: my custom functions
