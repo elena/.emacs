@@ -25,7 +25,6 @@
     buffer-move
     flycheck
     god-mode
-    magit
     neotree
     vimish-fold
     whitespace-cleanup-mode
@@ -351,8 +350,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
 ;; -----------------------
-(require 'magit-gitflow)
-(add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
 
 
 ;; -----------------------
@@ -457,7 +454,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
 
-(global-set-key (kbd "C-x C-g") 'magit-status)
 
 
 
