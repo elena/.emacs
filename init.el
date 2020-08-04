@@ -26,6 +26,7 @@
     flycheck
     god-mode
     neotree
+    symbol-overlay
     vimish-fold
     whitespace-cleanup-mode
 
@@ -219,6 +220,8 @@
 ;; - [*] god-mode
 ;; - [ ] org-mode
 ;; - [ ] remember
+;; - [*] smart-model-line
+;; - [*] symbol-overlay
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
 
@@ -293,9 +296,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 
 ;; -----------------------
-(require 'smart-mode-line)
-
-;; -----------------------
 ;; see: https://github.com/chrisdone/god-mode/
 ;; Save RSI by while in god-mode to assume \C- prefix
 (require 'god-mode)
@@ -325,6 +325,15 @@ Uses `current-date-time-format' for the formatting the date/time."
 (add-hook 'before-save-hook 'god-mode-all)
 (add-hook 'before-save-hook #'my-god-mode-enabled-modeline)
 
+
+;; -----------------------
+(require 'smart-mode-line)
+
+
+;; -----------------------
+;; see: https://github.com/wolray/symbol-overlay
+(require 'symbol-overlay)
+(symbol-overlay-mode 1)
 
 ;; ++++++++++++++++++++++++++++++++++++++++++
 ;; USES
@@ -454,6 +463,9 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
 
+(global-set-key (kbd "M-i") 'symbol-overlay-put)
+(global-set-key (kbd "M-n") 'symbol-overlay-switch-forward)
+(global-set-key (kbd "M-p") 'symbol-overlay-switch-backward)
 
 
 
@@ -469,7 +481,7 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-    (smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold py-autopep8 markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
+    (symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold py-autopep8 markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
