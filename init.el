@@ -31,6 +31,7 @@
     whitespace-cleanup-mode
 
     ;; application
+    blacken
     cypher-mode
     django-manage
     django-mode
@@ -40,7 +41,6 @@
     indium
     markdown-preview-mode
     pipenv
-    py-autopep8
 ))
 
 (package-initialize)
@@ -369,14 +369,12 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; py-autopep8 Installation
 ;; Ubuntu: apt install flymake
 ;; pip install autopep8, black
+
 (require 'flycheck)
-(require 'py-autopep8)
-(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-(add-hook 'python-mode-hook 'python-black-on-save-mode)
+(add-hook 'python-mode-hook 'blacken-mode)
+(add-hook 'python-mode-hook 'symbol-overlay-mode)
+
 ;; (add-hook 'python-mode-hook #'pipenv-mode)
-
-
-(setq py-autopep8-options '("--ignore=E501,C901,E203  "))
 
 
 
@@ -481,7 +479,7 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-    (symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold py-autopep8 markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
+    (blacken symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil))
