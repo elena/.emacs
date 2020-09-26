@@ -113,6 +113,7 @@
 ;; - [*] recentf
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
+(desktop-save-mode 1)
 
 
 ;; -----------------------
@@ -126,7 +127,7 @@
 ;; linux specific
 (set-default-font "DejaVu Sans Mono-8")
 (add-to-list 'default-frame-alist '(height . 1440))
-(add-to-list 'default-frame-alist '(width . 255))
+(add-to-list 'default-frame-alist '(width . 480))
 
 ;; OSX specific
 ;; (set-keyboard-coding-system nil)
@@ -185,6 +186,11 @@
       kept-new-versions 9
       kept-old-versions 2)
 
+
+
+;; -----------------------
+
+(require 'workgroups)
 
 ;; -----------------------
 (require 'recentf)
@@ -479,10 +485,12 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-    (blacken symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
+    (workgroups workgroups2 blacken symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
+ '(pop-up-windows nil)
  '(show-paren-mode t)
  '(size-indication-mode t)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(truncate-lines t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
