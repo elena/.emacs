@@ -230,6 +230,34 @@
 ;; - [*] symbol-overlay
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
+;; ----------------------
+(defun thea-goto-tests ()
+  (interactive)
+  (save-buffer)
+  (if
+      (get-buffer "shell-test")
+      (switch-to-buffer-other-window "shell-test")
+      (progn
+        (switch-to-buffer-other-window "*shell*")
+      (shell)
+      (rename-buffer "shell-test")
+      (insert "cd  ~/Working/Thea/development/core && pipenv shell"))
+    )
+)
+
+(defun thea-goto-shell ()
+  (interactive)
+  (if
+      (get-buffer "shell-manage")
+      (switch-to-buffer-other-window "shell-manage")
+    (progn
+      (switch-to-buffer-other-window "*shell*")
+      (shell)
+      (rename-buffer "shell-manage")
+      (insert "cd  ~/Working/Thea/development/core && pipenv shell"))
+    )
+)
+
 
 ;; ----------------------
 (defun beginning-of-line-or-indentation ()
@@ -455,12 +483,12 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "<f5>") 'save-buffer)
 (global-set-key (kbd "<f6>") 'kill-buffer)
 (global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
-(global-set-key (kbd "<f8>") 'neotree)
+(global-set-key (kbd "<f8>") 'thea-goto-tests)
 (global-set-key (kbd "<f9>") 'god-mode-all)
 (global-set-key (kbd "C-<f4>") 'keyboard-quit)
 (global-set-key (kbd "C-<f5>") 'save-buffer)
 (global-set-key (kbd "C-<f6>") 'kill-buffer)
-(global-set-key (kbd "C-<f8>") 'neotree)
+(global-set-key (kbd "C-<f8>") 'thea-goto-tests)
 (global-set-key (kbd "C-<f7>") 'switch-to-minibuffer-window)
 
 (global-set-key (kbd "C-c o") 'org-iswitchb)
