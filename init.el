@@ -236,12 +236,16 @@
   (save-buffer)
   (if
       (get-buffer "shell-test")
-      (switch-to-buffer-other-window "shell-test")
+      (progn
+        (require 'comint)
+        (switch-to-buffer-other-window "shell-test")
+        (end-of-buffer)
+        (insert "source tests_to.sh\n")
+        (comint-send-input)
+        )
+
       (progn
         (switch-to-buffer-other-window "*shell*")
-      (shell)
-      (rename-buffer "shell-test")
-      (insert "cd  ~/Working/Thea/development/core && pipenv shell"))
     )
 )
 
@@ -526,3 +530,4 @@ Uses `current-date-time-format' for the formatting the date/time."
  ;; If there is more than one, they won't work right.
  )
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
