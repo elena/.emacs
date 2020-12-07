@@ -125,7 +125,6 @@
 (setq sml/theme 'dark) ;; smart-mode-line
 
 ;; linux specific
-(set-default-font "DejaVu Sans Mono-8")
 (add-to-list 'default-frame-alist '(height . 1440))
 (add-to-list 'default-frame-alist '(width . 480))
 
@@ -166,7 +165,6 @@
 (setq indicate-empty-lines t)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t) ;; hide the startup message
-(setq iswitchb-buffer-ignore '("^\*"))
 (setq minibuffer-default-add-shell-commands t)
 (setq ring-bell-function 0)
 (setq save-place-mode t)
@@ -423,6 +421,23 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (setq python-shell-completion-native-enable nil)
 
+;; disable elpy open
+(define-key python-mode-map (kbd "<S-return>") 'undefined)
+(define-key python-mode-map (kbd "<C-S-return>") 'undefined)
+(define-key python-mode-map (kbd "<C-return>") 'undefined)
+(define-key python-mode-map (kbd "<S-RET>") 'undefined)
+(define-key python-mode-map (kbd "<C-S-RET>") 'undefined)
+(define-key python-mode-map (kbd "<C-RET>") 'undefined)
+(define-key python-mode-map (kbd "C-c C-p") 'undefined)
+
+(define-key elpy-mode-map (kbd "<S-return>") 'undefined)
+(define-key elpy-mode-map (kbd "<C-S-return>") 'undefined)
+(define-key elpy-mode-map (kbd "<C-return>") 'undefined)
+(define-key elpy-mode-map (kbd "<S-RET>") 'undefined)
+(define-key elpy-mode-map (kbd "<C-S-RET>") 'undefined)
+(define-key elpy-mode-map (kbd "<C-RET>") 'undefined)
+(define-key elpy-mode-map (kbd "C-c C-p") 'undefined)
+
 
 ;; -----------------------
 (require 'rst)
@@ -494,6 +509,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "C-<f6>") 'kill-buffer)
 (global-set-key (kbd "C-<f8>") 'thea-goto-tests)
 (global-set-key (kbd "C-<f7>") 'switch-to-minibuffer-window)
+(global-set-key (kbd "C-<f9>") 'god-mode-all)
 
 (global-set-key (kbd "C-c o") 'org-iswitchb)
 (global-set-key (kbd "C-c a") 'org-agenda)
