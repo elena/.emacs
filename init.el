@@ -122,8 +122,6 @@
 (global-linum-mode t) ;; enable line numbers globally
 (global-hl-line-mode t) ;; enable highlight current line
 
-(setq sml/theme 'dark) ;; smart-mode-line
-
 ;; linux specific
 (add-to-list 'default-frame-alist '(height . 1440))
 (add-to-list 'default-frame-alist '(width . 480))
@@ -224,7 +222,6 @@
 ;; - [*] god-mode
 ;; - [ ] org-mode
 ;; - [ ] remember
-;; - [*] smart-model-line
 ;; - [*] symbol-overlay
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
@@ -360,10 +357,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 (add-hook 'before-save-hook 'god-mode-all)
 (add-hook 'before-save-hook #'my-god-mode-enabled-modeline)
-
-
-;; -----------------------
-(require 'smart-mode-line)
 
 
 ;; -----------------------
@@ -547,3 +540,24 @@ Uses `current-date-time-format' for the formatting the date/time."
  )
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+
+(setq-default mode-line-format
+    (list "%e"
+          'mode-line-front-space
+          'mode-line-mule-info
+          'mode-line-client
+          'mode-line-modified
+          'mode-line-remote
+          'mode-line-frame-identification
+          'mode-line-buffer-identification
+          " "
+          'mode-line-modes
+          'mode-line-position
+          ;; "  "
+          'mode-line-misc-info
+          'mode-line-end-spaces
+          '(vc-mode vc-mode) ;; Version Control
+
+          )
+    )
