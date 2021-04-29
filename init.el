@@ -226,23 +226,48 @@
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
 ;; ----------------------
+
+(require 'comint)
+
+(defun thea-goto-tests-to ()
+  (interactive)
+  (save-buffer)
+  (if
+      (string-match "tests_to.sh" (buffer-name))
+      (progn
+        (switch-to-buffer-other-window work-buffer)
+        )
+    (progn
+      (setq work-buffer (current-buffer))
+      (switch-to-buffer-other-window "tests_to.sh")
+      )
+    )
+  )
+
 (defun thea-goto-tests ()
   (interactive)
   (save-buffer)
   (if
       (get-buffer "shell-test")
       (progn
-        (require 'comint)
         (switch-to-buffer-other-window "shell-test")
         (end-of-buffer)
         (insert "source tests_to.sh\n")
         (comint-send-input)
         )
-
-      (progn
-        (switch-to-buffer-other-window "*shell*")
+    (progn
+      (switch-to-buffer "*shell*")
+      (shell)
+      (rename-buffer "shell-test")
+      (insert "cd  ~/Working/Thea/development/core && pipenv shell")
+      (comint-send-input)
+      (run-with-timer 3 nil 'insert "cd project")
+      (run-with-timer 4 nil 'comint-send-input)
+      (run-with-timer 5 nil 'insert "sudo docker start testneo4j")
+      (run-with-timer 6 nil 'comint-send-input)
+      )
     )
-)
+  )
 
 (defun thea-goto-shell ()
   (interactive)
@@ -496,11 +521,13 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "<f6>") 'kill-buffer)
 (global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
 (global-set-key (kbd "<f8>") 'thea-goto-tests)
+(global-set-key (kbd "S-<f8>") 'thea-goto-tests-to)
 (global-set-key (kbd "<f9>") 'god-mode-all)
 (global-set-key (kbd "C-<f4>") 'keyboard-quit)
 (global-set-key (kbd "C-<f5>") 'save-buffer)
 (global-set-key (kbd "C-<f6>") 'kill-buffer)
 (global-set-key (kbd "C-<f8>") 'thea-goto-tests)
+(global-set-key (kbd "C-S-<f8>") 'thea-goto-tests-to)
 (global-set-key (kbd "C-<f7>") 'switch-to-minibuffer-window)
 (global-set-key (kbd "C-<f9>") 'god-mode-all)
 
