@@ -123,6 +123,16 @@
 (global-hl-line-mode t) ;; enable highlight current line
 
 ;; linux specific
+
+(set-default-font "Oxygen Mono-8.5")
+;; https://fonts.google.com/specimen/Oxygen+Mono
+;; cd /usr/share/fonts
+;; sudo mkdir googlefonts
+;; sudo unzip -d . ~/Downloads/Oxygen_Mono.zip
+;; sudo chmod -R --reference /usr/share/fonts/opentype /usr/share/fonts/googlefonts
+;; sudo fc-cache -fv
+;; fc-match Oxygen
+
 (add-to-list 'default-frame-alist '(height . 1440))
 (add-to-list 'default-frame-alist '(width . 480))
 
@@ -228,6 +238,14 @@
 ;; ----------------------
 
 (require 'comint)
+
+(defun egit-pretty-log ()
+  (interactive)
+  (switch-to-buffer-other-window "shell-test")
+  (end-of-buffer)
+  (insert "git log --pretty=format:'%H|%cD|%s' -n 23")
+  (comint-send-input)
+)
 
 (defun thea-goto-tests-to ()
   (interactive)
@@ -485,8 +503,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "C-c C-e") 'load-file)
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
-(global-set-key (kbd "C-x M-n") 'next-error)
-(global-set-key (kbd "C-x M-p") 'previous-error)
+(global-set-key (kbd "C-c C-n") 'next-error)
+(global-set-key (kbd "C-c C-p") 'previous-error)
 (global-set-key (kbd "C-M-r") 'remember)
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
 (global-set-key (kbd "<C-S-down>")   'buf-move-down)
@@ -507,12 +525,12 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "C-c C-c C-3") 'uncomment-region)
 
 
-
 ;; key-bindings: my custom functions
 (global-set-key (kbd "C-a") 'beginning-of-line-or-indentation)
 (global-set-key (kbd "C-c M-d") 'duplicate-line)
 (global-set-key (kbd "C-c C-c C-d") 'insert-current-date-time)
 (global-set-key (kbd "C-c C-c C-t") 'insert-current-time)
+(global-set-key (kbd "C-x C-g") 'egit-pretty-log)
 
 
 ;; key-bindings: function keys and installed extensions
@@ -531,6 +549,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "C-<f7>") 'switch-to-minibuffer-window)
 (global-set-key (kbd "C-<f9>") 'god-mode-all)
 
+
 (global-set-key (kbd "C-c o") 'org-iswitchb)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
@@ -538,6 +557,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "M-i") 'symbol-overlay-put)
 (global-set-key (kbd "M-n") 'symbol-overlay-switch-forward)
 (global-set-key (kbd "M-p") 'symbol-overlay-switch-backward)
+
+(global-set-key (kbd "<C-return>") 'keyboard-quit)
 
 
 
@@ -547,13 +568,10 @@ Uses `current-date-time-format' for the formatting the date/time."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(custom-safe-themes
-   (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "62408b3adcd05f887b6357e5bd9221652984a389e9b015f87bbc596aba62ba48" default)))
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-    (workgroups workgroups2 blacken symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
+    (iedit workgroups workgroups2 blacken symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
  '(pop-up-windows nil)
  '(show-paren-mode t)
  '(size-indication-mode t)
