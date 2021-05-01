@@ -249,7 +249,11 @@
 
 (defun thea-goto-tests-to ()
   (interactive)
-  (save-buffer)
+  (if
+      (string-match "shell-test" (buffer-name))
+      (switch-to-buffer-other-window work-buffer)
+    (save-buffer)
+    )
   (if
       (string-match "tests_to.sh" (buffer-name))
       (progn
@@ -265,6 +269,7 @@
 (defun thea-goto-tests ()
   (interactive)
   (save-buffer)
+  (setq work-buffer (current-buffer))
   (if
       (get-buffer "shell-test")
       (progn
