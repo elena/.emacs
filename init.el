@@ -1,6 +1,6 @@
 ;; owner: Elena Williams
 ;; new version initialised: 5-Jul-2018
-;; last updated: 8-Jul-2020
+;; last updated: 6-May-2021
 
 ;; --
 ;; Installation
@@ -193,7 +193,6 @@
       kept-old-versions 2)
 
 
-
 ;; -----------------------
 
 (require 'workgroups)
@@ -244,6 +243,7 @@
   (switch-to-buffer-other-window "shell-test")
   (end-of-buffer)
   (insert "git log --pretty=format:'%H|%cD|%s' -n 23")
+  (comint-send-input) ;; get past RETURN required
   (comint-send-input)
 )
 
@@ -268,6 +268,14 @@
 
 (defun thea-goto-tests ()
   (interactive)
+  (if
+      (string-match "shell-test" (buffer-name))
+      (progn
+        (insert "source tests_to.sh\n")
+        (comint-send-input)
+        )
+    nil
+    )
   (save-buffer)
   (setq work-buffer (current-buffer))
   (if
