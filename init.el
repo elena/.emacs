@@ -245,6 +245,7 @@
   (insert "git log --pretty=format:'%H|%cD|%s' -n 23")
   (comint-send-input) ;; get past RETURN required
   (comint-send-input)
+  (switch-to-minibuffer-window)
 )
 
 (defun thea-goto-tests-to ()
@@ -264,6 +265,7 @@
       (switch-to-buffer-other-window "tests_to.sh")
       )
     )
+    (switch-to-minibuffer-window)
   )
 
 (defun thea-goto-tests ()
@@ -298,6 +300,7 @@
       (run-with-timer 6 nil 'comint-send-input)
       )
     )
+    (switch-to-minibuffer-window)
   )
 
 (defun thea-goto-shell ()
@@ -535,7 +538,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "C-c C-#") 'comment-region)
 (global-set-key (kbd "C-c C-3") 'comment-region)
 (global-set-key (kbd "C-x C-#") 'uncomment-region)
-(global-set-key (kbd "C-c C-c C-3") 'uncomment-region)
+(global-set-key (kbd "C-c C-x C-3") 'uncomment-region)
 
 
 ;; key-bindings: my custom functions
