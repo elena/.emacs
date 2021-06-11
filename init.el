@@ -1,6 +1,6 @@
 ;; owner: Elena Williams
 ;; new version initialised: 5-Jul-2018
-;; last updated: 6-May-2021
+;; last updated: 12-Jun-2021
 
 ;; --
 ;; Installation
@@ -26,6 +26,7 @@
     flycheck
     god-mode
     neotree
+    shackle
     symbol-overlay
     vimish-fold
     whitespace-cleanup-mode
@@ -114,6 +115,7 @@
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
 (desktop-save-mode 1)
+(winner-mode 1)
 
 
 ;; -----------------------
@@ -587,8 +589,11 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-    (iedit workgroups workgroups2 blacken symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
+    (shackle iedit workgroups workgroups2 blacken symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
  '(pop-up-windows nil)
+ '(shackle-default-alignment (quote below))
+ '(shackle-default-rule (quote (:same t)))
+ '(shackle-mode t)
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
