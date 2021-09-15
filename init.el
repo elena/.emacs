@@ -296,10 +296,10 @@
       (rename-buffer "shell-test")
       (insert "cd  ~/Working/Thea/development/core && pipenv shell")
       (comint-send-input)
-      (run-with-timer 3 nil 'insert "cd project")
-      (run-with-timer 4 nil 'comint-send-input)
-      (run-with-timer 5 nil 'insert "sudo docker start testneo4j")
-      (run-with-timer 6 nil 'comint-send-input)
+      (run-with-timer 2 nil 'insert "cd project")
+      (run-with-timer 2 nil 'comint-send-input)
+      (run-with-timer 3 nil 'insert "sudo docker start testneo4j")
+      (run-with-timer 3 nil 'comint-send-input)
       )
     )
     (switch-to-minibuffer-window)
@@ -577,6 +577,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "M-p") 'symbol-overlay-switch-backward)
 
 (global-set-key (kbd "<C-return>") 'keyboard-quit)
+(global-set-key (kbd "C-c C-x C-x") 'keyboard-quit)
+(global-set-key (kbd "C-c C-z") 'keyboard-quit)
 
 
 
@@ -591,9 +593,7 @@ Uses `current-date-time-format' for the formatting the date/time."
    (quote
     (shackle iedit workgroups workgroups2 blacken symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
  '(pop-up-windows nil)
- '(shackle-default-alignment (quote below))
  '(shackle-default-rule (quote (:same t)))
- '(shackle-mode t)
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
