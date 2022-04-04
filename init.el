@@ -115,6 +115,7 @@
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
 (desktop-save-mode 1)
+(setq desktop-path '("."))
 (winner-mode 1)
 
 
@@ -136,7 +137,7 @@
 ;; fc-match Oxygen
 
 (add-to-list 'default-frame-alist '(height . 1440))
-(add-to-list 'default-frame-alist '(width . 480))
+(add-to-list 'default-frame-alist '(width . 280))
 
 ;; OSX specific
 ;; (set-keyboard-coding-system nil)
