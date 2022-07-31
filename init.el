@@ -7,24 +7,6 @@
 ;; See README and files at: https://github.com/elena/.emacs
 
 
-;; -----------------------
-;; theme/visuals settings
-
-(global-linum-mode t) ;; enable line numbers globally
-(global-hl-line-mode t) ;; enable highlight current line
-
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/")
-;; (load "~/.emacs.d/charcoal-theme.el")
-;; (use-package charcoal-theme
-;; :ensure t
-;; :config
-;; (load-theme 'charcoal t))
-
-;; (require 'package)
-;; (require 'use-package)
-;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-;; (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
-
 (setq package-list '(
 
     ;; convenience
@@ -96,15 +78,17 @@
 
 
 ;; To install a new package:
+
 ;; https://www.emacswiki.org/emacs/InstallingPackages
 
 ;; http://ergoemacs.org/emacs/emacs_package_system.html
 
 ;; 1. uncomment the following as required:
-;; (require 'package)
-;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 ;; (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 ;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t) ; Org-mode's repository
+;; (require 'use-package)
 
 ;; 2. `M-x list-package`
 ;; 3. select package to install
@@ -123,16 +107,18 @@
 ;; - [*] recentf
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
-(desktop-save-mode 1)
-(setq desktop-path '("."))
-(winner-mode 1)
-
-
 ;; -----------------------
 ;; theme/visuals settings
 (load "~/.emacs.d/charcoal-theme")
 (global-linum-mode t) ;; enable line numbers globally
 (global-hl-line-mode t) ;; enable highlight current line
+
+;; Rainbows
+
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-blocks-mode)
+(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
+
 
 ;; linux specific
 
@@ -145,8 +131,9 @@
 ;; sudo fc-cache -fv
 ;; fc-match Oxygen
 
-(add-to-list 'default-frame-alist '(height . 1440))
-(add-to-list 'default-frame-alist '(width . 280))
+
+(setq desktop-path '("."))
+(winner-mode 1)
 
 ;; OSX specific
 ;; (set-keyboard-coding-system nil)
@@ -169,12 +156,7 @@
 (line-number-mode 1)
 (size-indication-mode 1)
 (tool-bar-mode -1)
-(whitespace-cleanup-mode 1)
-(windmove-default-keybindings)
 
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-(add-hook 'prog-mode-hook #'rainbow-blocks-mode)
-(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
 
 ;; configure variables
 (setq calendar-latitude -35.17)
@@ -198,7 +180,6 @@
 (setq require-final-newline t)
 (setq visible-bell 1)
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; -----------------------
 ;; backup: put `*.*~` files in `~/.saves` rather than throughout my fs
@@ -207,11 +188,6 @@
       delete-old-versions t
       kept-new-versions 9
       kept-old-versions 2)
-
-
-;; -----------------------
-
-(require 'workgroups)
 
 ;; -----------------------
 (require 'recentf)
@@ -222,11 +198,16 @@
 
 (add-to-list 'recentf-exclude (format "%s/\\.emacs\\.d/elpa/.*" (getenv "HOME")))
 
-
 ;; -----------------------
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+;; -----------------------
+(whitespace-cleanup-mode 1)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+;; Navigation
 
 ;; -----------------------
 (require 'buffer-move)
@@ -236,6 +217,32 @@
 ;; (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 ;; (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
+
+(windmove-default-keybindings)
+
+;; ::::::::::::::::::::::::::::::::::::::::::
+
+;; Experiments:
+
+;; ;; -----------------------
+;; ;; autopair
+;; ;; (autopair-global-mode)
+;; ;; (show-paren-mode 1)
+
+;; ;; -----------------------
+;; ;; (global-set-key (kbd "<f8>") 'neotree)
+;; ;; (require 'neotree)
+;; ;; (setq neo-default-system-application "open")
+
+;; ;; -----------------------
+;; ;; (require 'vimish-fold)
+;; ;; (vimish-fold-global-mode 1)
+
+;; (require 'workgroups)
+;; (load "~/.emacs.d/layout-restore")
+;; (require 'layout-restore)
+
+;; ::::::::::::::::::::::::::::::::::::::::::
 
 ;; ++++++++++++++++++++++++++++++++++++++++++
 ;; EMACS modules
@@ -570,6 +577,10 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "M-n") 'symbol-overlay-switch-forward)
 (global-set-key (kbd "M-p") 'symbol-overlay-switch-backward)
 
+(global-set-key [M-up] 'move-text-up)
+(global-set-key [M-down] 'move-text-down)
+
+
 (global-set-key (kbd "<C-return>") 'keyboard-quit)
 (global-set-key (kbd "C-c C-x C-x") 'keyboard-quit)
 (global-set-key (kbd "C-c C-z") 'keyboard-quit)
@@ -591,16 +602,17 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(custom-enabled-themes '(charcoal))
  '(custom-safe-themes
    '("cdaa517a056a15a6c523771c6f643c51e0d307adf11efada64957bb4fd060f70" default))
+ '(desktop-save-mode t)
  '(display-time-mode t)
  '(fci-rule-color "#383838")
  '(ispell-dictionary nil)
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   '(charcoal-theme yaml-mode workgroups2 workgroups whitespace-cleanup-mode web-mode vimish-fold uuidgen use-package tide symbol-overlay skewer-mode shackle rainbow-identifiers rainbow-delimiters rainbow-blocks python-docstring python-black py-isort powerline pipenv markdown-preview-mode magit-gitflow indium iedit go-mode elpy ein django-commands buffer-move blacken))
+   '(py-autopep8 move-text flymake charcoal-theme yaml-mode workgroups2 workgroups whitespace-cleanup-mode web-mode vimish-fold uuidgen use-package tide symbol-overlay skewer-mode shackle rainbow-identifiers rainbow-delimiters rainbow-blocks python-docstring py-isort powerline pipenv markdown-preview-mode magit-gitflow indium iedit go-mode elpy ein django-commands buffer-move blacken))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pop-up-windows nil)
- '(shackle-default-rule (quote (:same t)))
+ '(shackle-default-rule '(:same t))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
