@@ -124,6 +124,7 @@
 ;; ++++++++++++++++++++++++++++++++++++++++++
 
 (desktop-save-mode 1)
+(setq desktop-path '("."))
 (winner-mode 1)
 
 
@@ -599,7 +600,7 @@ Uses `current-date-time-format' for the formatting the date/time."
    '(charcoal-theme yaml-mode workgroups2 workgroups whitespace-cleanup-mode web-mode vimish-fold uuidgen use-package tide symbol-overlay skewer-mode shackle rainbow-identifiers rainbow-delimiters rainbow-blocks python-docstring python-black py-isort powerline pipenv markdown-preview-mode magit-gitflow indium iedit go-mode elpy ein django-commands buffer-move blacken))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pop-up-windows nil)
- '(shackle-default-rule '(:same t))
+ '(shackle-default-rule (quote (:same t)))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
