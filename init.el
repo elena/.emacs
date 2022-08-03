@@ -9,13 +9,20 @@
 
 ;; -----------------------
 ;; theme/visuals settings
-(load "~/.emacs.d/charcoal-theme")
+
 (global-linum-mode t) ;; enable line numbers globally
 (global-hl-line-mode t) ;; enable highlight current line
 
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/")
+;; (load "~/.emacs.d/charcoal-theme.el")
+;; (use-package charcoal-theme
+;; :ensure t
+;; :config
+;; (load-theme 'charcoal t))
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+;; (require 'package)
+;; (require 'use-package)
+;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 ;; (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 
 (setq package-list '(
@@ -24,8 +31,10 @@
     autopair
     buffer-move
     flycheck
-    god-mode
     neotree
+    rainbow-delimiters
+    rainbow-blocks
+    rainbow-identifiers
     shackle
     symbol-overlay
     vimish-fold
@@ -44,10 +53,10 @@
     pipenv
 ))
 
-(package-initialize)
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
+;; (package-initialize)
+;; (dolist (package package-list)
+;;   (unless (package-installed-p package)
+;;     (package-install package)))
 
 ;; --
 ;; Guidelines for using this file (to prevent confusion and delay):
@@ -80,10 +89,10 @@
 ;;       Emacs most basic customisations such as themes, locations, keys
 ;; +++++++++++++++++++++
 ;; 2. EMACS-modules
-;;       Emacs 3rd-party features I like such as org-mode
+;;       Emacs 3rd-party features
 ;; +++++++++++++++++++++
 ;; 3. USES
-;;       My use cases such as python, html
+;;       My use cases such as python, golang, frontend
 
 
 ;; To install a new package:
@@ -126,17 +135,17 @@
 
 ;; linux specific
 
-(set-default-font "Oxygen Mono-8.5")
+;; (set-default-font "Oxygen Mono-8.5")
 ;; https://fonts.google.com/specimen/Oxygen+Mono
 ;; cd /usr/share/fonts
 ;; sudo mkdir googlefonts
-;; sudo unzip -d . ~/Downloads/Oxygen_Mono.zip
+;; --> unzip, copy  OxygenMono-Regular.ttf to googlefonts
 ;; sudo chmod -R --reference /usr/share/fonts/opentype /usr/share/fonts/googlefonts
 ;; sudo fc-cache -fv
 ;; fc-match Oxygen
 
 (add-to-list 'default-frame-alist '(height . 1440))
-(add-to-list 'default-frame-alist '(width . 480))
+(add-to-list 'default-frame-alist '(width . 280))
 
 ;; OSX specific
 ;; (set-keyboard-coding-system nil)
@@ -161,6 +170,10 @@
 (tool-bar-mode -1)
 (whitespace-cleanup-mode 1)
 (windmove-default-keybindings)
+
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-blocks-mode)
+(add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
 
 ;; configure variables
 (setq calendar-latitude -35.17)
@@ -283,23 +296,32 @@
   (save-buffer)
   (setq work-buffer (current-buffer))
   (if
-      (get-buffer "shell-test")
-      (progn
-        (switch-to-buffer-other-window "shell-test")
-        (end-of-buffer)
-        (insert "source tests_to.sh\n")
-        (comint-send-input)
-        )
+    (get-buffer "shell-test")
+    (progn
+      (switch-to-buffer-other-window "shell-test")
+      (end-of-buffer)
+      (insert "source tests_to.sh\n")
+      (comint-send-input)
+      )
     (progn
       (switch-to-buffer "*shell*")
       (shell)
       (rename-buffer "shell-test")
-      (insert "cd  ~/Working/Thea/development/core && pipenv shell")
+      ;; (insert "sudo docker start testneo4j")
+      ;; (comint-send-input)
+      ;; (insert "~/Working/Thea/development/neo4j-desktop-1.4.7-x86_64.AppImage &")
+      ;; (comint-send-input)
+      ;; (insert "cd  ~/Working/Thea/development/core && pipenv shell")
+      (insert "cd  ~/dev-simple/app && pipenv shell")
       (comint-send-input)
-      (run-with-timer 3 nil 'insert "cd project")
-      (run-with-timer 4 nil 'comint-send-input)
-      (run-with-timer 5 nil 'insert "sudo docker start testneo4j")
-      (run-with-timer 6 nil 'comint-send-input)
+      (run-with-timer 2 nil 'insert "cd app")
+      (run-with-timer 2 nil 'comint-send-input)
+      ;; (run-with-timer 2 nil 'insert "cd project")
+      ;; (run-with-timer 2 nil 'comint-send-input)
+      ;; (run-with-timer 3 nil 'insert "sudo docker start testneo4j")
+      ;; (run-with-timer 3 nil 'comint-send-input)
+      (run-with-timer 3 nil 'insert "source tests_to.sh\n")
+      (run-with-timer 3 nil 'comint-send-input)
       )
     )
     (switch-to-minibuffer-window)
@@ -390,34 +412,6 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 
 ;; -----------------------
-;; see: https://github.com/chrisdone/god-mode/
-;; Save RSI by while in god-mode to assume \C- prefix
-(require 'god-mode)
-(god-mode-all)
-(define-key god-local-mode-map (kbd "z") 'repeat)
-(define-key god-local-mode-map (kbd "i") 'god-local-mode)
-
-(defun my-god-mode-update-cursor ()
-  (setq cursor-type (if (or god-local-mode buffer-read-only)
-                        'box
-                        'bar)))
-
-(add-hook 'god-mode-enabled-hook #'my-god-mode-update-cursor)
-(add-hook 'god-mode-disabled-hook #'my-god-mode-update-cursor)
-
-
-(defun my-god-mode-enabled-modeline ()
-  (set-face-background 'mode-line "#fff3e1")
-)
-
-(defun my-god-mode-disabled-modeline ()
-  (set-face-background 'mode-line "#0a2832")
-)
-(add-hook 'god-mode-enabled-hook #'my-god-mode-enabled-modeline)
-(add-hook 'god-mode-disabled-hook #'my-god-mode-disabled-modeline)
-
-(add-hook 'before-save-hook 'god-mode-all)
-(add-hook 'before-save-hook #'my-god-mode-enabled-modeline)
 
 
 ;; -----------------------
@@ -460,20 +454,19 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; Ubuntu: apt install flymake
 ;; pip install autopep8, black
 
+(require 'py-isort)
+(add-hook 'before-save-hook 'py-isort-before-save)
+
 (require 'flycheck)
 (add-hook 'python-mode-hook 'blacken-mode)
-(add-hook 'python-mode-hook 'symbol-overlay-mode)
 
 ;; (add-hook 'python-mode-hook #'pipenv-mode)
 
 
 
 
-(setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "-i --simple-prompt")
 
 
-(setq python-shell-completion-native-enable nil)
 
 ;; disable elpy open
 (define-key python-mode-map (kbd "<S-return>") 'undefined)
@@ -558,14 +551,14 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "<f7>") 'switch-to-minibuffer-window)
 (global-set-key (kbd "<f8>") 'thea-goto-tests)
 (global-set-key (kbd "S-<f8>") 'thea-goto-tests-to)
-(global-set-key (kbd "<f9>") 'god-mode-all)
+;; (global-set-key (kbd "<f9>") 'god-mode-all)
 (global-set-key (kbd "C-<f4>") 'keyboard-quit)
 (global-set-key (kbd "C-<f5>") 'save-buffer)
 (global-set-key (kbd "C-<f6>") 'kill-buffer)
 (global-set-key (kbd "C-<f8>") 'thea-goto-tests)
 (global-set-key (kbd "C-S-<f8>") 'thea-goto-tests-to)
 (global-set-key (kbd "C-<f7>") 'switch-to-minibuffer-window)
-(global-set-key (kbd "C-<f9>") 'god-mode-all)
+;; (global-set-key (kbd "C-<f9>") 'god-mode-all)
 
 
 (global-set-key (kbd "C-c o") 'org-iswitchb)
@@ -577,6 +570,8 @@ Uses `current-date-time-format' for the formatting the date/time."
 (global-set-key (kbd "M-p") 'symbol-overlay-switch-backward)
 
 (global-set-key (kbd "<C-return>") 'keyboard-quit)
+(global-set-key (kbd "C-c C-x C-x") 'keyboard-quit)
+(global-set-key (kbd "C-c C-z") 'keyboard-quit)
 
 
 
@@ -585,19 +580,51 @@ Uses `current-date-time-format' for the formatting the date/time."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
  '(column-number-mode t)
+ '(company-quickhelp-color-background "#4F4F4F")
+ '(company-quickhelp-color-foreground "#DCDCCC")
+ '(custom-enabled-themes '(charcoal))
+ '(custom-safe-themes
+   '("cdaa517a056a15a6c523771c6f643c51e0d307adf11efada64957bb4fd060f70" default))
  '(display-time-mode t)
+ '(fci-rule-color "#383838")
+ '(ispell-dictionary nil)
+ '(nrepl-message-colors
+   '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   (quote
-    (shackle iedit workgroups workgroups2 blacken symbol-overlay smart-mode-line pipenv pyvenv python-docstring django-commands python-black ## ein yaml-mode go-mode magit-gitflow web-mode powerline buffer-move whitespace-cleanup-mode vimish-fold markdown-preview-mode magit indium god-mode elpy djangonaut django-snippets django-mode django-manage cypher-mode autopair)))
+   '(charcoal-theme yaml-mode workgroups2 workgroups whitespace-cleanup-mode web-mode vimish-fold uuidgen use-package tide symbol-overlay skewer-mode shackle rainbow-identifiers rainbow-delimiters rainbow-blocks python-docstring python-black py-isort powerline pipenv markdown-preview-mode magit-gitflow indium iedit go-mode elpy ein django-commands buffer-move blacken))
+ '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pop-up-windows nil)
- '(shackle-default-alignment (quote below))
- '(shackle-default-rule (quote (:same t)))
- '(shackle-mode t)
+ '(shackle-default-rule '(:same t))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
- '(truncate-lines t))
+ '(truncate-lines t)
+ '(vc-annotate-background "#2B2B2B")
+ '(vc-annotate-color-map
+   '((20 . "#BC8383")
+     (40 . "#CC9393")
+     (60 . "#DFAF8F")
+     (80 . "#D0BF8F")
+     (100 . "#E0CF9F")
+     (120 . "#F0DFAF")
+     (140 . "#5F7F5F")
+     (160 . "#7F9F7F")
+     (180 . "#8FB28F")
+     (200 . "#9FC59F")
+     (220 . "#AFD8AF")
+     (240 . "#BFEBBF")
+     (260 . "#93E0E3")
+     (280 . "#6CA0A3")
+     (300 . "#7CB8BB")
+     (320 . "#8CD0D3")
+     (340 . "#94BFF3")
+     (360 . "#DC8CC3")))
+ '(vc-annotate-very-old-color "#DC8CC3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
