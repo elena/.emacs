@@ -1,6 +1,6 @@
 ;; owner: Elena Williams
 ;; new version initialised: 5-Jul-2018
-;; last updated: 12-Jun-2021
+;; last updated: 04-Aug-2022
 
 ;; --
 ;; Installation
@@ -13,6 +13,7 @@
     autopair
     buffer-move
     flycheck
+    move-text
     neotree
     rainbow-delimiters
     rainbow-blocks
@@ -208,6 +209,13 @@
 
 
 ;; Navigation
+
+;; -----------------------
+(require 'move-text)
+;; defined in keymaps:
+;; (global-set-key [M-up] 'move-text-up)
+;; (global-set-key [M-down] 'move-text-down)
+
 
 ;; -----------------------
 (require 'buffer-move)
