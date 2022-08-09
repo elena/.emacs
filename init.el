@@ -1,6 +1,6 @@
 ;; owner: Elena Williams
 ;; new version initialised: 5-Jul-2018
-;; last updated: 04-Aug-2022
+;; last updated: 09-Aug-2022
 
 ;; --
 ;; Installation
@@ -13,6 +13,7 @@
     autopair
     buffer-move
     flycheck
+    flymake
     move-text
     neotree
     rainbow-delimiters
@@ -34,6 +35,7 @@
     indium
     markdown-preview-mode
     pipenv
+    py-isort
 ))
 
 ;; (package-initialize)
@@ -438,7 +440,7 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; ++++++++++++++++++++++++++++++++++++++++++
 ;; USES
 ;;
-;; *programmin = tests_settings. c, Git, Java, Javascript, Pytho
+;; *programming = tests_settings. c, Git, Java, Javascript, Python
 ;; *web front end: CSS, HTML
 ;; *text: Markdown, Text, ReStructured Text, LaTex
 ;; *data: Neo4j/cypher, SQL
@@ -468,13 +470,22 @@ Uses `current-date-time-format' for the formatting the date/time."
 
 ;; py-autopep8 Installation
 ;; Ubuntu: apt install flymake
-;; pip install autopep8, black
+;; python3 -m pip install autopep8
+;; python3 -m pip install black
+;; python3 -m pip install isort
+
+(add-hook 'python-mode-hook 'py-autopep8-mode)
+(setq py-autopep8-options '("--max-line-length=120" "--aggressive"))
+
+(require 'flycheck)
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(require 'blacken)
+(add-hook 'python-mode-hook 'blacken-mode)
+(setq-default blacken-line-length 120)
 
 (require 'py-isort)
 (add-hook 'before-save-hook 'py-isort-before-save)
-
-(require 'flycheck)
-(add-hook 'python-mode-hook 'blacken-mode)
 
 ;; (add-hook 'python-mode-hook #'pipenv-mode)
 
