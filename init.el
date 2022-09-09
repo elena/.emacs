@@ -475,14 +475,14 @@ Uses `current-date-time-format' for the formatting the date/time."
 ;; python3 -m pip install isort
 
 (add-hook 'python-mode-hook 'py-autopep8-mode)
-(setq py-autopep8-options '("--max-line-length=120" "--aggressive"))
+(setq py-autopep8-options '("--max-line-length=140" "--aggressive"))
 
 (require 'flycheck)
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (require 'blacken)
 (add-hook 'python-mode-hook 'blacken-mode)
-(setq-default blacken-line-length 120)
+(setq-default blacken-line-length 140)
 
 (require 'py-isort)
 (add-hook 'before-save-hook 'py-isort-before-save)
