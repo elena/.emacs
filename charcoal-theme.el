@@ -66,7 +66,9 @@
 
 (custom-theme-set-faces
  'charcoal
- '(default ((t (:background "#191919" :foreground "#cacaca" :height 90 :family "Oxygen Mono"))))
+ ;; '(default ((t (:background "#191919" :foreground "#cacaca" :height 90 :family "DejaVu Sans Mono"))))
+ ;;'(default ((t (:background "#191919" :foreground "#cacaca" :height 90 :family "Oxygen Mono"))))
+ '(default ((t (:background "#191919" :foreground "#cacaca" :height 90 :family "Monospace"))))
  '(font-lock-builtin-face ((t (:foreground "#54686d"))))
  '(region ((t (:background "#3c414c" :foreground "#faf4c6"))))
  '(highlight ((t (:foreground "#d5dd83" :background "#191919"))))

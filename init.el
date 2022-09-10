@@ -134,6 +134,11 @@
 ;; sudo fc-cache -fv
 ;; fc-match Oxygen
 
+;; -- > update in theme, NOT HERE
+;; (set-default-font "Liberation Mono-8.5")
+;; (set-default-font "Bitstream Vera Sans Mono-8.5")
+;; (set-default-font "DejaVu Sans Mono-8")
+;; (set-default-font "Monospace-8.5")
 
 (setq desktop-path '("."))
 (winner-mode 1)
