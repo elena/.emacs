@@ -1,6 +1,6 @@
 ;; owner: Elena Williams
 ;; new version initialised: 5-Jul-2018
-;; last updated: 09-Aug-2022
+;; last updated: 19-Sep-2022
 
 ;; --
 ;; Installation
@@ -10,12 +10,11 @@
 (setq package-list '(
 
     ;; convenience
-    autopair
     buffer-move
     flycheck
     flymake
+    magit
     move-text
-    neotree
     rainbow-delimiters
     rainbow-blocks
     rainbow-identifiers
@@ -27,21 +26,12 @@
     ;; application
     blacken
     cypher-mode
-    django-manage
-    django-mode
-    django-snippets
-    djangonaut
     elpy
     indium
     markdown-preview-mode
     pipenv
     py-isort
 ))
-
-;; (package-initialize)
-;; (dolist (package package-list)
-;;   (unless (package-installed-p package)
-;;     (package-install package)))
 
 ;; --
 ;; Guidelines for using this file (to prevent confusion and delay):
@@ -96,6 +86,11 @@
 ;; 2. `M-x list-package`
 ;; 3. select package to install
 ;; 4. add (require 'newly-install-package) in appropriate section of this file
+
+;; (package-initialize)
+;; (dolist (package package-list)
+;;   (unless (package-installed-p package)
+;;     (package-install package)))
 
 
 ;; ++++++++++++++++++++++++++++++++++++++++++
@@ -633,7 +628,7 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   '(py-autopep8 move-text flymake charcoal-theme yaml-mode workgroups2 workgroups whitespace-cleanup-mode web-mode vimish-fold uuidgen use-package tide symbol-overlay skewer-mode shackle rainbow-identifiers rainbow-delimiters rainbow-blocks python-docstring py-isort powerline pipenv markdown-preview-mode magit-gitflow indium iedit go-mode elpy ein django-commands buffer-move blacken))
+   '(dired-rainbow py-autopep8 move-text flymake charcoal-theme yaml-mode whitespace-cleanup-mode web-mode vimish-fold use-package tide symbol-overlay skewer-mode shackle rainbow-identifiers rainbow-delimiters rainbow-blocks python-docstring py-isort powerline pipenv markdown-preview-mode indium iedit go-mode elpy ein django-commands buffer-move blacken))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pop-up-windows nil)
  '(shackle-default-rule '(:same t))
