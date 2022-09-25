@@ -12,7 +12,7 @@
     ;; convenience
     buffer-move
     flycheck
-    flymake
+    ;; flymake
     magit
     move-text
     rainbow-delimiters
@@ -469,20 +469,29 @@ Uses `current-date-time-format' for the formatting the date/time."
 (setq-default python-indent 4)
 
 ;; py-autopep8 Installation
-;; Ubuntu: apt install flymake
 ;; python3 -m pip install autopep8
 ;; python3 -m pip install black
 ;; python3 -m pip install isort
 
-(add-hook 'python-mode-hook 'py-autopep8-mode)
-(setq py-autopep8-options '("--max-line-length=140" "--aggressive"))
+;; (add-hook 'python-mode-hook 'py-autopep8-mode)
+;; (setq py-autopep8-options '("--max-line-length=140" "--aggressive"))
 
-(require 'flycheck)
 ;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
+(when (load "flycheck" t t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+(remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
+
+
+(add-hook 'elpy-mode-hook (lambda ()
+                            (add-hook 'before-save-hook
+                                      'elpy-format-code nil t)))
+
 (require 'blacken)
-(add-hook 'python-mode-hook 'blacken-mode)
 (setq-default blacken-line-length 140)
+(add-hook 'python-mode-hook 'blacken-mode)
 
 (require 'py-isort)
 (add-hook 'before-save-hook 'py-isort-before-save)
@@ -628,7 +637,7 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   '(dired-rainbow py-autopep8 move-text flymake charcoal-theme yaml-mode whitespace-cleanup-mode web-mode vimish-fold use-package tide symbol-overlay skewer-mode shackle rainbow-identifiers rainbow-delimiters rainbow-blocks python-docstring py-isort powerline pipenv markdown-preview-mode indium iedit go-mode elpy ein django-commands buffer-move blacken))
+   '(dired-rainbow py-autopep8 move-text charcoal-theme yaml-mode whitespace-cleanup-mode web-mode vimish-fold use-package tide symbol-overlay skewer-mode shackle rainbow-identifiers rainbow-delimiters rainbow-blocks python-docstring py-isort powerline pipenv markdown-preview-mode indium iedit go-mode elpy ein django-commands buffer-move blacken))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pop-up-windows nil)
  '(shackle-default-rule '(:same t))
@@ -656,7 +665,9 @@ Uses `current-date-time-format' for the formatting the date/time."
      (320 . "#8CD0D3")
      (340 . "#94BFF3")
      (360 . "#DC8CC3")))
- '(vc-annotate-very-old-color "#DC8CC3"))
+ '(vc-annotate-very-old-color "#DC8CC3")
+ ;;'(warning-suppress-types '(((flymake flymake\.el))))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
