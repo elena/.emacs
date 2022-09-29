@@ -469,34 +469,24 @@ Uses `current-date-time-format' for the formatting the date/time."
 (setq-default python-indent 4)
 
 ;; py-autopep8 Installation
-;; python3 -m pip install autopep8
 ;; python3 -m pip install black
 ;; python3 -m pip install isort
 
-;; (add-hook 'python-mode-hook 'py-autopep8-mode)
-;; (setq py-autopep8-options '("--max-line-length=140" "--aggressive"))
 
-;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (when (load "flycheck" t t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-(remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
-
-
-(add-hook 'elpy-mode-hook (lambda ()
-                            (add-hook 'before-save-hook
-                                      'elpy-format-code nil t)))
-
-(require 'blacken)
-(setq-default blacken-line-length 140)
-(add-hook 'python-mode-hook 'blacken-mode)
 
 (require 'py-isort)
 (add-hook 'before-save-hook 'py-isort-before-save)
 
-;; (add-hook 'python-mode-hook #'pipenv-mode)
+;; Modify: `.emacs.d/elpa/lib/site-packages/black/const.py`
+(add-hook 'elpy-mode-hook (lambda ()
+                            (add-hook 'before-save-hook
+                                      'elpy-black-fix-code nil t)))
+
 
 
 
