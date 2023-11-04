@@ -21,7 +21,6 @@
     shackle
     symbol-overlay
     vimish-fold
-    whitespace-cleanup-mode
 
     ;; application
     blacken
@@ -108,7 +107,7 @@
 ;; -----------------------
 ;; theme/visuals settings
 (load "~/.emacs.d/charcoal-theme")
-(global-linum-mode t) ;; enable line numbers globally
+(display-line-numbers-mode t) ;; enable line numbers globally
 (global-hl-line-mode t) ;; enable highlight current line
 
 ;; Rainbows
@@ -206,8 +205,6 @@
 (setq uniquify-buffer-name-style 'forward)
 
 ;; -----------------------
-(whitespace-cleanup-mode 1)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
 ;; Navigation
@@ -330,16 +327,19 @@
       ;; (insert "~/Working/Thea/development/neo4j-desktop-1.4.7-x86_64.AppImage &")
       ;; (comint-send-input)
       ;; (insert "cd  ~/Working/Thea/development/core && pipenv shell")
-      (insert "cd  ~/dev-simple/app && pipenv shell")
-      (comint-send-input)
-      (run-with-timer 2 nil 'insert "cd app")
+      (pyvenv-deactivate)
+      (run-with-timer 5 nil 'pyvenv-deactivate)
+      (run-with-timer 1 nil 'comint-send-input)
+      (run-with-timer 2 nil 'insert "pipenv shell")
       (run-with-timer 2 nil 'comint-send-input)
+      ;; (run-with-timer 2 nil 'insert "cd app")
+      ;; (run-with-timer 2 nil 'comint-send-input)
       ;; (run-with-timer 2 nil 'insert "cd project")
       ;; (run-with-timer 2 nil 'comint-send-input)
       ;; (run-with-timer 3 nil 'insert "sudo docker start testneo4j")
       ;; (run-with-timer 3 nil 'comint-send-input)
-      (run-with-timer 3 nil 'insert "source tests_to.sh\n")
-      (run-with-timer 3 nil 'comint-send-input)
+      (run-with-timer 6 nil 'insert "source tests_to.sh\n")
+      (run-with-timer 6 nil 'comint-send-input)
       )
     )
     (switch-to-minibuffer-window)
@@ -478,14 +478,16 @@ Uses `current-date-time-format' for the formatting the date/time."
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
+(require 'blacken)
+(add-hook 'python-mode-hook 'blacken-mode)
+(setq blacken-line-length 120)
+(add-hook 'python-mode-hook (lambda ()
+    (add-hook 'before-save-hook 'blacken-buffer)))
 
 (require 'py-isort)
-(add-hook 'before-save-hook 'py-isort-before-save)
+(add-hook 'python-mode-hook (lambda ()
+    (add-hook 'before-save-hook 'py-isort-before-save)))
 
-;; Modify: `.emacs.d/elpa/lib/site-packages/black/const.py`
-(add-hook 'elpy-mode-hook (lambda ()
-                            (add-hook 'before-save-hook
-                                      'elpy-black-fix-code nil t)))
 
 
 
@@ -621,17 +623,17 @@ Uses `current-date-time-format' for the formatting the date/time."
  '(custom-safe-themes
    '("cdaa517a056a15a6c523771c6f643c51e0d307adf11efada64957bb4fd060f70" default))
  '(desktop-save-mode t)
+ '(display-battery-mode t)
  '(display-time-mode t)
  '(fci-rule-color "#383838")
  '(ispell-dictionary nil)
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   '(dired-rainbow py-autopep8 move-text charcoal-theme yaml-mode whitespace-cleanup-mode web-mode vimish-fold use-package tide symbol-overlay skewer-mode shackle rainbow-identifiers rainbow-delimiters rainbow-blocks python-docstring py-isort powerline pipenv markdown-preview-mode indium iedit go-mode elpy ein django-commands buffer-move blacken))
+   '(realgud-ipdb realgud projectile rainbow-mode dired-rainbow py-autopep8 move-text charcoal-theme yaml-mode web-mode vimish-fold use-package tide symbol-overlay skewer-mode shackle rainbow-identifiers rainbow-delimiters rainbow-blocks python-docstring py-isort powerline pipenv markdown-preview-mode indium iedit go-mode elpy ein django-commands buffer-move blacken))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pop-up-windows nil)
  '(shackle-default-rule '(:same t))
- '(show-paren-mode t)
  '(size-indication-mode t)
  '(tool-bar-mode nil)
  '(truncate-lines t)
@@ -655,9 +657,7 @@ Uses `current-date-time-format' for the formatting the date/time."
      (320 . "#8CD0D3")
      (340 . "#94BFF3")
      (360 . "#DC8CC3")))
- '(vc-annotate-very-old-color "#DC8CC3")
- ;;'(warning-suppress-types '(((flymake flymake\.el))))
- )
+ '(vc-annotate-very-old-color "#DC8CC3"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
